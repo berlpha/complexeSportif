@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="FmRadpn" resname="User modified successfully">
+        <source>User modified successfully</source>
+        <target>L'utilisateur a bien été modifié avec succès</target>
+      </trans-unit>
+      <trans-unit id="E94YQON" resname="Unkwnown email">
+        <source>Unkwnown email</source>
+        <target>Email inconnu</target>
+      </trans-unit>
+      <trans-unit id="peFKWNc" resname="Email sent">
+        <source>Email sent</source>
+        <target>Email envoyé</target>
+      </trans-unit>
+      <trans-unit id="UF8FEUs" resname="Your password has been changed!">
+        <source>Your password has been changed!</source>
+        <target>Votre mot de passe a été changé!</target>
+      </trans-unit>
+      <trans-unit id="5MfwwJ0" resname="Old incorrect password">
+        <source>Old incorrect password</source>
+        <target>Ancien mot de passe incorrect</target>
+      </trans-unit>
+      <trans-unit id="cCSNy0e" resname="Your account has been successfully modified!">
+        <source>Your account has been successfully modified!</source>
+        <target>Votre compte a été modifié avec succès!</target>
+      </trans-unit>
+      <trans-unit id="9oEsrOo" resname="This token is unknown!">
+        <source>This token is unknown!</source>
+        <target>Ce token est inconnu!</target>
+      </trans-unit>
+      <trans-unit id="PFjjvvp" resname="Your password has been successfully changed!">
+        <source>Your password has been successfully changed!</source>
+        <target>Votre mot de passe a été changé avec succès!</target>
+      </trans-unit>
+      <trans-unit id="Uf3jZ0K" resname="Your user account has been activated!">
+        <source>Your user account has been activated!</source>
+        <target>Votre compte utilisateur a été activé!</target>
+      </trans-unit>
+      <trans-unit id="JYfWPK1" resname="Profile has been successfully modified!">
+        <source>Profile has been successfully modified!</source>
+        <target>Le profil a été modifié avec succès!</target>
+      </trans-unit>
+      <trans-unit id="58rx64n" resname="Password has been changed successfully!">
+        <source>Password has been changed successfully!</source>
+        <target>Le mot de passe a été changé avec succès!</target>
+      </trans-unit>
+      <trans-unit id="g_SN3ZG" resname="The two passwords must be identical">
+        <source>The two passwords must be identical</source>
+        <target>Les deux mots de passe doivent être identiques</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="JBkykGe" resname="search">
+        <source>search</source>
+        <target>Rechercher</target>
+      </trans-unit>
+      <trans-unit id="pP5lJk7" resname="Language">
+        <source>Language</source>
+        <target>Langue</target>
+      </trans-unit>
+      <trans-unit id="PdtXKoc" resname="Our offers">
+        <source>Our offers</source>
+        <target>Nos offres</target>
+      </trans-unit>
+      <trans-unit id="R6rzG4P" resname="Contact us">
+        <source>Contact us</source>
+        <target>Nous contacter</target>
+      </trans-unit>
+      <trans-unit id="FbYZdLJ" resname="Location">
+        <source>Location</source>
+        <target>Localisation</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>S'inscrire</target>
+      </trans-unit>
+      <trans-unit id="D3gLXHN" resname="identify">
+        <source>identify</source>
+        <target>S'identifier</target>
+      </trans-unit>
+      <trans-unit id="yb6gN14" resname="You will find your happiness in this sports complex for all ages!!!">
+        <source>You will find your happiness in this sports complex for all ages!!!</source>
+        <target>Vous trouverez votre bonheur dans ce complexe sportif tout en un!!!</target>
+      </trans-unit>
+      <trans-unit id="pXsIpIC" resname="Previous">
+        <source>Previous</source>
+        <target>__Précédente</target>
+      </trans-unit>
+      <trans-unit id="H.V6Kdf" resname="Next">
+        <source>Next</source>
+        <target>Suivante</target>
+      </trans-unit>
+      <trans-unit id="T2a3.hf" resname="It brings together a whole a whole range of sports for all ages, from the">
+        <source>It brings together a whole a whole range of sports for all ages, from the</source>
+        <target>Il regroupe tout un lot de sports pour tous les ages, du plus</target>
+      </trans-unit>
+      <trans-unit id="ScKaxjT" resname="youngest">
+        <source>youngest</source>
+        <target> jeune </target>
+      </trans-unit>
+      <trans-unit id="h7g2N6o" resname="to the">
+        <source>to the</source>
+        <target> au plus </target>
+      </trans-unit>
+      <trans-unit id="7Cq9Y5m" resname="oldest.">
+        <source>oldest.</source>
+        <target>agé.</target>
+      </trans-unit>
+      <trans-unit id="N.gUnjE" resname="More information...">
+        <source>More information...</source>
+        <target>Plus de renseignement...</target>
+      </trans-unit>
+      <trans-unit id="vpaFOOw" resname="Member's dashboard">
+        <source>Member's dashboard</source>
+        <target>Tableau de bord "membre"</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Rechercher</target>
+      </trans-unit>
+      <trans-unit id="LUPEfUg" resname="Edit my profile!">
+        <source>Edit my profile!</source>
+        <target>Éditer mon profil!</target>
+      </trans-unit>
+      <trans-unit id="7hUt0iA" resname="To change the password">
+        <source>To change the password</source>
+        <target>Changer le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Quitter</target>
+      </trans-unit>
+      <trans-unit id="NNQYn1i" resname="Subscription form">
+        <source>Subscription form</source>
+        <target>Formulaire d'inscription</target>
+      </trans-unit>
+      <trans-unit id=".Yiwthj" resname="I want to take out a subscription">
+        <source>I want to take out a subscription</source>
+        <target>Je veux souscrire un abonnement</target>
+      </trans-unit>
+      <trans-unit id="XcOqB9c" resname="Subscription type">
+        <source>Subscription type</source>
+        <target>Type d'abonnement</target>
+      </trans-unit>
+      <trans-unit id="DjX26XQ" resname="Basic">
+        <source>Basic</source>
+        <target>Basic</target>
+      </trans-unit>
+      <trans-unit id="gFMyEoH" resname="Child">
+        <source>Child</source>
+        <target>Enfant</target>
+      </trans-unit>
+      <trans-unit id="mG4okHN" resname="VIP">
+        <source>VIP</source>
+        <target>VIP</target>
+      </trans-unit>
+      <trans-unit id="bhH3MTQ" resname="Sports lists">
+        <source>Sports lists</source>
+        <target>Liste des sports</target>
+      </trans-unit>
+      <trans-unit id="VpgpfAg" resname="Zumba">
+        <source>Zumba</source>
+        <target>Zumba</target>
+      </trans-unit>
+      <trans-unit id="BRPAPip" resname="Karate">
+        <source>Karate</source>
+        <target>Karaté</target>
+      </trans-unit>
+      <trans-unit id="hj497_7" resname="Soccer">
+        <source>Soccer</source>
+        <target>Foot-ball</target>
+      </trans-unit>
+      <trans-unit id="oKVxmx0" resname="Tennis">
+        <source>Tennis</source>
+        <target>Tennis</target>
+      </trans-unit>
+      <trans-unit id="7BNFqH_" resname="Athletics">
+        <source>Athletics</source>
+        <target>Athlétisme</target>
+      </trans-unit>
+      <trans-unit id="NTDRgGt" resname="Basketball">
+        <source>Basketball</source>
+        <target>Basket-ball</target>
+      </trans-unit>
+      <trans-unit id="0E7pGgL" resname="Fitness">
+        <source>Fitness</source>
+        <target>Fitness</target>
+      </trans-unit>
+      <trans-unit id="VCMIAt." resname="Swimming">
+        <source>Swimming</source>
+        <target>Natation</target>
+      </trans-unit>
+      <trans-unit id="2xugNw_" resname="Boxing">
+        <source>Boxing</source>
+        <target>Boxe</target>
+      </trans-unit>
+      <trans-unit id="p2O4WVh" resname="Futsal">
+        <source>Futsal</source>
+        <target>Futsal</target>
+      </trans-unit>
+      <trans-unit id="T8UqPEx" resname="Duration">
+        <source>Duration</source>
+        <target>Duration</target>
+      </trans-unit>
+      <trans-unit id="zYwRfm3" resname="1 month">
+        <source>1 month</source>
+        <target>1 mois</target>
+      </trans-unit>
+      <trans-unit id="v9RRMqj" resname="3 months">
+        <source>3 months</source>
+        <target>3 mois</target>
+      </trans-unit>
+      <trans-unit id="jtlLTPg" resname="6 months">
+        <source>6 months</source>
+        <target>6 mois</target>
+      </trans-unit>
+      <trans-unit id="QGEau92" resname="Validate">
+        <source>Validate</source>
+        <target>Valider</target>
+      </trans-unit>
+      <trans-unit id="kWR7rcN" resname="1 year">
+        <source>1 year</source>
+        <target>1 an</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

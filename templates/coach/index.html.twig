@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coach index{% endblock %}
+
+{% block body %}
+    <h1>Coach index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>FirstName</th>
+                <th>Birthdate</th>
+                <th>Username</th>
+                <th>EmailAddress</th>
+                <th>Password</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>PostalCode</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Avatar</th>
+                <th>Roles</th>
+                <th>CreatedAt</th>
+                <th>ResetToken</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for coach in coaches %}
+            <tr>
+                <td>{{ coach.name }}</td>
+                <td>{{ coach.firstName }}</td>
+                <td>{{ coach.birthdate ? coach.birthdate|date('Y-m-d') : '' }}</td>
+                <td>{{ coach.username }}</td>
+                <td>{{ coach.emailAddress }}</td>
+                <td>{{ coach.password }}</td>
+                <td>{{ coach.phone }}</td>
+                <td>{{ coach.address }}</td>
+                <td>{{ coach.postalCode }}</td>
+                <td>{{ coach.city }}</td>
+                <td>{{ coach.country }}</td>
+                <td>{{ coach.avatar }}</td>
+                <td>{{ coach.roles ? coach.roles|join(', ') : '' }}</td>
+                <td>{{ coach.createdAt ? coach.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ coach.resetToken }}</td>
+                <td>
+                    <a href="{{ path('coach_show', {'id': coach.id}) }}">Afficher</a>
+                    <a href="{{ path('coach_edit', {'id': coach.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('coach_new') }}">Create new</a>
+{% endblock %}

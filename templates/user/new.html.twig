@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <div class="table-responsive navbar-fixed-top"  style="position: relative; top: 105em">
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>Creation d'un nouvel utilisateur</em></h3><br><br>
+
+        {{ include('user/_form.html.twig') }}
+
+        <a href="{{ path('user_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+    </div><br><br>
+{% endblock %}

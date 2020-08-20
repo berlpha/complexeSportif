@@ -1,0 +1,44 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nursery index{% endblock %}
+
+{% block body %}
+    <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>Liste des enfants à la garderie</em></h3><br><br>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead style="color: blue">
+                    <tr>
+                        <th>Name of child</th>
+                        <th>First name of child</th>
+                        <th>Date of custody</th>
+                        <th>Total price</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for nursery in nurseries %}
+                    <tr>
+                        <td>{{ nursery.nameChild }}</td>
+                        <td>{{ nursery.firstName }}</td>
+                        <td>{{ nursery.dateCustody ? nursery.dateCustody|date('Y-m-d H:i:s') : ''  }}</td>
+                        <td>{{ nursery.totalPrice }}</td>
+                        <td>
+                            <a href="{{ path('nursery_show', {'id': nursery.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"> Afficher</span></button></a>
+                            <a href="{{ path('nursery_edit', {'id': nursery.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"> Éditer</span></button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6"><em style="color: red">no records found</em></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="{{ path('nursery_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"> Créer</span></button></a><br><br><br><br><br><br>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Club{% endblock %}
+
+{% block body %}
+
+    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 55em">
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'un nouveau club</em></h3><br>
+
+        {{ include('club/_form.html.twig') }}
+
+        <a href="{{ path('club_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br></a><br><br>
+
+    </div>
+
+{% endblock %}

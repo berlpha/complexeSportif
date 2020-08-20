@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coach{% endblock %}
+
+{% block body %}
+    <h1>Coach</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ coach.name }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ coach.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Birthdate</th>
+                <td>{{ coach.birthdate ? coach.birthdate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ coach.username }}</td>
+            </tr>
+            <tr>
+                <th>EmailAddress</th>
+                <td>{{ coach.emailAddress }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ coach.password }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ coach.phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ coach.address }}</td>
+            </tr>
+            <tr>
+                <th>PostalCode</th>
+                <td>{{ coach.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ coach.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ coach.country }}</td>
+            </tr>
+            <tr>
+                <th>Avatar</th>
+                <td>{{ coach.avatar }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ coach.roles ? coach.roles|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ coach.createdAt ? coach.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ResetToken</th>
+                <td>{{ coach.resetToken }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('coach_index') }}">back to list</a>
+
+    <a href="{{ path('coach_edit', {'id': coach.id}) }}">edit</a>
+
+    {{ include('coach/_delete_form.html.twig') }}
+{% endblock %}

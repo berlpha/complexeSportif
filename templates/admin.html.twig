@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0, shrink-to-fit=no">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="stylesheet" href="{{ asset('css/admin/bootstrap.min.css') }}">
+
+        <!-- <link rel="stylesheet" href="{# asset('dist/bootstrapGlyphicon/css/bootstrap.css') #}"> -->
+        <!-- <link rel="stylesheet" href="{# asset('dist/fontawesome-free-5.14.0-web/css/all.css') #}"> -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.css">
+
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+
+    <body>
+        {{ include('menus/header/adminHeader.html.twig') }}
+        <div class="container" style="position: absolute; bottom: 350px; margin-left: 410px"><br><br>
+            {% block body %}
+            {% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div><br><br>
+        {{ include('menus/footer/footer.html.twig') }}
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.1.0/main.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js"></script>
+
+        <script src="{{ asset('dist/bootstrapGlyphicon/js/bootstrap.js') }}"></script>
+
+    </body>
+</html>

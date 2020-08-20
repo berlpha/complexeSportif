@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ path('app_home') }}"><strong><em>
+                {# 'menu.home'|trans #}AS-Molenbeekoise {% trans %} Home {% endtrans %}
+            </em></strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="background-color: deepskyblue"><em><a href="{# path('app_lesson_recherche') #}">{% trans %} search {% endtrans %}</a>
+                {# 'menu.search'|trans #}
+            </em></button><br><br>
+    </form>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ path('app_home') }}" role="button" aria-haspopup="true" aria-expanded="false"><strong><em>{% trans %} Language {% endtrans %}</em></strong></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-fr"></span><strong><em>Français</em></strong></a>
+                    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-nl"></span><strong><em>Nederlands</em></strong></a>
+                    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-us"></span><strong><em>English</em></strong></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_offres_abonnement') }}"><strong><em>{% trans %} Our offers {% endtrans %}</em></strong></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ path('app_home') }}" role="button" aria-haspopup="true" aria-expanded="false"><strong><em>{% trans %} Contact us {% endtrans %}</em></strong></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path('app_contactUs') }}"><strong><em>{% trans %} Contact us {% endtrans %}</em></strong></a>
+                    <a class="dropdown-item" href="#"><strong><em>{% trans %} Location {% endtrans %}</em></strong></a>
+                </div>
+            </li>
+{#            {% if is_granted('ROLE_USER') %}#}
+{#                connected#}
+{#                {% else %}#}
+{#                not connected#}
+{#            {%  endif %}#}
+            {%  if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_register') }}"><strong><em>{% trans %} Register {% endtrans %}</em></strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}"><strong><em>{% trans %} identify {% endtrans %}</em></strong></a>
+                </li>
+            {%  endif %}
+        </ul>
+    </div>
+</nav>

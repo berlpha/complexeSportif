@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+if(isset($_POST['price']) && !empty(''))
+
+{% block body %}
+
+    <div class="container">
+
+        <form action="paiement.php" method="post">
+
+            <label for="price">Price : </label>
+            <input type="text" name="price" id="price">
+            <button class="btn btn-primary btn-sm">Payer maintenant</button>
+
+        </form>
+
+    </div>
+
+    <script src="{{ asset('dist/jsStripe/paiemnt.js') }}">
+
+    </script>
+
+{% endblock %}

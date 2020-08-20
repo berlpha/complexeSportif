@@ -1,0 +1,80 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: absolute; top: -5em; margin-top: auto">
+        <h3 style="text-align: center; color: red; background-color: black"><em>Liste des utilisateurs</em></h3><br><br>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead style="color: blue">
+                    <tr>
+                        <th>Name</th>
+                        <th>FirstName</th>
+                        <th>Birthdate</th>
+                        <th>Username</th>
+                        <th>EmailAddress</th>
+                        <th>Password</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Number</th>
+                        <th>PostalCode</th>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Avatar</th>
+                        <th>Roles</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.birthdate ? user.birthdate|date('Y-m-d') : '' }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.emailAddress }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.address }}</td>
+                        <td>{{ user.number }}</td>
+                        <td>{{ user.postalCode }}</td>
+                        <td>{{ user.city }}</td>
+                        <td>{{ user.country }}</td>
+                        <td>
+                            {% if user.avatar is not null %}
+                                <img src="{{ user.avatar }} /">
+                            {% else %}
+                                <img src="#">
+                            {% endif %}
+                        </td>
+                        <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                        {# for role in user.roles %}
+
+                            {% if role == "ROLE_MEMBER" %}
+                                Member
+                            {% elseif role == "ROLE_COACH" %}
+                                Coach
+                            {% elseif role == "ROLE_ADMIN" %}
+                                Admin
+                            {% endif %}
+
+                        {% endfor #}
+                        <td>
+                            <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"> Afficher</span></button></a>
+                            <a href="{{ path('user_edit', {'id': user.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"> Éditer</span></button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="17"><em style="color: red">no records found</em></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div><br>
+        <a href="{{ path('user_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"> Créer</span></button></a><br><br><br><br><br><br>
+    </div><br><br><br><br><br>
+
+{% endblock %}

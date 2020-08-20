@@ -1,0 +1,107 @@
+{% extends 'member.html.twig' %}
+
+{% block title %} {% trans %} Subscription form{% endtrans %} {% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: absolute; top: -16em; margin-top: auto"><br><br>
+        <h3 style="text-align: center; color: black; background-color: blueviolet"><em>{% trans %} I want to take out a subscription{% endtrans %}</em></h3><br>
+            <div class="form-group">
+                <label for="subscription"><strong style="color: blue">{% trans %}Subscription type{% endtrans %}</strong></label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="typeBasic" name="customRadio" class="custom-control-input" value="Basic" checked="">
+                    <label class="custom-control-label" for="typeBasic">{% trans%} Basic{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="typeEnfant" name="customRadio" class="custom-control-input" value="Enfant">
+                    <label class="custom-control-label" for="typeEnfant">{% trans %} Child{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="typeVIP" name="customRadio" class="custom-control-input" value="VIP">
+                    <label class="custom-control-label" for="typeVIP">{% trans %} VIP{% endtrans %}</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sport"><strong style="color: blue">{% trans %}Sports lists{% endtrans %}</strong></label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sportZumba" value="zumba" data-price="20">
+                    <label class="custom-control-label" for="sportZumba">{% trans %} Zumba{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sportKarate" value="karate" data-price="30">
+                    <label class="custom-control-label" for="sportKarate">{% trans %} Karate{% endtrans %}</label>
+                </div>
+
+
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sportFoot" value="football" data-price="40">
+                    <label class="custom-control-label" for="sportFoot">{% trans %} Soccer{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck4" checked="">
+                    <label class="custom-control-label" for="customCheck4">{% trans%} Tennis{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck5" checked="">
+                    <label class="custom-control-label" for="customCheck5">{% trans%} Athletics{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck6" checked="">
+                    <label class="custom-control-label" for="customCheck6">{% trans%} Basketball{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck7" checked="">
+                    <label class="custom-control-label" for="customCheck7">{% trans%} Fitness{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck8" checked="">
+                    <label class="custom-control-label" for="customCheck8">{% trans%} Swimming{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck9" checked="">
+                    <label class="custom-control-label" for="customCheck9">{% trans %} Boxing{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck10" checked="">
+                    <label class="custom-control-label" for="customCheck10">{% trans %} Futsal{% endtrans %}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="duration"><strong style="color: blue">{% trans %}Duration{% endtrans %}</strong></label>
+                <div class="custom-control custom-radiod">
+                    <input type="radio" id="durationOneMonth" name="customRadiod" class="custom-control-input" checked="">
+                    <label class="custom-control-label" for="durationOneMonth">{% trans %} 1 month{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-radiod">
+                    <input type="radio" id="durationThreeMonth" name="customRadiod" class="custom-control-input">
+                    <label class="custom-control-label" for="durationThreeMonth">{% trans %} 3 months{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-radiod">
+                    <input type="radio" id="durationSixMonth" name="customRadiod" class="custom-control-input">
+                    <label class="custom-control-label" for="durationSixMonth">{% trans %} 6 months{% endtrans %}</label>
+                </div>
+                <div class="custom-control custom-radiod">
+                    <input type="radio" id="durationOneYear" name="customRadiod" class="custom-control-input">
+                    <label class="custom-control-label" for="durationOneYear">{% trans %} 1 year{% endtrans %}</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <input type="text" id="price" class="form-control" disabled aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                        <span class="input-group-text">€</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary">{% trans %}Validate{% endtrans %}</button>
+            </div><br><br>
+
+    </div><br><br>
+
+{% endblock %}
+

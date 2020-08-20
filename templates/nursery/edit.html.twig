@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Nursery{% endblock %}
+
+{% block body %}
+    <h1>Edit Nursery</h1>
+
+    {{ include('nursery/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('nursery_index') }}">back to list</a>
+
+    {{ include('nursery/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Administrator{% endblock %}
+
+{% block body %}
+    <div class="container" style="position: relative; top: 90em">
+
+        <h3 style="text-align: center; color: red; background-color: black">Création d'un nouvel administrateur</h3><br><br>
+
+        {{ include('administrator/_form.html.twig') }}
+
+        <a href="{{ path('administrator_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br>
+
+    </div><br><br><br><br>
+
+{% endblock %}

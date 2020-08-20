@@ -1,0 +1,55 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Lesson index{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: relative; top: 10em">
+
+            <h3 style="text-align: center; color: red; background-color: black"><em>Liste des cours</em></h3><br><br>
+            <div class="table-responsive"></div>
+                <table class="table table-striped table-sm">
+                <thead style="color: blue">
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>UrlPicture</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for lesson in lessons %}
+                    <tr>
+                        <td>{{ lesson.name }}</td>
+                        <td>{{ lesson.type ? lesson.type|join(', ') : '' }}</td>
+                        <td>{{ lesson.description }}</td>
+                        <td>{{ lesson.price }}</td>
+                        <td>{{ lesson.urlPicture }}</td>
+
+                        {#<div class="form-group">
+                            {{ form_label(lesson.urlPicture, "UrlPicture :", {'label_attr': {'class': 'control-label col-sm-4 com-md-4'}}) }}
+                            <div class="col-sm-2 col-md-2">
+                                {{ form_widget(lesson.urlPicture) }}
+                            </div>
+                        </div> #}
+
+                        <td>
+                            <a href="{{ path('lesson_show', {'id': lesson.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">Afficher</button></a>
+                            <a href="{{ path('lesson_edit', {'id': lesson.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">Éditer</button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7"><em style="color: red">no records found</em></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('lesson_new') }}"><button class="btn btn-success btn-sm">Créer</button></a>
+
+    </div>
+
+{% endblock %}

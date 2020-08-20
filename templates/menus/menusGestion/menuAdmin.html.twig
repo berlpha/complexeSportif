@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item" style="text-align: center">
+                        <a class="nav-link active" href="{{ path('app_interfaceAdmin') }}">
+                            {# <span data-feather="home"></span> #}
+                            <strong style="color: red"><em><span class="glyphicon glyphicon-home"></span> Menu de gestion</em></strong><span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'user' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('user_index') }}">
+                            <span data-feather="file"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-user"></span> Utilisateurs</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'booking' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('booking_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-calendar"></span> Réservations</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'calendar' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('booking_calendar') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-calendar"></span> Calendrier</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'lesson' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('lesson_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-book"></span> Cours</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'hall' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('hall_index') }}">
+                            <span data-feather="users"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-home"></span> Salles</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'field' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('field_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-home"></span> Terrains</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'club' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('club_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-home"></span> Club</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'subscription' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('subscription_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-th-list"></span> Abonnements</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'nursery' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('nursery_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-film"></span> Garderie</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'invoice' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('invoice_index') }}">
+                            <span data-feather="bar-chart-2"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-envelope"></span> Facturations</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'comment' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('comment_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-comment"></span> Commenter</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'administrator' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('administrator_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-user"></span> Administrateur</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'coach' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('coach_index') }}">
+                            <span data-feather="shopping-cart"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-user"></span> Entraîneur</em></strong>
+                        </a>
+                    </li>
+                    <li class="nav-item {% if navig is defined and navig == 'member' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('member_index') }}">
+                            <span data-feather="layers"></span>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-user"></span> Membre</em></strong>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

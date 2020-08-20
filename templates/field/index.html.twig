@@ -1,0 +1,46 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Field index{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: absolute; top: -8em; margin-top: auto">
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>Liste des terrains</em></h3><br><br>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead style="color: blue">
+                    <tr>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Price Hour</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for field in fields %}
+                    <tr>
+                        <td>{{ field.name }}</td>
+                        <td>{{ field.capacity }}</td>
+                        <td>{{ field.priceHour }}</td>
+                        <td>
+                            <a href="{{ path('field_show', {'id': field.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">Afficher</button></a>
+                            <a href="{{ path('field_edit', {'id': field.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">Éditer</button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4"><em style="color: red">no records found</em></td>
+                        <br><br>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <a href="{{ path('field_new') }}"><button class="btn btn-success btn-sm">Créer</button></a><br><br>
+
+    </div><br><br><br><br>
+
+{% endblock %}

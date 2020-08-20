@@ -1,0 +1,53 @@
+{% if is_granted('ROLE_ADMIN') %}
+    {%  set page = 'admin.html.twig' %}
+{% elseif is_granted('ROLE_COACH') %}
+    {% set page =  'coach.html.twig' %}
+{% elseif is_granted('ROLE_MEMBER') %}
+    {% set page = 'member.html.twig' %}
+{% elseif is_granted('ROLE_USER') %}
+    {% set page = 'member.html.twig' %}
+{% endif %}
+
+{% extends page %}
+
+{% block body %}
+    <div class="container navbar-fixed-top" style="position: relative; top: 55em">
+        <h3 style="color: red; background-color: black; text-align: center">Calendrier des évènements</h3><br><br>
+        {# <a href="{{ path('booking_new') }}">Création d'une réservation</a> #}
+
+        <div id="calendar-holder"></div>
+        <br><br><br><br>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            var calendarEl = document.getElementById('calendar-holder');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                defaultView: 'dayGridMonth',
+                editable: false, //true,
+                eventSources: [
+                    {
+                        url: "{{ path('fc_load_events') }}",
+                        method: "POST",
+                        extraParams: {
+                            filters: JSON.stringify({})
+                        },
+                        failure: () => {
+                            // alert("There was an error while fetching FullCalendar!");
+                        },
+                    },
+                ],
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay',
+                },
+                plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
+                timeZone: 'UTC',
+            });
+            calendar.render();
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Field{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top"  style="position: relative; top: 32em">
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'un nouveau terrain</em></h3><br><br>
+
+        {{ include('field/_form.html.twig') }}<br>
+
+        <a href="{{ path('field_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+
+    </div><br><br>
+
+{% endblock %}

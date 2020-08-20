@@ -1,0 +1,15 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Booking{% endblock %}
+
+{% block body %}
+
+    <div class="table-responsive navbar-fixed-top"  style="position: relative; top: 57em">
+        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'une réservation</em></h3><br><br>
+
+        {{ include('booking/_form.html.twig') }}
+
+        <a href="{{ path('booking_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+    </div><br><br>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Administrator{% endblock %}
+
+{% block body %}
+    <div class="container" style="position: relative; top: 95em">
+
+        <h3 style="text-align: center; color: red; background-color: black">Éditer un administrator</h3><br>
+
+        {{ include('administrator/_form.html.twig', {'button_label': 'Sauver'}) }}<br>
+
+        <a href="{{ path('administrator_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a><br><br>
+
+        {{ include('administrator/_delete_form.html.twig') }}<br>
+
+    </div><br><br>
+
+{% endblock %}

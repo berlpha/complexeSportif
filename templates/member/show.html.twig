@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member{% endblock %}
+
+{% block body %}
+    <h1>Member</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ member.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ member.name }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ member.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Birthdate</th>
+                <td>{{ member.birthdate ? member.birthdate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ member.username }}</td>
+            </tr>
+            <tr>
+                <th>EmailAddress</th>
+                <td>{{ member.emailAddress }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ member.password }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ member.phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ member.address }}</td>
+            </tr>
+            <tr>
+                <th>PostalCode</th>
+                <td>{{ member.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ member.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ member.country }}</td>
+            </tr>
+            <tr>
+                <th>Avatar</th>
+                <td>{{ member.avatar }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ member.roles ? member.roles|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ member.createdAt ? member.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ResetToken</th>
+                <td>{{ member.resetToken }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('member_index') }}">back to list</a>
+
+    <a href="{{ path('member_edit', {'id': member.id}) }}">edit</a>
+
+    {{ include('member/_delete_form.html.twig') }}
+{% endblock %}

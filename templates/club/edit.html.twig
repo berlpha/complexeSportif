@@ -1,0 +1,18 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Club{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: relative; top: 50em">
+
+        <h3 style="text-align: center; color: red; background-color: black">Éditer un club</h3>
+
+        {{ include('club/_form.html.twig', {'button_label': 'Sauver'}) }}<br>
+
+        <a href="{{ path('club_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a><br><br>
+
+        {{ include('club/_delete_form.html.twig') }}<br><br><br>
+
+    </div><br><br>
+{% endblock %}

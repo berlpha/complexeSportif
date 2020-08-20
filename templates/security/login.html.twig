@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+{# form_theme form 'bootstrap_4_layout.html.twig' #}
+
+{% block body %}
+
+    <div class="container" style="margin-left: 25%">
+
+        <div class="container">
+            <div class="row col" style="text-align: center">
+                <h3 style="color: blue; margin-right: 50%"><strong><em>Veuillez renseigner votre nom d'utilisateur et mot de passe</em></strong></h3>
+                <div class="col-md-6"><br>
+                    <div class="card">
+                        <div class="card-header bg-primary text-white" style="text-align: center"><i class="fa fa-envelope">Please sign in</i></div>
+                        <div class="body">
+                            {% for message in app.flashes('message') %}
+                                <div class="alert alert-success" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            {% for message in app.flashes('warning') %}
+                                <div class="alert alert-warning" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            {% for message in app.flashes('danger') %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            <form action="" method="post">
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+
+                                {% if app.user %}
+                                    <div class="mb-3">
+                                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Quitter</a>
+                                    </div>
+                                {% endif %}<br><br>
+
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="inputUsername" class="sr-only"><em>Username</em></label><br>
+                                            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Please enter your username..." required autofocus>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="inputPassword" class="sr-only"><em>Password</em></label><br>
+                                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Please enter your password..." required>
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <input type="hidden" name="_csrf_token"
+                                       value="{{ csrf_token('authenticate') }}"
+                                >
+
+                                <div class="checkbox mb-3">
+                                    <label>
+                                        <input type="checkbox" name="_remember_me" checked> Se souvenir de moi
+                                    </label>
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">
+                                    <strong><em>Se connecter</em></strong>
+                                </button>
+
+                                <div class="form-group"><br>
+                                    <a href="{{ path('app_register') }}"><strong><em><span>Je veux </span>m'inscrire</em></strong></a>
+                                </div>
+                                <div class="form-group">
+                                    <a href="{{ path('app_forgottenPassword') }}"><strong><em>Mot de passe oublié?</em></strong></a>
+                                </div>
+                                <p class="mt-5 mb-3 text-muted text-center"><small>&copy 2019-{{ 'now' | date('Y') }}</small></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

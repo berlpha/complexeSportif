@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Hall{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top"  style="position: relative; top: 30em">
+
+        <h3 style="text-align: center; color: red; background-color: black"><strong><em>Création d'une nouvelle salle</em></strong></h3><br>
+
+        {{ include('hall/_form.html.twig') }}<br>
+
+        <a href="{{ path('hall_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+
+    </div><br><br>
+
+{% endblock %}

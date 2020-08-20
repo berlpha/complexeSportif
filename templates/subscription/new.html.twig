@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Subscription{% endblock %}
+
+{% block body %}
+
+    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 45em">
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'une inscription</em></h3>
+
+        {{ include('subscription/_form.html.twig') }}
+
+        <a href="{{ path('subscription_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+
+    </div><br><br>
+
+{% endblock %}

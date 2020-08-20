@@ -1,0 +1,22 @@
+{% if is_granted ('ROLE_ADMIN') %}
+    {% set page = 'admin.html.twig' %}
+{% else %}
+    {% set page = 'member.html.twig' %}
+{% endif %}
+
+{% extends page %}
+
+{% block title %}New Nursery{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top"  style="position: relative; top: 32em">
+
+        <h3  style="text-align: center; color: red; background-color: black">Create new Nursery</h3><br><br>
+
+        {{ include('nursery/_form.html.twig') }}<br>
+
+        <a href="{{ path('nursery_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+
+    </div><br><br>
+{% endblock %}

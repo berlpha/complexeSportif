@@ -1,0 +1,53 @@
+{#{% if is_granted('ROLE_ADMIN') %}
+    {%  set page = 'admin.html.twig' %}
+{% elseif is_granted('ROLE_MEMBER') %}
+    {% set page =  'member.html.twig' %}
+{% elseif is_granted('ROLE_COACH') %}
+    {% set page = 'coach.html.twig' %}
+{% elseif is_granted('ROLE_USER') %}
+    {% set page = 'member.html.twig' %}
+{% endif %}
+
+{% extends page %}  #}
+
+{% extends 'admin.html.twig' %}
+
+{% block title %}Booking{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: relative; top: 20em">
+
+        <h3 style="text-align: center; color: red; background-color: black">Réservation</h3><br><br>
+
+        <table class="table table-striped table-sm">
+
+            <tbody>
+            <tr>
+                <th style="color: blue">BeginAt</th>
+                <td>{{ booking.beginAt ? booking.beginAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th style="color: blue">EndAt</th>
+                <td>{{ booking.endAt ? booking.endAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th style="color: blue">Title</th>
+                <td>{{ booking.title }}</td>
+            </tr>
+            <tr>
+                <th style="color: blue">PriceTotal</th>
+                <td>{{ booking.priceTotal }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('booking_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a>
+
+        <a href="{{ path('booking_edit', {'id': booking.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen">Éditer</button></a><br><br>
+
+        {{ include('booking/_delete_form.html.twig') }}<br><br>
+
+    </div><br><br><br><br><br>
+
+{% endblock %}

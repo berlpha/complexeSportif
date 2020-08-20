@@ -1,0 +1,18 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Booking{% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top"  style="position: relative; top: 57em">
+        <h3 style="text-align: center; color: red; background-color: black">Éditer un évènement</h3><br><br>
+
+        {{ include('booking/_form.html.twig', {'button_label': 'Sauver'}) }}<br>
+
+        <a href="{{ path('booking_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a><br><br>
+
+        {{ include('booking/_delete_form.html.twig') }}<br><br><br>
+
+    </div><br><br>
+
+{% endblock %}

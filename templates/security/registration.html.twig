@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register ! {% endblock %}
+{# form_theme form 'bootstrap_4_layout.html.twig' #}
+
+{% block body %}
+
+    <div class="container">
+        <div class="container">
+            <h3 style="text-align: center; color: blue"><strong><em>Bienvenue dans ce complexe sportif</em></strong></h3>
+            <br>
+            <div class="row col">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white"  style="text-align: center"><i class="fa fa-envelope"></i><em>Fiche d'inscription</em>
+                        </div>
+                        <div class="card-body">
+                            {# form(form) #}
+                            {{ form_start(form) }}
+                                <div class="row">
+                                    <div class="col md-3">{{ form_row(form.Name) }}</div>
+                                    <div class="col md-3">{{ form_row(form.FirstName) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col md-3">{{ form_row(form.Birthdate) }}
+                                        {# <label for="form_birthdate">Birth date</label><br>
+                                        <input type="date" id="form_birthdate" name="form[birthdate]" /><br><br> #}
+                                        {#  <label>
+                                            <input type="date" id="form_birthdate" value="{{ form.Birthdate }}" /><br><br>
+                                        </label>
+
+                                        {% block field_widget %}
+                                            <label for="form_birthdate">Birth date</label><br>
+                                            {% set type = type|default('date') %}
+                                            <input type="{{ type }}" value="{{ form.Birthdate }}" />
+                                        {% endblock field_widget %}  #}
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col md-3">{{ form_row(form.Username) }}</div>
+                                    <div class="col md-3">{{ form_row(form.EmailAddress) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col md-3">{{ form_row(form.Password) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col md-3">{{ form_row(form.Address) }}</div>
+                                    <div class="col md-3">{{ form_row(form.number) }}</div>
+                                    <div class="col md-3">{{ form_row(form.PostalCode) }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col md-3">{{ form_row(form.City) }}</div>
+                                    <div class="col md-3">{{ form_row(form.Country) }}</div>
+                                    <div class="col md-3">{{ form_row(form.Phone) }}</div>
+                                </div>
+                            <br><br>
+                            {{ form_end(form) }}
+                            <p class="mt-5 mb-3 text-muted text-center"><small>&copy 2019-{{ 'now' | date('Y') }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+{% endblock %}
