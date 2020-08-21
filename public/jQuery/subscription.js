@@ -32,7 +32,7 @@ $(function(){
     });
 });
 
-<tbody>
+/*<tbody>
     {% set p = price %}
     <tr>
     {% set pe = p - (p * 15/100) %}
@@ -57,4 +57,4 @@ $(function(){
     <td>{{ pv * 6 - (pv / 2) }}</td>
     <td>{{ pv * 11 }}</td>
     </tr>
-</tbody>
+</tbody>*/

@@ -79,11 +79,11 @@ class LessonType extends AbstractType
                     ])
                 ],
             ])
-            ->add('bookings', EntityType::class, [
+            /*->add('bookings', EntityType::class, [
                 'class' => Booking::class,
                 'multiple' => true,
                 'required' => false,
-            ])
+            ])*/
             //->add('subscriptions')
             ->add('coach', EntityType::class, [
                 'class' => Coach::class,
