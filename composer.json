@@ -40,8 +40,10 @@
     "require-dev": {
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/stopwatch": "^5.0",
+        "symfony/test-pack": "*",
+        "symfony/twig-bundle": "^5.0",
+        "symfony/web-profiler-bundle": "^5.0"
     },
     "config": {
         "preferred-install": {
