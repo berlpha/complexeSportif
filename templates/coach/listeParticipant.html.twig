@@ -9,9 +9,8 @@
         <h3 style="text-align: center; color: red; background-color: black">Liste des participants à ce cours</h3><br><br>
 
         <div class="responsive">
-            <p> {{ user.name }}</p>
             <div class="accordion" id="accordionExample">
-                {% for lesson in user.lessons %}
+                {% for lesson in participation.lesson %}
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
@@ -28,6 +27,7 @@
                                 {# membre.name #}
                                 <thead style="color: blue">
                                     <tr>
+                                        <th>Prénom du coach</th>
                                         <th>Nom du coach</th>
                                         <th>Cours donné</th>
                                         <th>Prénom du participant</th>
@@ -39,12 +39,13 @@
 
                                 <tbody>
                                     <tr>
-                                        <td>{{ lesson.... }}</td>
+                                        <td>{{ lesson.coach.firstName }}</td>
+                                        <td>{{ lesson.coach.name }}</td>
                                         <td>{{ lesson.name }}</td>
-                                        <td>{{ lesson.member.firstName }}</td>
-                                        <td>{{ lesson.member.name }}</td>
-                                        <td>{{ subscription.updatedAt }}</td>
-                                        <td>{{ subscription.finishedAd }}</td>
+                                        <td>{{ lesson.participation.member.firstName }}</td>
+                                        <td>{{ lesson.participation.member.name }}</td>
+                                        <td>{{ member.subscription.updatedAt }}</td>
+                                        <td>{{ member.subscription.finishedAd }}</td>
                                         <td></td>
                                     </tr>
                                 <tr>

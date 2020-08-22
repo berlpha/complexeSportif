@@ -9,9 +9,9 @@
         <h3 style="text-align: center; color: red; background-color: black">Liste des membres inscrits aux cours</h3><br><br>
 
         <div class="responsive">
-            <p> {{ user.name }}</p>
+            <p> {{ coach.firstName }} {{ coach.name }}</p>
             <div class="accordion" id="accordionExample">
-                {% for lesson in user.lessons %}
+                {% for lesson in coach.lessons %}
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
@@ -25,7 +25,8 @@
                             <div class="card-body">
                                 <table>
                                     {% for membre in lesson.subscriptions %}
-                                        {{ membre.name }}
+                                        {{ membre.firstName }}
+                                        {{ member.name }}
                                     {%  endfor %}
                                 </table>
                             </div>

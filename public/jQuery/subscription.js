@@ -8,8 +8,31 @@ $(function(){
         $("input[id^='sport']").each(function(){
             if($(this).is(":checked")){
                 var sportprice = $(this).attr('data-price');
-                //mettre ta formule
-                var subprice = sportprice;
+                var p = sportprice;
+
+                if ( type == 'Enfant' )
+                {
+                    p =  sportprice * 0.85;
+                }
+                else if (type == 'VIP')
+                {
+                    p = sportprice * 1.25;
+                }
+
+                var subprice = p;
+
+                if(duration == 'durationThreeMonth')
+                {
+                    subprice = p * 3;
+                }
+                else if (duration == 'durationSixMonth')
+                {
+                    subprice = p * 6 - (p / 2);
+                }
+                else if( duration == 'durationOneYear')
+                {
+                    subprice = p * 11;
+                }
                 price += parseFloat(subprice);
             }
         });
@@ -32,29 +55,7 @@ $(function(){
     });
 });
 
-/*<tbody>
-    {% set p = price %}
-    <tr>
-    {% set pe = p - (p * 15/100) %}
-    <th scope="row">Enfant</th>
-        <td>{{ pe }}</td>
-    <td>{{ pe * 3 }}</td>
-    <td>{{ pe * 6 - (pe / 2) }}</td>
-    <td>{{ pe * 11 }}</td>
-    </tr>
-    <tr>
-    <th scope="row">Basic</th>
-        <td>{{ p }}</td>
-    <td>{{ p * 3 }}</td>
-    <td>{{ p * 6 - (p / 2) }}</td>
-    <td>{{ p * 11 }}</td>
-    </tr>
-    <tr>
-    {% set pv = p * 1.25 %}
-    <th scope="row">VIP</th>
-        <td>{{ pv }}</td>
-    <td>{{ pv * 3 }}</td>
-    <td>{{ pv * 6 - (pv / 2) }}</td>
-    <td>{{ pv * 11 }}</td>
-    </tr>
-</tbody>*/
+
+
+
+
