@@ -129,11 +129,6 @@ class User implements UserInterface//, \Serializable
     protected $activateToken;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Booking", inversedBy="users")
-     */
-    private $booking;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
      */
     private $comment;
@@ -146,7 +141,6 @@ class User implements UserInterface//, \Serializable
     public function __construct()
     {
         $this->createdAt = new \DateTime();
-        $this->booking = new ArrayCollection();
         $this->comment = new ArrayCollection();
     }
 
@@ -404,32 +398,6 @@ class User implements UserInterface//, \Serializable
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
-    }
-
-    /**
-     * @return Collection|Booking[]
-     */
-    public function getBooking(): Collection
-    {
-        return $this->booking;
-    }
-
-    public function addBooking(Booking $booking): self
-    {
-        if (!$this->booking->contains($booking)) {
-            $this->booking[] = $booking;
-        }
-
-        return $this;
-    }
-
-    public function removeBooking(Booking $booking): self
-    {
-        if ($this->booking->contains($booking)) {
-            $this->booking->removeElement($booking);
-        }
-
-        return $this;
     }
 
     public function __toString()

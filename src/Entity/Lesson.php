@@ -57,11 +57,6 @@ class Lesson
     private $pictureFile;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Participation", mappedBy="lesson")
-     */
-    private $participation;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Subscription", mappedBy="lessons")
      */
     private $subscriptions;
@@ -85,7 +80,6 @@ class Lesson
 
     public function __construct()
     {
-        $this->participation = new ArrayCollection();
         $this->subscriptions = new ArrayCollection();
         $this->coach = new ArrayCollection();
         $this->updatedAt = new \DateTime('now');
@@ -177,37 +171,6 @@ class Lesson
             $this->updatedAt = new \DateTime('now');
         }
         return $this->pictureFile;
-    }
-
-    /**
-     * @return Collection|Participation[]
-     */
-    public function getParticipation(): Collection
-    {
-        return $this->participation;
-    }
-
-    public function addParticipation(Participation $participation): self
-    {
-        if (!$this->participation->contains($participation)) {
-            $this->participation[] = $participation;
-            $participation->setLesson($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipation(Participation $participation): self
-    {
-        if ($this->participation->contains($participation)) {
-            $this->participation->removeElement($participation);
-            // set the owning side to null (unless already changed)
-            if ($participation->getLesson() === $this) {
-                $participation->setLesson(null);
-            }
-        }
-
-        return $this;
     }
 
     /**

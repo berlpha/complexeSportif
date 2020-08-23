@@ -19,11 +19,6 @@ class Member extends User
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Participation", mappedBy="member")
-     */
-    private $participation;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Nursery", inversedBy="member")
      */
     private $nursery;
@@ -33,48 +28,22 @@ class Member extends User
      */
     private $subscription;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Booking::class, mappedBy="Member")
+     */
+    private $bookings;
+
     public function __construct()
     {
         parent::__construct();
-        $this->participation = new ArrayCollection();
         $this->nursery = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
 
     /*public function getId(): ?int
     {
         return $this->id;
     }*/
-
-    /**
-     * @return Collection|Participation[]
-     */
-    public function getParticipation(): Collection
-    {
-        return $this->participation;
-    }
-
-    public function addParticipation(Participation $participation): self
-    {
-        if (!$this->participation->contains($participation)) {
-            $this->participation[] = $participation;
-            $participation->setMember($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipation(Participation $participation): self
-    {
-        if ($this->participation->contains($participation)) {
-            $this->participation->removeElement($participation);
-            // set the owning side to null (unless already changed)
-            if ($participation->getMember() === $this) {
-                $participation->setMember(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Nursery[]
@@ -110,6 +79,34 @@ class Member extends User
     public function setSubscription(?Subscription $subscription): self
     {
         $this->subscription = $subscription;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->addMember($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->contains($booking)) {
+            $this->bookings->removeElement($booking);
+            $booking->removeMember($this);
+        }
 
         return $this;
     }

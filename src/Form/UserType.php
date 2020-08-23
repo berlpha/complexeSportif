@@ -155,12 +155,6 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
-           /*->add('booking', EntityType::class, [
-                'class' => Booking::class,
-                'multiple' => false,
-                'required' => false,
-                'empty_data' => 'Entrer une réservation'
-            ])*/
             //->add('comment')
         ;
     }

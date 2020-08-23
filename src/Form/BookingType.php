@@ -7,9 +7,11 @@ use App\Entity\Coach;
 use App\Entity\Field;
 use App\Entity\Hall;
 use App\Entity\Lesson;
+use App\Entity\Member;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -61,6 +63,16 @@ class BookingType extends AbstractType
                 ],
                 'invalid_message' => 'La longueur maxi autorisée est de 20 caractères'
             ])
+            ->add('type', ChoiceType::class, [
+                'label' => 'Type',
+                'required' => true,
+                'expanded' => true,
+                'multiple' => false,
+                'choices' => [
+                    'Interne' => 'Interne',
+                    'Externe' => 'Externe',
+                ],
+            ])
             ->add('priceTotal', MoneyType::class, [
                 'label' => 'Price',
                 'required' => false,
@@ -77,17 +89,17 @@ class BookingType extends AbstractType
                 'required' => false,
                 'empty_data' => 'Choisir un terrain'
             ])
-            /*->add('users', EntityType::class, [
-                'class' => Coach::class,
-                'multiple' => false,
-                'required' => false,
-                'empty_data' => 'Choissir une personne'
-            ])*/
             ->add('lesson', EntityType::class, [
                 'class' => Lesson::class,
                 'multiple' => true,
                 'required' => false,
                 'empty_data' => 'Choisir une leçon'
+            ])
+            ->add('member', EntityType::class, [
+                'class' => Member::class,
+                'multiple' => true,
+                'required' => false,
+                'empty_data' => 'Choisir un membre'
             ])
         ;
     }

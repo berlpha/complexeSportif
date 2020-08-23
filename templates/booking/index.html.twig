@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: -7em">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -7em; margin-top: auto">
 
         <h3 style="text-align: center; color: red; background-color: black"><strong><em>Liste des réservations</em></strong></h3><br><br>
         <div class="table responsive">
@@ -14,6 +14,7 @@
                         <th>BeginAt</th>
                         <th>EndAt</th>
                         <th>Title</th>
+                        <th>Type</th>
                         <th>PriceTotal</th>
                         <th>actions</th>
                     </tr>
@@ -24,6 +25,7 @@
                         <td>{{ booking.beginAt ? booking.beginAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ booking.endAt ? booking.endAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ booking.title }}</td>
+                        <td>{{ booking.type }}</td>
                         <td>{{ booking.priceTotal }}</td>
                         <td>
                             <a href="{{ path('booking_show', {'id': booking.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">Afficher</button></a>

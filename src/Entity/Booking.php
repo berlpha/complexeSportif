@@ -49,19 +49,24 @@ class Booking
     private $field;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="booking")
-     */
-    private $users;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", inversedBy="bookings")
      */
     private $lesson;
 
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $type;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Member::class, inversedBy="bookings")
+     */
+    private $Member;
+
     public function __construct()
     {
-        $this->users = new ArrayCollection();
         $this->lesson = new ArrayCollection();
+        $this->Member = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -142,34 +147,6 @@ class Booking
     }
 
     /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addBooking($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeBooking($this);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Lesson[]
      */
     public function getLesson(): Collection
@@ -198,5 +175,43 @@ class Booking
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Member[]
+     */
+    public function getMember(): Collection
+    {
+        return $this->Member;
+    }
+
+    public function addMember(Member $member): self
+    {
+        if (!$this->Member->contains($member)) {
+            $this->Member[] = $member;
+        }
+
+        return $this;
+    }
+
+    public function removeMember(Member $member): self
+    {
+        if ($this->Member->contains($member)) {
+            $this->Member->removeElement($member);
+        }
+
+        return $this;
     }
 }
