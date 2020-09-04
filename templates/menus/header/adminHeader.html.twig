@@ -1,35 +1,39 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="{{ path('app_interfaceAdmin') }}"><strong><em>TABLEAU DE BORD "ADMIN"</em></strong></a>
+    <a class="navbar-brand" href="{{ path('app_interfaceAdmin') }}"><strong><em>{% trans %}Admin dashboard {% endtrans %}</em></strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><strong><em>Rechercher</em></strong></button>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><strong><em>{% trans %} Search {% endtrans %}</em></strong></button>
     </form>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav my-2 my-lg-3">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ path('app_interfaceAdmin') }}" role="button" aria-haspopup="true" aria-expanded="false"><strong><em>Langue</em></strong></a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr"></span><strong><em>Français</em></strong></a>
-                    <a class="dropdown-item" href="#nl"><span class="flag-icon flag-icon-nl"></span><strong><em>Nederlands</em></strong></a>
-                    <a class="dropdown-item" href="#us"><span class="flag-icon flag-icon-us"></span><strong><em>English</em></strong></a>
-                </div>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ path('app_interfaceAdmin') }}" role="button" aria-haspopup="true" aria-expanded="false"><strong><em>{% trans %}Language {% endtrans %}</em></strong></a>
+                {% for locale in locales %}
+                    {% if locale != app.request.locale %}
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('app_changeLanguageFr', {'locale': 'fr'}) }}"><span class="flag-icon flag-icon-fr"></span><strong><em>Français</em></strong></a>
+                            <a class="dropdown-item" href="{{ path('app_changeLanguageNl', {'locale': 'nl'}) }}"><span class="flag-icon flag-icon-nl"></span><strong><em>Nederlands</em></strong></a>
+                            <a class="dropdown-item" href="{{ path('app_changeLanguageEn', {'locale': 'en'}) }}"><span class="flag-icon flag-icon-us"></span><strong><em>English</em></strong></a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong><em>{{app.user.name}}</em></strong></a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="{{ path('app_accountProfil') }}"><strong><em>Éditer mon profil!</em></strong></a>
-                    <a class="dropdown-item" href="{{ path('app_changePassword') }}"><strong><em>Changer le mot de passe!</em></strong></a>
+                    <a class="dropdown-item" href="{{ path('app_accountProfil') }}"><strong><em>{% trans %}Edit my profile! {% endtrans %}</em></strong></a>
+                    <a class="dropdown-item" href="{{ path('app_changePassword') }}"><strong><em>{% trans %}To change the password {% endtrans %}</em></strong></a>
                 </div>
             </li>
             <li></li>
             {% if app.user %}
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_logout') }}"><strong><em>Quitter</em></strong></a>
+                    <a class="nav-link " href="{{ path('app_logout') }}"><strong><em>{% trans %}Logout {% endtrans %}</em></strong></a>
                 </li>
             {% endif %}
         </ul>

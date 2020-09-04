@@ -1,6 +1,6 @@
 framework:
-    default_locale: en
+    default_locale: '%locale%'
     translator:
         default_path: '%kernel.project_dir%/translations'
-        fallbacks:    # Cette option définit le locale de secours à utiliser quand une traduction n'existe pas dans le local de l'utilisateur.
-            - en
+        fallbacks:    # Cette option définit la locale de secours à utiliser quand une traduction n'existe pas dans le local de l'utilisateur.
+            - '%locale%'

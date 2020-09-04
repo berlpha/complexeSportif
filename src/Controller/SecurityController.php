@@ -13,6 +13,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -281,6 +282,11 @@ class SecurityController extends AbstractController
 
             $message =$this->translator->trans('Your account has been successfully modified!');
             $this->addFlash('message', $message);
+
+            // Retour à la page précédente
+            //return $this->redirect($request->headers->get('referer'));
+//            $referer = $request->headers->get('referer');
+//            return $this->redirect($referer);
 
         }
         return $this->render('security/edit_profil.html.twig',array('form'=>$form->createView(),));

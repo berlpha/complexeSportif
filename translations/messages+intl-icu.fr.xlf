@@ -229,6 +229,218 @@
         <source>1 year</source>
         <target>1 an</target>
       </trans-unit>
+      <trans-unit id="2VCCou5" resname="Author">
+        <source>Author</source>
+        <target>Auteur</target>
+      </trans-unit>
+      <trans-unit id="t2Dfx3P" resname="Management of a sports complex">
+        <source>Management of a sports complex</source>
+        <target>Gestion d'un complexe sportif</target>
+      </trans-unit>
+      <trans-unit id="ma9mBv_" resname="Menu">
+        <source>Menu</source>
+        <target>Menu</target>
+      </trans-unit>
+      <trans-unit id="1dCjC1F" resname="Calendar">
+        <source>Calendar</source>
+        <target>Calendrier</target>
+      </trans-unit>
+      <trans-unit id="WubzDCl" resname="Reserve">
+        <source>Reserve</source>
+        <target>Réserver</target>
+      </trans-unit>
+      <trans-unit id="ODAeaTX" resname="Participate">
+        <source>Participate</source>
+        <target>Participer</target>
+      </trans-unit>
+      <trans-unit id="jv6WBcz" resname="Nursery">
+        <source>Nursery</source>
+        <target>Garderie</target>
+      </trans-unit>
+      <trans-unit id="DhbfApR" resname="Subscription service">
+        <source>Subscription service</source>
+        <target>Service d'abonnement</target>
+      </trans-unit>
+      <trans-unit id="uANVdQl" resname="Invoices">
+        <source>Invoices</source>
+        <target>Factures</target>
+      </trans-unit>
+      <trans-unit id="RPXj__x" resname="Comment">
+        <source>Comment</source>
+        <target>Commenter</target>
+      </trans-unit>
+      <trans-unit id="3QLw0Ms" resname="Admin dashboard">
+        <source>Admin dashboard</source>
+        <target>Tableau de bord "admin"</target>
+      </trans-unit>
+      <trans-unit id="kUypNWn" resname="Coach dashboard">
+        <source>Coach dashboard</source>
+        <target>Tableau de bord "coach"</target>
+      </trans-unit>
+      <trans-unit id="IudR4hO" resname="List of participants">
+        <source>List of participants</source>
+        <target>Liste des participants</target>
+      </trans-unit>
+      <trans-unit id="XA5ps0i" resname="My activities">
+        <source>My activities</source>
+        <target>Mes activités</target>
+      </trans-unit>
+      <trans-unit id="pasY89s" resname="My user account">
+        <source>My user account</source>
+        <target>Mon compte utilisateur</target>
+      </trans-unit>
+      <trans-unit id="jfx3q0C" resname="Copyright">
+        <source>Copyright</source>
+        <target>Droits d'auteur</target>
+      </trans-unit>
+      <trans-unit id="6ghssTH" resname="Management menu">
+        <source>Management menu</source>
+        <target>Menu de gestion</target>
+      </trans-unit>
+      <trans-unit id="awzJBNC" resname="Users">
+        <source>Users</source>
+        <target>Utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="XCELJ7C" resname="Reservations">
+        <source>Reservations</source>
+        <target>Réservations</target>
+      </trans-unit>
+      <trans-unit id="Tzqb0AO" resname="Class">
+        <source>Class</source>
+        <target>Cours</target>
+      </trans-unit>
+      <trans-unit id="vTL2ztt" resname="Rooms">
+        <source>Rooms</source>
+        <target>Salles</target>
+      </trans-unit>
+      <trans-unit id="9F.B39y" resname="Field">
+        <source>Field</source>
+        <target>Terrains</target>
+      </trans-unit>
+      <trans-unit id="cugf6qi" resname="Club">
+        <source>Club</source>
+        <target>Club</target>
+      </trans-unit>
+      <trans-unit id="oVHy6RL" resname="Subscriptions">
+        <source>Subscriptions</source>
+        <target>Abonnements</target>
+      </trans-unit>
+      <trans-unit id="M4TLWrN" resname="Billings">
+        <source>Billings</source>
+        <target>Facturation</target>
+      </trans-unit>
+      <trans-unit id="59PnafP" resname="Administrator">
+        <source>Administrator</source>
+        <target>Administrateur</target>
+      </trans-unit>
+      <trans-unit id="5rdFbAm" resname="Coach">
+        <source>Coach</source>
+        <target>Coach</target>
+      </trans-unit>
+      <trans-unit id="fJaPtx9" resname="Member">
+        <source>Member</source>
+        <target>Membre</target>
+      </trans-unit>
+      <trans-unit id="imodqOy" resname="Change your password">
+        <source>Change your password</source>
+        <target>Effectuer le changement de votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="qUn0YjB" resname="Change Password">
+        <source>Change Password</source>
+        <target>Changer le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="LPYMImb" resname="The profile of">
+        <source>The profile of</source>
+        <target>Le profil de</target>
+      </trans-unit>
+      <trans-unit id="RoibQ7y" resname="Modification">
+        <source>Modification</source>
+        <target>Modification</target>
+      </trans-unit>
+      <trans-unit id="yKeA0.P" resname="Log in!">
+        <source>Log in!</source>
+        <target>Connexion!</target>
+      </trans-unit>
+      <trans-unit id="xWIm7fl" resname="Please enter your username and password">
+        <source>Please enter your username and password</source>
+        <target>Veuillez renseigner votre nom d'utilisateur et mot de passe</target>
+      </trans-unit>
+      <trans-unit id="dDUw20Q" resname="Please sign in">
+        <source>Please sign in</source>
+        <target>Veuillez vous connecter</target>
+      </trans-unit>
+      <trans-unit id="acVpEs4" resname="You are logged in as">
+        <source>You are logged in as</source>
+        <target>Vous êtes connecté en tant que</target>
+      </trans-unit>
+      <trans-unit id="47ienTP" resname="Username">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="_TJnqhH" resname="Remember me">
+        <source>Remember me</source>
+        <target>Se souvenir de moi</target>
+      </trans-unit>
+      <trans-unit id="nWMiwfT" resname="Login">
+        <source>Login</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="i9i8Rdn" resname="I want to">
+        <source>I want to</source>
+        <target>Je veux</target>
+      </trans-unit>
+      <trans-unit id="h3gPpd5" resname="register">
+        <source>register</source>
+        <target>m'inscrire</target>
+      </trans-unit>
+      <trans-unit id="MgcCVH8" resname="Password forgotten?">
+        <source>Password forgotten?</source>
+        <target>Mot de passe oublié?</target>
+      </trans-unit>
+      <trans-unit id="cYYfhQa" resname="Changing the password for">
+        <source>Changing the password for</source>
+        <target>Changement du mot de passe de</target>
+      </trans-unit>
+      <trans-unit id="PdnfREH" resname="New password">
+        <source>New password</source>
+        <target>Nouveau mot de password</target>
+      </trans-unit>
+      <trans-unit id="WsJl85a" resname="Confirm password">
+        <source>Confirm password</source>
+        <target>Confirmer le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="rvO6OFD" resname="Please enter your e-mail address and click send">
+        <source>Please enter your e-mail address and click send</source>
+        <target>Veuillez saisir votre adresse e-mail et cliquer sur envoyer</target>
+      </trans-unit>
+      <trans-unit id="YOlNDxu" resname="I forgot my password">
+        <source>I forgot my password</source>
+        <target>J'ai oublié mon mot de passe</target>
+      </trans-unit>
+      <trans-unit id="M.6VzgI" resname="Your email">
+        <source>Your email</source>
+        <target>Votre email</target>
+      </trans-unit>
+      <trans-unit id="wfQ9NUx" resname="Send!">
+        <source>Send!</source>
+        <target>Envoyer!</target>
+      </trans-unit>
+      <trans-unit id="sUxh1Wx" resname="Register !">
+        <source>Register !</source>
+        <target>S'inscrire !</target>
+      </trans-unit>
+      <trans-unit id="ynxPgzr" resname="Welcome to this sports complex">
+        <source>Welcome to this sports complex</source>
+        <target>Bienvenue dans ce complexe sportif</target>
+      </trans-unit>
+      <trans-unit id="cjdBkBI" resname="Registration form">
+        <source>Registration form</source>
+        <target>Fiche d'inscription</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

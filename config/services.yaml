@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     app.path.lesson_images: uploads/lesson_images #uploads/images/lessons
+    app.locales: [en, fr, nl]
+    locale: en
+
 services:
     # default configuration for services in *this* file
     _defaults:

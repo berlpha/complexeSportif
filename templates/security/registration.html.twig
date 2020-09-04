@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register ! {% endblock %}
+{% block title %}{% trans %}Register ! {% endtrans %}{% endblock %}
 {# form_theme form 'bootstrap_4_layout.html.twig' #}
 
 {% block body %}
 
     <div class="container">
         <div class="container">
-            <h3 style="text-align: center; color: blue"><strong><em>Bienvenue dans ce complexe sportif</em></strong></h3>
+            <h3 style="text-align: center; color: blue"><strong><em>{% trans %}Welcome to this sports complex{% endtrans %}</em></strong></h3>
             <br>
             <div class="row col">
                 <div class="col">
                     <div class="card">
-                        <div class="card-header bg-primary text-white"  style="text-align: center"><i class="fa fa-envelope"></i><em>Fiche d'inscription</em>
+                        <div class="card-header bg-primary text-white"  style="text-align: center"><i class="fa fa-envelope"></i><em>{% trans %}Registration form{% endtrans %}</em>
                         </div>
                         <div class="card-body">
                             {# form(form) #}
