@@ -39,4 +39,12 @@ class FormulaireAbonnementController extends AbstractController
             'price' => $prix,
         ]);
     }
+
+    /**
+     * @Route("/sport/price", name="app_sportPrice")
+     */
+    public function sportPrice()
+    {
+        $prix = $this->lessonRepository->findByLsson('price');
+    }
 }

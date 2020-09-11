@@ -1,0 +1,40 @@
+{{ include('menus/menusGestion/menuAbonnement.html.twig') }}
+    <div class="container navbar-fixed-top"><br><br>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Durée</th>
+                <th scope="col">1 mois</th>
+                <th scope="col">3 mois</th>
+                <th scope="col">6 mois</th>
+                <th scope="col">1 an</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set p = price %}
+                <tr>
+                    <th scope="row">Basic</th>
+                    <td>{{ p }}</td>
+                    <td>{{ p * 3 }}</td>
+                    <td>{{ p * 6 - (p / 2) }}</td>
+                    <td>{{ p * 11 }}</td>
+                </tr>
+                <tr>
+                    {% set pe = p - (p * 15/100) %}
+                    <th scope="row">Enfant</th>
+                    <td>{{ pe }}</td>
+                    <td>{{ pe * 3 }}</td>
+                    <td>{{ pe * 6 - (pe / 2) }}</td>
+                    <td>{{ pe * 11 }}</td>
+                </tr>
+                <tr>
+                    {% set pv = p * 1.25 %}
+                    <th scope="row">VIP</th>
+                    <td>{{ pv }}</td>
+                    <td>{{ pv * 3 }}</td>
+                    <td>{{ pv * 6 - (pv / 2) }}</td>
+                    <td>{{ pv * 11 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

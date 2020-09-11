@@ -1,0 +1,66 @@
+{% extends 'coach.html.twig' %}
+
+{% block title %} Liste des inscrits {% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: absolute; top: 10em; margin-top: auto">
+
+        <h3 style="text-align: center; color: red; background-color: black">Liste des membres inscrits aux cours</h3><br><br>
+
+        <div class="responsive">
+            <p> {{ user.name }}</p>
+            <div class="accordion" id="accordionExample">
+                {% for lesson in user.lessons %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                {{lesson.name}}
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table>
+                            {% for membre in lesson.subscriptions %}
+                                {{ membre.name }}
+                            {%  endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+           <!-- <table class="table table-striped table-sm">
+              <thead style="color: blue">
+                  <tr>
+                      <th>Nom du coach</th>
+                      <th>Leçon données</th>
+                      <th>Prénom du participant</th>
+                      <th>Nom du participant</th>
+                      <th>Début de l'abonnement</th>
+                      <th>Fin de l'abonnement</th>
+                  </tr>
+              </thead>
+
+              <tbody>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td colspan="7" style="color: red">no records found</td>
+                  </tr>
+              </tbody>
+          </table> -->
+        </div>
+
+    </div>
+
+{% endblock %}
