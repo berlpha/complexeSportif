@@ -1,41 +1,84 @@
 {% extends 'coach.html.twig' %}
 
-{% block title %} Liste des inscrits {% endblock %}
+{% block title %}{% trans %}List of my activities{% endtrans %}{% endblock %}
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: 10em; margin-top: auto">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
 
-        <h3 style="text-align: center; color: red; background-color: black">Liste des membres inscrits aux cours</h3><br><br>
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of participants in my lessons{% endtrans %}</h3>
+        <br><br>
+        {% if user != null %}
 
         <div class="responsive">
-            <p> {{ coach.firstName }} {{ coach.name }}</p>
             <div class="accordion" id="accordionExample">
-                {% for lesson in coach.lessons %}
+                {% for lesson in user.lessons %}
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    {{lesson.name}}
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    {{ lesson.name }}
                                 </button>
                             </h2>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                             data-parent="#accordionExample">
                             <div class="card-body">
-                                <table>
-                                    {% for membre in lesson.subscriptions %}
-                                        {{ membre.firstName }}
-                                        {{ member.name }}
-                                    {%  endfor %}
+                                <table class="table table-striped table-sm">
+                                    <thead style="color: blue">
+                                    <tr>
+                                        <th>{% trans %}Start{% endtrans %}</th>
+                                        <th>{% trans %}End{% endtrans %}</th>
+                                        <th>{% trans %}Hall/Field{% endtrans %}</th>
+                                        <th>{% trans %}Registrants{% endtrans %}</th>
+                                        <th>{% trans %}Participants{% endtrans %}</th>
+                                    </tr>
+                                    </thead>
+                                    {% for booking in lesson.bookings %}
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ booking.beginAt | date('Y-m-d H:i') }}</td>
+                                            <td>{{ booking.endAt | date('Y-m-d H:i') }}</td>
+                                            <td>
+                                                {% if booking.field is null %}
+                                                    {{ booking.hall }}
+                                                {% else %}
+                                                    {{ booking.field }}
+                                                {% endif %}
+                                            </td>
+                                            <td><a href="{{ path('app_listeInscrits') }}"><u style="color: black">{% trans %}list of registrants{% endtrans %}</u></a></td>
+                                            <td><a href="{{ path('app_listeParticipants', {'id' : lesson.id}) }}"><u style="color: black">{% trans %}list of participants{% endtrans %}</u></a></td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
                                 </table>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-
         </div>
+        {% else %}
+            <p><strong><em style="color: blue">{% trans %}Sorry, you don't have any lessons yet!{% endtrans %}</em></strong></p>
+        {% endif %}
 
     </div>
 

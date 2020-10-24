@@ -24,26 +24,27 @@ class Member extends User
     private $nursery;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Subscription", inversedBy="member")
-     */
-    private $subscription;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Booking::class, mappedBy="Member")
      */
     private $bookings;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Subscription::class, mappedBy="member")
+     */
+    private $subscriptions;
 
     public function __construct()
     {
         parent::__construct();
         $this->nursery = new ArrayCollection();
         $this->bookings = new ArrayCollection();
+        $this->subscriptions = new ArrayCollection();
     }
 
-    /*public function getId(): ?int
-    {
-        return $this->id;
-    }*/
+//    public function getId(): ?int
+//    {
+//        return $this->id;
+//    }
 
     /**
      * @return Collection|Nursery[]
@@ -71,18 +72,6 @@ class Member extends User
         return $this;
     }
 
-    public function getSubscription(): ?Subscription
-    {
-        return $this->subscription;
-    }
-
-    public function setSubscription(?Subscription $subscription): self
-    {
-        $this->subscription = $subscription;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Booking[]
      */
@@ -106,6 +95,42 @@ class Member extends User
         if ($this->bookings->contains($booking)) {
             $this->bookings->removeElement($booking);
             $booking->removeMember($this);
+        }
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return parent::getUsername();
+    }
+
+    /**
+     * @return Collection|Subscription[]
+     */
+    public function getSubscriptions(): Collection
+    {
+        return $this->subscriptions;
+    }
+
+    public function addSubscription(Subscription $subscription): self
+    {
+        if (!$this->subscriptions->contains($subscription)) {
+            $this->subscriptions[] = $subscription;
+            $subscription->setMember($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubscription(Subscription $subscription): self
+    {
+        if ($this->subscriptions->contains($subscription)) {
+            $this->subscriptions->removeElement($subscription);
+            // set the owning side to null (unless already changed)
+            if ($subscription->getMember() === $this) {
+                $subscription->setMember(null);
+            }
         }
 
         return $this;

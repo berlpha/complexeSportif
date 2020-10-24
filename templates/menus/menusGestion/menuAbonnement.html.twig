@@ -4,12 +4,12 @@
 
 {% block body %}
     <div class="container">
-        <h2 style="text-align: center; color: blue">Toutes les formules d'abonnement de chez AS-Molenbeekoise</h2>
-        <p style="text-align: center; color: red">Veuillez cliquer sur le sport pour visualiser ces différents prix.</p>
+        <h2 style="text-align: center; color: blue">{% trans %}All susbscription packages from AS-Molenbeekoise{% endtrans %}</h2>
+        <p style="text-align: center; color: red">{% trans %}Please click on the sport to view these different prices{% endtrans %}</p>
         <ul style="text-align: center">
-            <ol><strong><em style="color: blue">Enfant</em></strong> une fois par semaine pour les moins de 14</ol>
-            <ol><strong><em style="color: blue">Basic</em></strong> une fois par semaine</ol>
-            <ol><strong><em style="color: blue">VIP</em></strong> plusieurs fois par semaine</ol>
+            <ol><strong><em style="color: blue">{% trans %}Child{% endtrans %}</em></strong> {% trans %}once a week for children under 14{% endtrans %}</ol>
+            <ol><strong><em style="color: blue">{% trans %}Basic{% endtrans %}</em></strong> {% trans %}once a week{% endtrans %}</ol>
+            <ol><strong><em style="color: blue">{% trans %}VIP{% endtrans %}</em></strong> {% trans %}several times a week{% endtrans %}</ol>
         </ul>
     </div>
 
@@ -18,34 +18,34 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav my-2 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'athletisme'}) }}"><strong><em>Athlétisme</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'athletisme'}) }}"><strong><em>{% trans %}Athletics{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'basketball'}) }}"><strong><em>Basket-ball</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'basket-ball'}) }}"><strong><em>{% trans %}Basketball{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'boxe'}) }}"><strong><em>Boxe</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'boxe'}) }}"><strong><em>{% trans %}Boxing{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'fitness'}) }}"><strong><em>Fitness</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'cours de fitness'}) }}"><strong><em>{% trans %}Fitness{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'football'}) }}"><strong><em>Football</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'foot-ball'}) }}"><strong><em>{% trans %}Football{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'footsal'}) }}"><strong><em>Foot-salle</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'foot-salle'}) }}"><strong><em>{% trans %}Futsal{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'karate'}) }}"><strong><em>Karaté</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'karaté'}) }}"><strong><em>{% trans %}Karate{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'natation'}) }}"><strong><em>Natation</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'natation'}) }}"><strong><em>{% trans %}Swimming{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'tennis'}) }}"><strong><em>Tennis</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'tennis'}) }}"><strong><em>{% trans %}Tennis{% endtrans %}</em></strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'zumba'}) }}"><strong><em>Zumba</em></strong></a>
+                        <a class="nav-link" href="{{ path('app_offre', {'sport': 'zumba'}) }}"><strong><em>{% trans %}Zumba{% endtrans %}</em></strong></a>
                     </li>
                 </ul>
             </div>

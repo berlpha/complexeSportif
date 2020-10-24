@@ -4,38 +4,21 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: 0em; margin-top: auto">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
 
-        {% for message in app.flashes('message') %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('warning') %}
-            <div class="alert alert-warning" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('danger') %}
-            <div class="alert alert-danger" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-
-        <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of participants in my lessons{% endtrans %}</h3>
+        <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of registrants in this lesson{% endtrans %}</h3>
         <br><br>
-        {% if lesson != null %}
+        {% if user != null %}
 
             <div class="responsive">
                 <div class="accordion" id="accordionExample">
-                    <b style="color: blueviolet"> {% trans %}Lesson name{% endtrans%} : </b> {{ lesson.name | trans }}
                     <div class="card-body">
                         <table class="table table-striped table-sm">
                             <thead style="color: blue">
-                                <tr>
-                                    <th>{% trans %}Firstname{% endtrans %}</th>
-                                    <th>{% trans %}Name{% endtrans %}</th>
-                                </tr>
+                            <tr>
+                                <th>{% trans %}Firstname{% endtrans %}</th>
+                                <th>{% trans %}Name{% endtrans %}</th>
+                            </tr>
                             </thead>
                             {% for booking in lesson.bookings %}
                                 <tbody>
@@ -49,12 +32,10 @@
                             {% endfor %}
                         </table>
                     </div>
-
                 </div>
-            </div><br><br><br>
+            </div>
         {% else %}
             <p><strong><em style="color: blue">{% trans %}Sorry, this lesson has no members yet!{% endtrans %}</em></strong></p>
         {% endif %}
-    </div> <br><br><br><br>
-
+    </div>
 {% endblock %}

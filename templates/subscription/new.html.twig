@@ -1,16 +1,32 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}New Subscription{% endblock %}
+{% block title %}{% trans %}New Subscription{% endtrans %}{% endblock %}
 
 {% block body %}
 
-    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 45em">
+    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 60em">
 
-        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'une inscription</em></h3>
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Create a subscription{% endtrans %}</em></h3><br><br>
 
         {{ include('subscription/_form.html.twig') }}
 
-        <a href="{{ path('subscription_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+        <a href="{{ path('subscription_index') }}"><button class="btn btn-outline-primary btn-sm">{% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
 
     </div><br><br>
 

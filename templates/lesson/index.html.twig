@@ -1,22 +1,22 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Lesson index{% endblock %}
+{% block title %}{% trans %}Lesson index{% endtrans %}{% endblock %}
 
 {% block body %}
 
     <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
 
-            <h3 style="text-align: center; color: red; background-color: black"><em>Liste des cours</em></h3><br><br>
+            <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}List of lessons{% endtrans %}</em></h3><br><br>
             <div class="table-responsive"></div>
                 <table class="table table-striped table-sm">
                 <thead style="color: blue">
                 <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>UrlPicture</th>
-                    <th>actions</th>
+                    <th>{% trans %}Name{% endtrans %}</th>
+                    <th>{% trans %}Type{% endtrans %}</th>
+                    <th>{% trans %}Description{% endtrans %}</th>
+                    <th>{% trans %}Price{% endtrans %}</th>
+                    <th>{% trans %}UrlPicture{% endtrans %}</th>
+                    <th>{% trans %}actions{% endtrans %}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,19 +36,19 @@
                         </div> #}
 
                         <td>
-                            <a href="{{ path('lesson_show', {'id': lesson.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">Afficher</button></a>
-                            <a href="{{ path('lesson_edit', {'id': lesson.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">Éditer</button></a>
+                            <a href="{{ path('lesson_show', {'id': lesson.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">{% trans %}Show{% endtrans %}</button></a>
+                            <a href="{{ path('lesson_edit', {'id': lesson.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">{% trans %}Edit{% endtrans %}</button></a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="7"><em style="color: red">no records found</em></td>
+                        <td colspan="7"><em style="color: red">{% trans %}no records found{% endtrans %}</em></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
 
-            <a href="{{ path('lesson_new') }}"><button class="btn btn-success btn-sm">Créer</button></a><br><br><br><br><br>
+            <a href="{{ path('lesson_new') }}"><button class="btn btn-success btn-sm">{% trans %}Create{% endtrans %}</button></a><br><br><br><br><br>
 
     </div>
 

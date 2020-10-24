@@ -1,45 +1,57 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Subscription{% endblock %}
+{% block title %}{% trans %}Subscription{% endtrans %}{% endblock %}
 
 {% block body %}
 
     <div class="container" style="position: relative; top: 20em; margin-top: auto">
 
-        <h3 style="text-align: center; color: red; background-color: black">L'inscrit</h3><br><br>
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h3 style="text-align: center; color: red; background-color: black">{% trans %}Subscriber{% endtrans %}</h3><br><br>
 
         <table class="table table-striped table-sm">
             <tbody>
                 <tr>
-                    <th style="color: blue">Type</th>
+                    <th style="color: blue">{% trans %}Type{% endtrans %}</th>
                     <td>{{ subscription.type ? subscription.type|join(', ') : '' }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">Description</th>
+                    <th style="color: blue">{% trans %}Description{% endtrans %}</th>
                     <td>{{ subscription.description }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">Price</th>
+                    <th style="color: blue">{% trans %}Price{% endtrans %}</th>
                     <td>{{ subscription.price }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">CreatedAt</th>
+                    <th style="color: blue">{% trans %}CreatedAt{% endtrans %}</th>
                     <td>{{ subscription.createdAt ? subscription.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">UpdatedAt</th>
-                    <td>{{ subscription.updatedAt ? subscription.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                </tr>
-                <tr>
-                    <th style="color: blue">FinishedAt</th>
+                    <th style="color: blue">{% trans %}FinishedAt{% endtrans %}</th>
                     <td>{{ subscription.finishedAt ? subscription.finishedAt|date('Y-m-d H:i:s') : '' }}</td>
                 </tr>
             </tbody>
         </table>
 
-        <a href="{{ path('subscription_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a>
+        <a href="{{ path('subscription_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">{% trans %}Back to list{% endtrans %}</button></a>
 
-        <a href="{{ path('subscription_edit', {'id': subscription.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen">Éditer</button></a><br><br>
+        <a href="{{ path('subscription_edit', {'id': subscription.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen">{% trans %}Edit{% endtrans %}</button></a><br><br>
 
         {{ include('subscription/_delete_form.html.twig') }}<br><br>
 

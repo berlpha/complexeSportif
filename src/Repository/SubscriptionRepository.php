@@ -19,22 +19,21 @@ class SubscriptionRepository extends ServiceEntityRepository
         parent::__construct($registry, Subscription::class);
     }
 
-    // /**
-    //  * @return Subscription[] Returns an array of Subscription objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getSubcription($member, $lesson, $createdAt, $finishedAt)
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+            ->join('s.member', 'm')
+            ->join('s.lesson', 'l')
+            ->where('m = :val')
+            ->andWhere('l = :val1')
+            ->andWhere('(:cdate BETWEEN s.createdAt AND s.finishedAt) OR (:fdate BETWEEN s.createdAt AND s.finishedAt)')
+            ->setParameter(':val', $member)
+            ->setParameter(':val1', $lesson)
+            ->setParameter(':cdate', $createdAt)
+            ->setParameter(':fdate', $finishedAt)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Subscription

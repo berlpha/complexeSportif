@@ -16,15 +16,9 @@
                         </a>
                     </li>
                     <li class="nav-item {% if navig is defined and navig == 'participation' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('app_listeParticipant') }}">
-                            <span data-feather="shopping-cart"></span>
-                            <strong style="color: blue"><em><span class="glyphicon glyphicon-user"></span> {% trans %} List of participants {% endtrans %}</em></strong>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_listeCoachActivities') }}">
                             <span data-feather="shopping-cart"></span>
-                            <strong style="color: blue"><em><span class="glyphicon glyphicon-tasks"></span> {% trans %} My activities {% endtrans %}</em></strong>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-user"></span> {% trans %} List of my activities {% endtrans %}</em></strong>
                         </a>
                     </li>
                     <li class="nav-item {% if navig is defined and navig == 'comment' %}active{% endif %}">

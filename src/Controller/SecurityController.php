@@ -4,10 +4,14 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ChangePasswordType;
+use App\Form\ContactType;
 use App\Form\EditProfilType;
+use App\Form\ForgottenPasswordType;
 use App\Form\ForgottePasswordType;
 use App\Form\ProfilType;
 use App\Form\RegistrationType;
+use App\Form\ResetPasswordType;
+use App\Repository\ClubRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -68,8 +72,9 @@ class SecurityController extends AbstractController
     {
         $user = new User();
 
+        $bouton = $this->translator->trans('Register');
        $form = $this->createForm(RegistrationType::class, $user)
-       ->add('Enregistrer', SubmitType::class, [
+       ->add($bouton, SubmitType::class, [
             'attr' => [
                 'class' => 'btn btn-primary btn-block'
             ]
@@ -107,11 +112,11 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/forgotten_password", name="app_forgottenPassword")
+     * @Route("/forgottenPassword", name="app_forgottenPassword")
      */
-    public function forgottenPassword(Request $request, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator)
+    public function forgotten_password(Request $request, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator)
     {
-        /* $form = $this->createForm(ForgottePasswordType::class);
+        $form = $this->createForm(ForgottenPasswordType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
@@ -121,9 +126,10 @@ class SecurityController extends AbstractController
             $user = $this->emi->getRepository(UserRepository::class)->findOneBy($donnees['email']);
             if(!$user)
             {
-                $this->addFlash('danger', 'Cet email n\'existe pas');
+                $message = $this->translator->trans("This email doesn't exist.");
+                $this->addFlash('danger', $message);
 
-                $this->redirectToRoute('app_login');
+                return $this->redirectToRoute('app_login');
             }
             // Je génère un token
             $token = $tokenGenerator->generateToken();
@@ -132,13 +138,15 @@ class SecurityController extends AbstractController
                 $user->setResetToken($token);
             } catch (\Exception $exception)
             {
-                $this->addFlash('warning', 'Une erreur est survenue : '.$exception->getMessage());
+                $message = $this->translator->trans("An error has occurred");
+                $this->addFlash('warning', $message.$exception->getMessage());
                 return $this->redirectToRoute('app_login');
             }
             // Je génère l'url de réinitialisation de mot de passe
             $url = $this->generateUrl('app_resetPassword', ['token' => $token]);
             // Ensuite je vais envoyer le message
-            $message = (new \Swift_Message('Mot de passe oublié'))
+            $mes = $this->translator->trans("Forgot your password");
+            $message = (new \Swift_Message($mes))
                 ->setFrom('beralpha08@yahoo.fr')
                 ->setTo($user->getEmail())
                 ->setBody(
@@ -151,11 +159,11 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
         return $this->render('security/forgotten_password.html.twig', [
-            'emailForm' => $form->createView()
-        ]); */
+            'emailForm' => $form->createView(),
+        ]);
 
 
-        if($request->isMethod('POST'))
+        /*if($request->isMethod('POST'))
         {
             $email = $request->request-$this->get('email');
 
@@ -174,7 +182,9 @@ class SecurityController extends AbstractController
             try
             {
                 $user->setResetToken($token);
+                $this->emi->persist($user);
                 $this->emi->flush();
+                return $this->redirectToRoute('app_home');
             }
             catch (\Exception $e)
             {
@@ -184,10 +194,11 @@ class SecurityController extends AbstractController
 
             $url = $this->generateUrl('app_reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
+            $messag = $this->translator->trans("Click on this link to reset your password!");
             $message = (new \Swift_Message('Forgot password'))
                 ->setFrom('beralpha08@yahoo.fr')
                 ->setTo($user->getEmailAddress())
-                ->setBody("Cliquez sur ce lien pour reseter votre mot de passe : " .$url, 'text/html');
+                ->setBody($messag .$url, 'text/html');
 
             $mailer->send($message);
 
@@ -197,7 +208,7 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->render('security/forgotten_password.html.twig');
+        return $this->render('security/forgotten_password.html.twig');*/
     }
 
     /**
@@ -218,7 +229,7 @@ class SecurityController extends AbstractController
 
             //$oldPassword = $request->request->get('etiquettebundle_user')['oldPassword'];
             //$oldPassword = $form['oldPassword']  $request->request->get('name');
-            $data= $form->getData();
+            //$data= $form->getData();
             // Si l'ancien mot de passe est bon
 
             if /*($encoder->isPasswordValid($user, $oldPassword))*/ ($user->getPassword() === $encoder->encodePassword($user, $request->request->get('oldPassword'))) {
@@ -252,14 +263,17 @@ class SecurityController extends AbstractController
 
         $user = $this->getUser();
 
+        $bouton = $this->translator->trans('Modify');
+
         $form = $this->createForm(EditProfilType::class, $user)
-            ->add('Modifier', SubmitType::class, [
+            ->add($bouton, SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary btn-block'
                 ]
             ]);
 
-        $oldhashpwd = $this->getUser()->getPassword();
+        //$oldhashpwd = $this->getUser()->getPassword();
+        $oldhashpwd = $user->getPassword();
 
         $form->handleRequest($request);
 
@@ -366,8 +380,9 @@ class SecurityController extends AbstractController
 
         if (!$user)
         {
+            $message = $this->translator->trans("This user doesn't exist in this database.");
             //Erreur 404
-            throw $this->createNotFoundException('Cet utilisateur n\'existe pas dans cette base de données');
+            throw $this->createNotFoundException();
         }
         // Suppression de token
         $user->setActivateToken(null);
@@ -386,8 +401,10 @@ class SecurityController extends AbstractController
     {
         $user = $this->getUser();
 
+        $bouton = $this->translator->trans('Modify');
+
         $form = $this->createForm(ProfilType::class, $user)
-        ->add('Modifier', SubmitType::class, [
+        ->add($bouton, SubmitType::class, [
             'attr' => [
                 'class' => 'btn btn-primary btn-block'
             ]
@@ -435,6 +452,50 @@ class SecurityController extends AbstractController
         }
 
         return $this->render('security/modify_password.html.twig');
+    }
+
+    /**
+     * @Route("/sendMessage", name="app_sendMessage")
+     */
+    public function sendMessage(Request $request, \Swift_Mailer $mailer, ClubRepository $clubRepository)
+    {
+        $form = $this->createForm(ContactType::class);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $contact = $form->getData();
+            //dd($contact);
+            // Envoi d'e-mail
+            $mes = $this->translator->trans("New message");
+            $message = (new \Swift_Message($mes))
+                // Je vais attribuer un expéditeur
+                ->setFrom($contact['email'])
+                // Je vais attribuer un destinateur
+                ->setTo('beralpha08@yahoo.fr')
+                // Je vais créer le message
+                ->setBody(
+                    $this->renderView(
+                        'home/emailSender.html.twig', compact('contact')
+                    ),
+                    'text/html'
+                )
+            ;
+            // je vais envoyer le message
+            $mailer->send($message);
+
+            $mess = $this->translator->trans('The message has been sent');
+            $this->addFlash('message', $mess);
+
+            return $this->redirectToRoute('app_home');
+
+        }
+        $clubs = $clubRepository->findAll();
+        return $this->render('home/contact.html.twig', [
+            'form' => $form->createView(),
+            'clubs' => $clubs,
+        ]);
     }
 
 }

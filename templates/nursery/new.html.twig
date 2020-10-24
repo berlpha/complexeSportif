@@ -6,17 +6,17 @@
 
 {% extends page %}
 
-{% block title %}New Nursery{% endblock %}
+{% block title %}{% trans %}New Nursery{% endtrans %}{% endblock %}
 
 {% block body %}
 
-    <div class="container navbar-fixed-top"  style="position: relative; top: 32em">
+    <div class="container navbar-fixed-top"  style="position: relative; top: 45em">
 
-        <h3  style="text-align: center; color: red; background-color: black">Create new Nursery</h3><br><br>
+        <h3  style="text-align: center; color: red; background-color: black">{% trans %}Create new Nursery{% endtrans %}</h3><br><br>
 
         {{ include('nursery/_form.html.twig') }}<br>
 
-        <a href="{{ path('nursery_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+        <a href="{{ path('nursery_index') }}"><button class="btn btn-outline-primary btn-sm">{% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
 
     </div><br><br>
 {% endblock %}

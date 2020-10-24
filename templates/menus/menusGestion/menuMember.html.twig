@@ -18,17 +18,17 @@
                     <li class="nav-item {% if navig is defined and navig == 'reserver' %}active{% endif %}">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
-                            <strong style="color: blue"><em><span class="glyphicon glyphicon-calendar"></span> {% trans %}Reserve {% endtrans %}</em></strong>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-calendar"></span> {% trans %}To rent {% endtrans %}</em></strong>
                         </a>
                     </li>
                     <li class="nav-item {% if navig is defined and navig == 'participation' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('app_memberParticipate') }}">
+                        <a class="nav-link" href="{{ path('app_memberLessons') }}">
                             <span data-feather="shopping-cart"></span>
-                            <strong style="color: blue"><em><span class="glyphicon glyphicon-ok"></span> {% trans %}Participate {% endtrans %}</em></strong>
+                            <strong style="color: blue"><em><span class="glyphicon glyphicon-ok"></span> {% trans %}My lessons {% endtrans %}</em></strong>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('nursery_new') }}">
+                        <a class="nav-link" href="#">
                             <span data-feather="shopping-cart"></span>
                             <strong style="color: blue"><em><span class="glyphicon glyphicon-film"></span> {% trans %}Nursery {% endtrans %}</em></strong>
                         </a>

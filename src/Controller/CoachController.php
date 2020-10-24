@@ -7,6 +7,8 @@ use App\Entity\Lesson;
 use App\Form\CoachType;
 use App\Repository\CoachRepository;
 use App\Repository\LessonRepository;
+use App\Repository\MemberRepository;
+use App\Repository\SubscriptionRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -98,29 +100,38 @@ class CoachController extends AbstractController
     }
 
     /**
-     * @Route("/coach/participant", name="app_listeParticipant")
+     * @Route("/coach/listeActivities", name="app_listeCoachActivities")
      */
-    public function listeParticipant(Lesson $lesson, UserRepository $userRepository)
+    public function listeCoachActivities(CoachRepository $coachRepository)
     {
 
-        $user = ''; // user connected
-        return $this->render('coach/listeParticipant.html.twig', [
+        $user = $coachRepository->findOneBy(['username' => $this->getUser()->getUsername()]);
+        return $this->render('coach/listeCoachActivities.html.twig', [
             'user' => $user
         ]);
     }
 
     /**
-     * @Route("/coach/listeActivities", name="app_listeCoachActivities")
+     * @Route("/coach/listeInscrits", name="app_listeInscrits")
      */
-    public function listeCoachActivities($id, UserRepository $userRepository)
+    public function ListeInscrit(SubscriptionRepository $subscriptionRepository)
     {
-        /*$user = $userRepository->findOneBy(['id' => $id]);
+        $subscribers = $subscriptionRepository->findOneBy(['lesson' => $this->getUser()->getUsername()]);
 
-        $lessons = $user->getLessons();*/
+        return $this->render('subscription/listeAbonnes.html.twig', [
+            'subscribers' => $subscribers,
+        ]);
+    }
 
-        return $this->render('coach/listeCoachActivities.html.twig'/*, [
-            'user' => $user,
-            'lessons' => $lessons,
-        ]*/);
+    /**
+     * @Route("/coach/listeParticipants/{id}", name="app_listeParticipants")
+     */
+    public function listePaticipant(LessonRepository $lessonRepository, $id)
+    {
+        $lesson = $lessonRepository->findOneBy(['id' => $id]);
+
+        return $this->render('coach/listeParticipant.html.twig', [
+            'lesson' => $lesson,
+        ]);
     }
 }

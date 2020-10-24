@@ -80,14 +80,12 @@ class BookingType extends AbstractType
             ->add('hall', EntityType::class, [
                 'class' => Hall::class,
                 'multiple' => false,
-                'required' => false,
-                'empty_data' => 'Choisir une salle'
+                'required' => false
             ])
             ->add('field', EntityType::class, [
                 'class' => Field::class,
                 'multiple' => false,
-                'required' => false,
-                'empty_data' => 'Choisir un terrain'
+                'required' => false
             ])
             ->add('lesson', EntityType::class, [
                 'class' => Lesson::class,

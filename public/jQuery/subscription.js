@@ -21,15 +21,15 @@ $(function(){
 
                 var subprice = p;
 
-                if(duration == 'durationThreeMonth')
+                if(duration == '3')
                 {
                     subprice = p * 3;
                 }
-                else if (duration == 'durationSixMonth')
+                else if (duration == '6')
                 {
                     subprice = p * 6 - (p / 2);
                 }
-                else if( duration == 'durationOneYear')
+                else if( duration == '12')
                 {
                     subprice = p * 11;
                 }
@@ -49,6 +49,7 @@ $(function(){
     });
 
     $("input[id^='sport']").change(function(){
+
         // alert($(this).val());
         // alert($(this).is(':checked'));
         calculate_price();

@@ -1,0 +1,147 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} {% trans %} Subscription form{% endtrans %} {% endblock %}
+
+{% block body %}
+
+    <div class="container navbar-fixed-top" style="position: absolute; top: -12em; margin-top: auto"><br><br>
+        <form method="POST">
+            <h3 style="text-align: center; color: red; background-color: black">
+                <em>{% trans %} Member subscription{% endtrans %}</em></h3><br>
+            <div>
+                <div class="form-group">
+                    <label for="member"><strong style="color: blue">{% trans %}Member{% endtrans %}</strong></label>
+                    <div class="custom-control">
+                        <select class="form-control" name="member" required>
+                            <option selected value="">{% trans %}Add member{% endtrans %}</option>
+                            {% for user in users %}
+                                <option value="{{ user.id }}">{{ user.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subscription"><strong
+                                style="color: blue">{% trans %}Subscription type{% endtrans %}</strong></label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="typeBasic" name="customRadio" class="custom-control-input" value="Basic"
+                               checked="">
+                        <label class="custom-control-label" for="typeBasic">{% trans %} Basic{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="typeEnfant" name="customRadio" class="custom-control-input"
+                               value="Enfant">
+                        <label class="custom-control-label" for="typeEnfant">{% trans %} Child{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="typeVIP" name="customRadio" class="custom-control-input" value="VIP">
+                        <label class="custom-control-label" for="typeVIP">{% trans %} VIP{% endtrans %}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sport"><strong
+                                style="color: blue">{% trans %}Sports lists{% endtrans %}</strong></label>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportZumba" value="1"
+                               data-price="{{ lessons.Zumba }}">
+                        <label class="custom-control-label" for="sportZumba">{% trans %} Zumba{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportKarate" value="4"
+                               data-price="{{ attribute(lessons, 'Karaté') }}">
+                        <label class="custom-control-label" for="sportKarate">{% trans %} Karate{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportSoccer" value="7"
+                               data-price="{{ attribute(lessons, 'Foot-ball') }}">
+                        <label class="custom-control-label" for="sportSoccer">{% trans %} Soccer{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportTennis" value="8"
+                               data-price="{{ lessons.Tennis }}">
+                        <label class="custom-control-label" for="sportTennis">{% trans %} Tennis{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportAthletics" value="6"
+                               data-price="{{ attribute(lessons, 'Athlétisme') }}">
+                        <label class="custom-control-label"
+                               for="sportAthletics">{% trans %} Athletics{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportBasketball" value="9"
+                               data-price="{{ attribute(lessons, 'Basket-ball') }}">
+                        <label class="custom-control-label"
+                               for="sportBasketball">{% trans %} Basketball{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportFitness" value="3"
+                               data-price="{{ attribute(lessons, 'Cours de fitness') }}">
+                        <label class="custom-control-label" for="sportFitness">{% trans %} Fitness{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportSwimming" value="2"
+                               data-price="{{ lessons.Natation }}">
+                        <label class="custom-control-label"
+                               for="sportSwimming">{% trans %} Swimming{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportBoxing" value="5"
+                               data-price="{{ lessons.Boxe }}">
+                        <label class="custom-control-label" for="sportBoxing">{% trans %} Boxing{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="sport[]" class="custom-control-input" id="sportFutsal" value="10"
+                               data-price="{{ attribute(lessons, 'Foot-salle') }}">
+                        <label class="custom-control-label" for="sportFutsal">{% trans %} Futsal{% endtrans %}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="duration"><strong style="color: blue">{% trans %}Duration{% endtrans %}</strong></label>
+                    <div class="custom-control custom-radiod">
+                        <input type="radio" id="durationOneMonth" name="customRadiod" class="custom-control-input"
+                               value="1" checked="">
+                        <label class="custom-control-label"
+                               for="durationOneMonth">{% trans %} 1 month{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-radiod">
+                        <input type="radio" id="durationThreeMonth" name="customRadiod" class="custom-control-input"
+                               value="3">
+                        <label class="custom-control-label"
+                               for="durationThreeMonth">{% trans %} 3 months{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-radiod">
+                        <input type="radio" id="durationSixMonth" name="customRadiod" class="custom-control-input"
+                               value="6">
+                        <label class="custom-control-label"
+                               for="durationSixMonth">{% trans %} 6 months{% endtrans %}</label>
+                    </div>
+                    <div class="custom-control custom-radiod">
+                        <input type="radio" id="durationOneYear" name="customRadiod" class="custom-control-input"
+                               value="12">
+                        <label class="custom-control-label"
+                               for="durationOneYear">{% trans %} 1 year{% endtrans %}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="text" id="price" class="form-control" disabled
+                               aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="submit" value="Validate" />
+                </div>
+                <br><br>
+            </div>
+        </form>
+    </div><br><br>
+
+{% endblock %}
+

@@ -41,12 +41,16 @@
 {#                {% else %}#}
 {#                not connected#}
 {#            {%  endif %}#}
-            {%  if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}"><strong><em>{% trans %}Logout{% endtrans %}</em></strong></a>
+                </li>
+            {%  else  %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_register') }}"><strong><em>{% trans %} Register {% endtrans %}</em></strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_login') }}"><strong><em>{% trans %} identify {% endtrans %}</em></strong></a>
+                    <a class="nav-link" href="{{ path('app_login') }}"><strong><em>{% trans %} Identify {% endtrans %}</em></strong></a>
                 </li>
             {%  endif %}
         </ul>

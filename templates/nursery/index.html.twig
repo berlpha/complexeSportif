@@ -1,20 +1,20 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Nursery index{% endblock %}
+{% block title %}{% trans %}Nursery index{% endtrans %}{% endblock %}
 
 {% block body %}
     <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
 
-        <h3 style="text-align: center; color: red; background-color: black"><em>Liste des enfants à la garderie</em></h3><br><br>
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}List of children at daycare{% endtrans %}</em></h3><br><br>
         <div class="table-responsive">
             <table class="table table-striped table-sm">
                 <thead style="color: blue">
                     <tr>
-                        <th>Name of child</th>
-                        <th>First name of child</th>
-                        <th>Date of custody</th>
-                        <th>Total price</th>
-                        <th>actions</th>
+                        <th>{% trans %}Name of child{% endtrans %}</th>
+                        <th>{% trans %}First name of child{% endtrans %}</th>
+                        <th>{% trans %}Date of custody{% endtrans %}</th>
+                        <th>{% trans %}Total price{% endtrans %}</th>
+                        <th>{% trans %}actions{% endtrans %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,20 +25,20 @@
                         <td>{{ nursery.dateCustody ? nursery.dateCustody|date('Y-m-d H:i:s') : ''  }}</td>
                         <td>{{ nursery.totalPrice }}</td>
                         <td>
-                            <a href="{{ path('nursery_show', {'id': nursery.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"> Afficher</span></button></a>
-                            <a href="{{ path('nursery_edit', {'id': nursery.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"> Éditer</span></button></a>
+                            <a href="{{ path('nursery_show', {'id': nursery.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"> {% trans %}Show{% endtrans %}</span></button></a>
+                            <a href="{{ path('nursery_edit', {'id': nursery.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"> {% trans %}Edit{% endtrans %}</span></button></a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="6"><em style="color: red">no records found</em></td>
+                        <td colspan="6"><em style="color: red">{% trans %}no records found{% endtrans %}</em></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
 
-        <a href="{{ path('nursery_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"> Créer</span></button></a><br><br><br><br><br><br>
+        <a href="{{ path('nursery_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign">{% trans %}Create{% endtrans %}</span></button></a><br><br><br><br><br><br>
 
     </div>
 {% endblock %}

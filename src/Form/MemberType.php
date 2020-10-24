@@ -32,6 +32,7 @@ class MemberType extends AbstractType
             ->add('nursery')
             ->add('booking')
             ->add('user')
+            ->add('numberSubscription')
         ;
     }
 

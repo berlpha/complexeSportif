@@ -3,25 +3,25 @@
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Durée</th>
-                <th scope="col">1 mois</th>
-                <th scope="col">3 mois</th>
-                <th scope="col">6 mois</th>
-                <th scope="col">1 an</th>
+                <th scope="col">{% trans %}Duration{% endtrans %}</th>
+                <th scope="col">{% trans %}1 month{% endtrans %}</th>
+                <th scope="col">{% trans %}3 months{% endtrans %}</th>
+                <th scope="col">{% trans %}6 months{% endtrans %}</th>
+                <th scope="col">{% trans %}1 year{% endtrans %}</th>
             </tr>
             </thead>
             <tbody>
             {% set p = price %}
                 <tr>
                     {% set pe = p - (p * 15/100) %}
-                    <th scope="row">Enfant</th>
+                    <th scope="row">{% trans %}Child{% endtrans %}</th>
                     <td>{{ pe }}</td>
                     <td>{{ pe * 3 }}</td>
                     <td>{{ pe * 6 - (pe / 2) }}</td>
                     <td>{{ pe * 11 }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Basic</th>
+                    <th scope="row">{% trans %}Basic{% endtrans %}</th>
                     <td>{{ p }}</td>
                     <td>{{ p * 3 }}</td>
                     <td>{{ p * 6 - (p / 2) }}</td>
@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     {% set pv = p * 1.25 %}
-                    <th scope="row">VIP</th>
+                    <th scope="row">{% trans %}VIP{% endtrans %}</th>
                     <td>{{ pv }}</td>
                     <td>{{ pv * 3 }}</td>
                     <td>{{ pv * 6 - (pv / 2) }}</td>

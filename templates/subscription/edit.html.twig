@@ -1,16 +1,32 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Edit Subscription{% endblock %}
+{% block title %}{% trans %}Edit Subscription{% endtrans %}{% endblock %}
 
 {% block body %}
 
     <div class="container" style="position: relative; top: 105em">
 
-        <h3 style="text-align: center; color: red; background-color: black"><strong><em>Éditer un inscrit</em></strong></h3><br>
+        {% for message in app.flashes('message') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
 
-        {{ include('subscription/_form.html.twig', {'button_label': 'Sauver'}) }}
+        <h3 style="text-align: center; color: red; background-color: black"><strong><em>{% trans %}Edit a subscriber{% endtrans %}</em></strong></h3><br>
 
-        <a href="{{ path('subscription_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a>
+        {{ include('subscription/_form.html.twig', {'button_label': 'Save'|trans}) }}
+
+        <a href="{{ path('subscription_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">{% trans %}Back to list{% endtrans %}</button></a>
 
         {{ include('subscription/_delete_form.html.twig') }}
 

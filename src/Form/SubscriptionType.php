@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Lesson;
+use App\Entity\Member;
 use App\Entity\Subscription;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -17,6 +18,10 @@ class SubscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+//            ->add('member', EntityType::class, [
+//                'class' => Member::class,
+//                'required' => true,
+//            ])
             ->add('type', ChoiceType::class, [
                 'label' => 'Type',
                 'required' => true,
@@ -30,6 +35,7 @@ class SubscriptionType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
+                'required' => false,
                 'attr' => [
                     'class' => 'uk-textarea',
                     'row' => '5',
@@ -49,14 +55,15 @@ class SubscriptionType extends AbstractType
                 'expanded' => true,
                 'choices' => [
                     '1 month' => new \DateTime('+1 month'),
-                    '3 month' => new \DateTime('+3 month'),
-                    '6 month' => new \DateTime('+6 month'),
+                    '3 months' => new \DateTime('+3 month'),
+                    '6 months' => new \DateTime('+6 month'),
                     '1 year' => new \DateTime('+12 month')
                 ],
             ])
             ->add('lesson', EntityType::class, [
                 'class' => Lesson::class,
                 'multiple' => true,
+                'expanded' => true,
             ])
         ;
     }

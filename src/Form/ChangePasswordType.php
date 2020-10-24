@@ -9,11 +9,21 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ChangePasswordType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $bouton = $this->translator->trans('Validate');
+
         $builder
             ->add('oldPassword', PasswordType::class, array(
                 'mapped' => false
@@ -29,7 +39,7 @@ class ChangePasswordType extends AbstractType
                 ),
                 'required' => true,
             ))
-            ->add('Valider', SubmitType::class, array(
+            ->add($bouton, SubmitType::class, array(
                 'attr' => array(
                     'class' => 'btn btn-primary btn-block'
                 )

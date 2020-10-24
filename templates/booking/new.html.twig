@@ -5,11 +5,11 @@
 {% block body %}
 
     <div class="table-responsive navbar-fixed-top"  style="position: absolute; top: -10em; margin-top: auto">
-        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'une réservation</em></h3><br><br>
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Creation of a reservation{% endtrans %}</em></h3><br><br>
 
         {{ include('booking/_form.html.twig') }}
 
-        <a href="{{ path('booking_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+        <a href="{{ path('booking_index') }}"><button class="btn btn-outline-primary btn-sm">{% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
     </div><br><br>
 
 {% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'member.html.twig' %}
+
+{% block body %}
+
+    <div class="container" style="position: absolute; top: -15em; margin-top: auto"><br><br>
+        <h3 style="text-align: center; color: black; background-color: blueviolet">{% trans %}My lessons{% endtrans %}</h3><br><br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        {# membre.name #}
+                        <thead style="color: blue">
+                            <tr>
+                                <th>{% trans %}Username{% endtrans %}</th>
+                                <th>{% trans %}Names of coaches{% endtrans %}</th>
+                                <th>{% trans %}Locations{% endtrans %}</th>
+                                <th>{% trans %}Start{% endtrans %}</th>
+                                <th>{% trans %}End{% endtrans %}</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for lesson in subscription.lesson %}
+                            <tr>
+                                <td>{{ lesson.member }}</td>
+                                <td>{{ lesson.coach }}</td>
+
+                                {% for bookink in lesson.bookings %}
+                                    <td>
+                                        {% if booking.field is null %}
+                                            {{ booking.hall }}
+                                        {% else %}
+                                            {{ booking.field }}
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ booking.beginAt | date('Y-m-d h:i') }}</td>
+                                    <td>{{ booking.endAt | date('Y-m-d h:i') }}</td>
+                                {% endfor %}
+                                <td>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                        <label class="custom-control-label" for="customSwitch1"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p><strong><em style="color: blue">{% trans %}Sorry, your subscription isn't longer valid!{% endtrans %}</em></strong></p>
+            {% endif %}
+{#        {% endfor %}#}
+    </div>
+
+{% endblock %}

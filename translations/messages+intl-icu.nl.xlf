@@ -81,10 +81,6 @@
         <source>Register</source>
         <target>Registreren</target>
       </trans-unit>
-      <trans-unit id="D3gLXHN" resname="identify">
-        <source>identify</source>
-        <target>Identificeren</target>
-      </trans-unit>
       <trans-unit id="yb6gN14" resname="You will find your happiness in this sports complex for all ages!!!">
         <source>You will find your happiness in this sports complex for all ages!!!</source>
         <target>U geluk vindt u in dit sportcomplex voor alle leeftijden!!!</target>
@@ -135,7 +131,7 @@
       </trans-unit>
       <trans-unit id="0FJ_Sz1" resname="Logout">
         <source>Logout</source>
-        <target>Uitloggen</target>
+        <target>Afmelden</target>
       </trans-unit>
       <trans-unit id="NNQYn1i" resname="Subscription form">
         <source>Subscription form</source>
@@ -311,7 +307,7 @@
       </trans-unit>
       <trans-unit id="vTL2ztt" resname="Rooms">
         <source>Rooms</source>
-        <target>Kamers</target>
+        <target>Zalen</target>
       </trans-unit>
       <trans-unit id="9F.B39y" resname="Field">
         <source>Field</source>
@@ -387,7 +383,7 @@
       </trans-unit>
       <trans-unit id="nWMiwfT" resname="Login">
         <source>Login</source>
-        <target>Login</target>
+        <target>Aanmelden</target>
       </trans-unit>
       <trans-unit id="i9i8Rdn" resname="I want to">
         <source>I want to</source>
@@ -440,6 +436,486 @@
       <trans-unit id="cjdBkBI" resname="Registration form">
         <source>Registration form</source>
         <target>Aanmeldingsformulier</target>
+      </trans-unit>
+      <trans-unit id="NJZikJg" resname="My lessons">
+        <source>My lessons</source>
+        <target>Mijn lessen</target>
+      </trans-unit>
+      <trans-unit id="2rhi.VO" resname="All susbscription packages from AS-Molenbeekoise">
+        <source>All susbscription packages from AS-Molenbeekoise</source>
+        <target>Alle abonnementsformules van AS-Molenbeekoise</target>
+      </trans-unit>
+      <trans-unit id="Pa8wYE8" resname="Please click on the sport to view these different prices">
+        <source>Please click on the sport to view these different prices</source>
+        <target>Klik op de sport om deze verschillende prijzen te zien</target>
+      </trans-unit>
+      <trans-unit id="jIneKzJ" resname="once a week for children under 14">
+        <source>once a week for children under 14</source>
+        <target>één keer per week voor kinderen onder de 14 jaar</target>
+      </trans-unit>
+      <trans-unit id="H94hap3" resname="once a week">
+        <source>once a week</source>
+        <target>één keer per week</target>
+      </trans-unit>
+      <trans-unit id="SBziDw3" resname="several times a week">
+        <source>several times a week</source>
+        <target>meerdere keren per week</target>
+      </trans-unit>
+      <trans-unit id="y_G31.R" resname="Football">
+        <source>Football</source>
+        <target>Voettball</target>
+      </trans-unit>
+      <trans-unit id="0fK9_TB" resname="To rent">
+        <source>To rent</source>
+        <target>Te huur</target>
+      </trans-unit>
+      <trans-unit id="qVcBCqI" resname="List of lessons">
+        <source>List of lessons</source>
+        <target>Lijst met cursussen</target>
+      </trans-unit>
+      <trans-unit id="jsc.pq_" resname="Names of coaches">
+        <source>Names of coaches</source>
+        <target>Namen van coaches</target>
+      </trans-unit>
+      <trans-unit id="lcYRcDG" resname="Locations">
+        <source>Locations</source>
+        <target>Locaties</target>
+      </trans-unit>
+      <trans-unit id="DA.THGf" resname="Times">
+        <source>Times</source>
+        <target>Tijden</target>
+      </trans-unit>
+      <trans-unit id="oMbyo0k" resname="Liste des participants">
+        <source>Liste des participants</source>
+        <target>Lijst met deelnemers</target>
+      </trans-unit>
+      <trans-unit id="q4HQObu" resname="List of participants in my lessons">
+        <source>List of participants in my lessons</source>
+        <target>Lijst met deelnemers aan mijn cursussen</target>
+      </trans-unit>
+      <trans-unit id="5LufHs6" resname="Start">
+        <source>Start</source>
+        <target>Begin van de cursus</target>
+      </trans-unit>
+      <trans-unit id="9NseSEd" resname="End">
+        <source>End</source>
+        <target>Einde van de cursus</target>
+      </trans-unit>
+      <trans-unit id="IrkmKZw" resname="Hall/Field">
+        <source>Hall/Field</source>
+        <target>Sporthal/Veld</target>
+      </trans-unit>
+      <trans-unit id="DicnmzM" resname="Participants">
+        <source>Participants</source>
+        <target>Deelnemers</target>
+      </trans-unit>
+      <trans-unit id="VSaoyEW" resname="Sorry, you don't have any lessons yet!">
+        <source>Sorry, you don't have any lessons yet!</source>
+        <target>Sorry, u hebt nog geen cursussen!</target>
+      </trans-unit>
+      <trans-unit id="TYJlwuW" resname="List of my activities">
+        <source>List of my activities</source>
+        <target>Lijst met mijn activiteiten</target>
+      </trans-unit>
+      <trans-unit id="fNHYoer" resname="list of participants">
+        <source>list of participants</source>
+        <target>lijst van deelnemers</target>
+      </trans-unit>
+      <trans-unit id="ZHz6kbI" resname="Firstname">
+        <source>Firstname</source>
+        <target>Voornaam</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Naam</target>
+      </trans-unit>
+      <trans-unit id="yMEuN84" resname="Sorry, this lesson has no members yet!">
+        <source>Sorry, this lesson has no members yet!</source>
+        <target>Sorry, deze les heeft nog geen leden!</target>
+      </trans-unit>
+      <trans-unit id="Vv8_qDi" resname="Registrants">
+        <source>Registrants</source>
+        <target>Registranten</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>Verwijderen</target>
+      </trans-unit>
+      <trans-unit id="U0M9PNE" resname="back to list">
+        <source>back to list</source>
+        <target>terug naar lijst</target>
+      </trans-unit>
+      <trans-unit id="6KiDUxl" resname="Edit User">
+        <source>Edit User</source>
+        <target>Gebruiker bewerken</target>
+      </trans-unit>
+      <trans-unit id="HM_nfCN" resname="Edit a user">
+        <source>Edit a user</source>
+        <target>Bewerk één gebruiker</target>
+      </trans-unit>
+      <trans-unit id="Xaj3_8K" resname="Back to list">
+        <source>Back to list</source>
+        <target>Terug naar lijst</target>
+      </trans-unit>
+      <trans-unit id="OnqBk.y" resname="Users list">
+        <source>Users list</source>
+        <target>Gebruikerslijst</target>
+      </trans-unit>
+      <trans-unit id="lsJZgEW" resname="FirstName">
+        <source>FirstName</source>
+        <target>Voornaame</target>
+      </trans-unit>
+      <trans-unit id="WXzoaGl" resname="Birthdate">
+        <source>Birthdate</source>
+        <target>Geboortedatum</target>
+      </trans-unit>
+      <trans-unit id="WGdYiCv" resname="EmailAddress">
+        <source>EmailAddress</source>
+        <target>E-mailadres</target>
+      </trans-unit>
+      <trans-unit id="Y9zriAC" resname="Phone">
+        <source>Phone</source>
+        <target>Telefoon</target>
+      </trans-unit>
+      <trans-unit id="Vu_PIJV" resname="Address">
+        <source>Address</source>
+        <target>Adres</target>
+      </trans-unit>
+      <trans-unit id="vYLPFmm" resname="Number">
+        <source>Number</source>
+        <target>Nummer</target>
+      </trans-unit>
+      <trans-unit id="knQTZ0_" resname="PostalCode">
+        <source>PostalCode</source>
+        <target>Postcode</target>
+      </trans-unit>
+      <trans-unit id=".DP3Mkb" resname="City">
+        <source>City</source>
+        <target>Stad</target>
+      </trans-unit>
+      <trans-unit id="cB0CHQj" resname="Country">
+        <source>Country</source>
+        <target>Land</target>
+      </trans-unit>
+      <trans-unit id="yo6CbZw" resname="Avatar">
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </trans-unit>
+      <trans-unit id="wlM3BVR" resname="Roles">
+        <source>Roles</source>
+        <target>Rollen</target>
+      </trans-unit>
+      <trans-unit id="Kw3N1AA" resname="actions">
+        <source>actions</source>
+        <target>acties</target>
+      </trans-unit>
+      <trans-unit id="DfbxytN" resname="Show">
+        <source>Show</source>
+        <target>Scherm</target>
+      </trans-unit>
+      <trans-unit id="RkxP.QG" resname="Edit">
+        <source>Edit</source>
+        <target>Bewerk</target>
+      </trans-unit>
+      <trans-unit id="D5lam8." resname="no records found">
+        <source>no records found</source>
+        <target>geen verslagen gevonden</target>
+      </trans-unit>
+      <trans-unit id="nz33U6Q" resname="Create new">
+        <source>Create new</source>
+        <target>Maak nieuw</target>
+      </trans-unit>
+      <trans-unit id="41O9lUV" resname="Creation of a new user">
+        <source>Creation of a new user</source>
+        <target>Aanmaken van één nieuwe gebruiker</target>
+      </trans-unit>
+      <trans-unit id="tRLZfny" resname="User">
+        <source>User</source>
+        <target>Gebruiker</target>
+      </trans-unit>
+      <trans-unit id="_NU_9fk" resname="CreatedAt">
+        <source>CreatedAt</source>
+        <target>Aanmaken</target>
+      </trans-unit>
+      <trans-unit id="FQn1YfJ" resname="Save">
+        <source>Save</source>
+        <target>Sparen</target>
+      </trans-unit>
+      <trans-unit id="QWAM0Gg" resname="Edit Subscription">
+        <source>Edit Subscription</source>
+        <target>Abonnement bewerken</target>
+      </trans-unit>
+      <trans-unit id="0nRJl8Z" resname="Edit a subscriber">
+        <source>Edit a subscriber</source>
+        <target>Bewerk één abonnee</target>
+      </trans-unit>
+      <trans-unit id="IpLxY1c" resname="New Subscription">
+        <source>New Subscription</source>
+        <target>Nieuw abonnement</target>
+      </trans-unit>
+      <trans-unit id="h8Uax.n" resname="Create a subscription">
+        <source>Create a subscription</source>
+        <target>Maken één abonnement</target>
+      </trans-unit>
+      <trans-unit id="SZnGxse" resname="Subscription">
+        <source>Subscription</source>
+        <target>Abonnement</target>
+      </trans-unit>
+      <trans-unit id="b9SXlo5" resname="Subscriber">
+        <source>Subscriber</source>
+        <target>Abonnee</target>
+      </trans-unit>
+      <trans-unit id="uq3fcPt" resname="Type">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Beschrijving</target>
+      </trans-unit>
+      <trans-unit id="k8kchR5" resname="Price">
+        <source>Price</source>
+        <target>Prijs</target>
+      </trans-unit>
+      <trans-unit id="IMIzC8T" resname="UpdatedAt">
+        <source>UpdatedAt</source>
+        <target>Bijwerken</target>
+      </trans-unit>
+      <trans-unit id="W38WT2e" resname="FinishedAt">
+        <source>FinishedAt</source>
+        <target>Klaar op</target>
+      </trans-unit>
+      <trans-unit id="R4bNURC" resname="Identify">
+        <source>Identify</source>
+        <target>Identificeren</target>
+      </trans-unit>
+      <trans-unit id="QlDpyBC" resname="List of subscribers">
+        <source>List of subscribers</source>
+        <target>Lijst met abonnees</target>
+      </trans-unit>
+      <trans-unit id="R1lJisK" resname="Create">
+        <source>Create</source>
+        <target>Creëren</target>
+      </trans-unit>
+      <trans-unit id="lYE_09U" resname="Edit Nursery">
+        <source>Edit Nursery</source>
+        <target>Dagopvang bewerken</target>
+      </trans-unit>
+      <trans-unit id="wcEAnT8" resname="Update">
+        <source>Update</source>
+        <target>Bijwerken</target>
+      </trans-unit>
+      <trans-unit id="eSfPeU6" resname="New Nursery">
+        <source>New Nursery</source>
+        <target>Nieuw dagopvang</target>
+      </trans-unit>
+      <trans-unit id="nR9.yoN" resname="Create new Nursery">
+        <source>Create new Nursery</source>
+        <target>Nieuw dagopvang creëren</target>
+      </trans-unit>
+      <trans-unit id="poN8J1T" resname="Name of child">
+        <source>Name of child</source>
+        <target>Naam kind</target>
+      </trans-unit>
+      <trans-unit id="cC75Ie0" resname="First name">
+        <source>First name</source>
+        <target>Voornaam</target>
+      </trans-unit>
+      <trans-unit id="7RmtwEo" resname="Date of custody">
+        <source>Date of custody</source>
+        <target>Dagopvang datum</target>
+      </trans-unit>
+      <trans-unit id="uYeXK7z" resname="TotalPrice">
+        <source>TotalPrice</source>
+        <target>Totale prijs</target>
+      </trans-unit>
+      <trans-unit id="KAFLhnP" resname="Nursery index">
+        <source>Nursery index</source>
+        <target>Dagopvang index</target>
+      </trans-unit>
+      <trans-unit id="RZAKFez" resname="List of children at daycare">
+        <source>List of children at daycare</source>
+        <target>Lijst met kinderen bij dagopvang</target>
+      </trans-unit>
+      <trans-unit id="GiF41Gm" resname="First name of child">
+        <source>First name of child</source>
+        <target>Voornaam van kind</target>
+      </trans-unit>
+      <trans-unit id="naepTwi" resname="Total price">
+        <source>Total price</source>
+        <target>Totale prijs</target>
+      </trans-unit>
+      <trans-unit id="Riuse4P" resname="Edit Lesson">
+        <source>Edit Lesson</source>
+        <target>Les bewerken</target>
+      </trans-unit>
+      <trans-unit id="kpOJbKd" resname="Edit a lesson">
+        <source>Edit a lesson</source>
+        <target>Één les bewerken</target>
+      </trans-unit>
+      <trans-unit id="OZ0rb7L" resname="Lesson index">
+        <source>Lesson index</source>
+        <target>Lesindex</target>
+      </trans-unit>
+      <trans-unit id=".Z69Crp" resname="UrlPicture">
+        <source>UrlPicture</source>
+        <target>Url afbeelding</target>
+      </trans-unit>
+      <trans-unit id="503gEhF" resname="New Lesson">
+        <source>New Lesson</source>
+        <target>Nieuw Les</target>
+      </trans-unit>
+      <trans-unit id="IYN20ho" resname="Create lesson">
+        <source>Create lesson</source>
+        <target>Les maken</target>
+      </trans-unit>
+      <trans-unit id="bism2d5" resname="Lesson">
+        <source>Lesson</source>
+        <target>Les</target>
+      </trans-unit>
+      <trans-unit id="aq2sLyt" resname="Go back">
+        <source>Go back</source>
+        <target>Ga terug</target>
+      </trans-unit>
+      <trans-unit id="3W3efpL" resname="Contact us for further answers to your questions.">
+        <source>Contact us for further answers to your questions.</source>
+        <target>Nemen contact met ons op voor verdere antwoorden op uw vragen.</target>
+      </trans-unit>
+      <trans-unit id="6mFnNI4" resname="Contact us.">
+        <source>Contact us.</source>
+        <target>Contacteer ons.</target>
+      </trans-unit>
+      <trans-unit id="8kiP1O9" resname="Email address">
+        <source>Email address</source>
+        <target>E-adres</target>
+      </trans-unit>
+      <trans-unit id="JFNoelE" resname="We'll never share your email with anyone else.">
+        <source>We'll never share your email with anyone else.</source>
+        <target>We zullen nooit e-mail met iemand anders delen.</target>
+      </trans-unit>
+      <trans-unit id="L3dmip3" resname="Message">
+        <source>Message</source>
+        <target>Bericht</target>
+      </trans-unit>
+      <trans-unit id="9vRoj.I" resname="Send">
+        <source>Send</source>
+        <target>Sturen</target>
+      </trans-unit>
+      <trans-unit id="JLff1s." resname="Email :">
+        <source>Email :</source>
+        <target>E-mail :</target>
+      </trans-unit>
+      <trans-unit id="tqIcpd3" resname="Phone :">
+        <source>Phone :</source>
+        <target>Telefoon :</target>
+      </trans-unit>
+      <trans-unit id="NUQLDH0" resname="Click on this link to reset your password!">
+        <source>Click on this link to reset your password!</source>
+        <target>Klik op deze link om uw wachtwoord opnieuw in te stellen!</target>
+      </trans-unit>
+      <trans-unit id="0Tq2nwb" resname="Registration for these courses has been successfully completed.">
+        <source>Registration for these courses has been successfully completed.</source>
+        <target>De inschrijving voor deze cursussen is met succes afgerond.</target>
+      </trans-unit>
+      <trans-unit id="cdNslqK" resname="Registration for these courses has not been successfully completed.">
+        <source>Registration for these courses has not been successfully completed.</source>
+        <target>De inschrijving voor deze cursussen is niet met succes afgerond.</target>
+      </trans-unit>
+      <trans-unit id="qonJxBY" resname="list of registrants">
+        <source>list of registrants</source>
+        <target>lijst van registranten</target>
+      </trans-unit>
+      <trans-unit id="tzwnKbI" resname="Sorry, your subscription isn't longer valid!">
+        <source>Sorry, your subscription isn't longer valid!</source>
+        <target>Sorry, uw abonnement is niet langer geldig!</target>
+      </trans-unit>
+      <trans-unit id="aQWzw3H" resname="List of registrants in this lesson">
+        <source>List of registrants in this lesson</source>
+        <target>Lijst met registranten in deze les</target>
+      </trans-unit>
+      <trans-unit id="p3flVhh" resname="An error has occurred">
+        <source>An error has occurred</source>
+        <target>Er is een fout opgetreden</target>
+      </trans-unit>
+      <trans-unit id="a7FhNlK" resname="Forgot your password">
+        <source>Forgot your password</source>
+        <target>Uw wachtwoord vergeten</target>
+      </trans-unit>
+      <trans-unit id="ePWXWl1" resname="New message">
+        <source>New message</source>
+        <target>Nieuw bericht</target>
+      </trans-unit>
+      <trans-unit id="U5mkQWo" resname="The message has been sent">
+        <source>The message has been sent</source>
+        <target>Het bericht is verzonden</target>
+      </trans-unit>
+      <trans-unit id="Lw4j5PP" resname="This email doesn't exist.">
+        <source>This email doesn't exist.</source>
+        <target>Dit e-mail bestaat niet.</target>
+      </trans-unit>
+      <trans-unit id="zJ3i6ln" resname="This user doesn't exist in this database.">
+        <source>This user doesn't exist in this database.</source>
+        <target>Deze gebruiker bestaat niet in deze database.</target>
+      </trans-unit>
+      <trans-unit id="2U6vaUO" resname="Modify">
+        <source>Modify</source>
+        <target>Bewerken</target>
+      </trans-unit>
+      <trans-unit id="xHd7Ryj" resname="Event calendar">
+        <source>Event calendar</source>
+        <target>Evenementen kalendar</target>
+      </trans-unit>
+      <trans-unit id="1V5q3gd" resname="Edit an event">
+        <source>Edit an event</source>
+        <target>Een evenement bewerken</target>
+      </trans-unit>
+      <trans-unit id="bNUZq8e" resname="List of reservations">
+        <source>List of reservations</source>
+        <target>Lijst met reserveringen</target>
+      </trans-unit>
+      <trans-unit id="bpSBTaT" resname="BeginAt">
+        <source>BeginAt</source>
+        <target>Beginnen om</target>
+      </trans-unit>
+      <trans-unit id="BXefipG" resname="EndAt">
+        <source>EndAt</source>
+        <target>Eindigen om</target>
+      </trans-unit>
+      <trans-unit id="fozSBW2" resname="Title">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="pTNGRzn" resname="PriceTotal">
+        <source>PriceTotal</source>
+        <target>Totaalprijs</target>
+      </trans-unit>
+      <trans-unit id="vHPDOM8" resname="Creation of a reservation">
+        <source>Creation of a reservation</source>
+        <target>Aanmaken van een reservering</target>
+      </trans-unit>
+      <trans-unit id="lI4D5wV" resname="Booking">
+        <source>Booking</source>
+        <target>Boeking</target>
+      </trans-unit>
+      <trans-unit id="zO0oxtw" resname="start">
+        <source>start</source>
+        <target>begin</target>
+      </trans-unit>
+      <trans-unit id="Nh5I0DC" resname="end">
+        <source>end</source>
+        <target>einde</target>
+      </trans-unit>
+      <trans-unit id="RYVImU2" resname="Member subscription">
+        <source>Member subscription</source>
+        <target>Lidmaatschapsabonnement</target>
+      </trans-unit>
+      <trans-unit id="FxCEFW3" resname="Add member">
+        <source>Add member</source>
+        <target>Lid toevoegen</target>
+      </trans-unit>
+      <trans-unit id="YL_nUg7" resname="Lesson name">
+        <source>Lesson name</source>
+        <target>Les naam</target>
       </trans-unit>
     </body>
   </file>

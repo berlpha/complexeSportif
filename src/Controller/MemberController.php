@@ -3,12 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Member;
+use App\Entity\Subscription;
+use App\Form\AdminSubscriptionType;
 use App\Form\MemberType;
+use App\Form\SubscriptionType;
+use App\Repository\LessonRepository;
 use App\Repository\MemberRepository;
+use App\Repository\SubscriptionRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/member")
@@ -96,18 +103,112 @@ class MemberController extends AbstractController
     }
 
     /**
-     * @Route("/member/subscription", name="app_memberSubscription")
+     * @Route("/member/memberSubscription", name="app_memberSubscription")
      */
-    public function abonnement()
+    public function abonnement(Request $request, LessonRepository $lessonRepository, SubscriptionRepository $subscriptionRepository, TranslatorInterface $translator)
     {
-        return $this->render('offres_abonnement/moreSubscription.html.twig');
+        $user = $this->getUser();
+
+
+        $lessons = $lessonRepository->findAll();
+
+        $prices = [];
+
+        foreach ($lessons as $lesson) {
+            $prices[$lesson->getName()] = $lesson->getPrice();
+        }
+
+        // Verify if the form is submitted
+        if ($request->isMethod('POST')) {
+
+            $donnees = $request->request;
+
+            $subscription = new Subscription();
+
+            $subscription->setMember($user);
+            $lessons = $donnees->get('sport');
+
+            $debut = new \DateTime('now');
+
+            $type = $donnees->get('customRadio');
+            $subscription->setType($type);
+            $duration = $donnees->get('customRadiod');
+
+            $fin = new \DateTime("today +{$duration} months");
+            $subscription->setFinishedAt($fin);
+            $price = 0;
+            $error = false;
+
+            foreach ($lessons as $lesson) {
+
+                $lesson_object = $lessonRepository->findOneBy(array('id' => $lesson));
+
+                $member_abonnements = $subscriptionRepository->getSubcription($user, $lesson_object, $debut, $fin);
+
+                if (count($member_abonnements) == 0) {
+
+                    $priceLes = $lesson_object->getPrice();
+
+                    $priceSub = $priceLes;
+
+                    if ($type === 'Enfant') {
+                        $priceSub = $priceLes * 0.85;
+                    } else if ($type === 'VIP') {
+                        $priceSub = $priceLes * 1.25;
+                    }
+
+                    if ($duration === '3') {
+                        $priceSub *= 3;
+                    } else if ($duration === '6') {
+                        $priceSub = $priceSub * 6 - ($priceSub / 2);
+                    } else if ($duration === '12') {
+                        $priceSub *= 11;
+                    }
+                    $price = $priceSub;
+                    $subscription->addLesson($lesson_object);
+                } else {
+                    $this->AddFlash('error', "Subscription for {$lesson_object->getName()} already exists");
+                    $error = true;
+                }
+            }
+
+            if (!$error) {
+
+                $subscription = $subscription->setPrice($price);
+                $subscription->setDescription("New subscription"); // To change
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($subscription);
+                $entityManager->flush();
+
+                $message = $translator->trans("Registration for these courses has been successfully completed.");
+                $this->addFlash('message', $message);
+
+                return $this->redirectToRoute('member_index');
+            }
+        }
+
+        return $this->render('offres_abonnement/moreSubscription.html.twig', [
+            'lessons' => $prices
+        ]);
     }
 
     /**
-     * @Route("/member/participate", name="app_memberParticipate")
+     * @Route("/member/myLessons", name="app_memberLessons")
      */
-    public function presence()
+    public function myLessons(SubscriptionRepository $subscriptionRepository)
     {
-        return $this->render('member/participate.html.twig');
+        $user = $subscriptionRepository->findOneBy(['lesson' => $this->getUser()->getUsername()]);
+        return $this->render('member/myLessons.html.twig', [
+            'user' => $user,
+        ]);
+
+    }
+
+    /**
+     * @Route("member/reservation", name="app_memberReservation")
+     */
+    public function reserverLocal()
+    {
+        return $this->render('member/reservationLocal.html.twig');
     }
 }

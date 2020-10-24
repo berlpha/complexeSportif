@@ -46,24 +46,17 @@ class Subscription
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", inversedBy="subscription")
      */
-    private $lessons;
+    private $lesson;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Member", mappedBy="subscription")
+     * @ORM\ManyToOne(targetEntity=Member::class, inversedBy="subscriptions")
      */
     private $member;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $updatedAt;
 
     public function __construct()
     {
         $this->lesson = new ArrayCollection();
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime('now');
-        $this->member = new ArrayCollection();
+        $this->createdAt = new \DateTime('now');
     }
 
     public function getId(): ?int
@@ -112,11 +105,6 @@ class Subscription
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
     public function getFinishedAt(): ?\DateTimeInterface
     {
         return $this->finishedAt;
@@ -155,34 +143,16 @@ class Subscription
         return $this;
     }
 
-    /**
-     * @return Collection|Member[]
-     */
-    public function getMember(): Collection
+    public function getMember(): ?Member
     {
         return $this->member;
     }
 
-    public function addMember(Member $member): self
+    public function setMember(?Member $member): self
     {
-        if (!$this->member->contains($member)) {
-            $this->member[] = $member;
-            $member->setSubscription($this);
-        }
+        $this->member = $member;
 
         return $this;
     }
 
-    public function removeMember(Member $member): self
-    {
-        if ($this->member->contains($member)) {
-            $this->member->removeElement($member);
-            // set the owning side to null (unless already changed)
-            if ($member->getSubscription() === $this) {
-                $member->setSubscription(null);
-            }
-        }
-
-        return $this;
-    }
 }

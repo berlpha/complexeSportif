@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -40,11 +42,13 @@ class Booking
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Hall", inversedBy="bookings")
+     * @ORM\JoinColumn(nullable=True)
      */
     private $hall;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Field", inversedBy="bookings")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $field;
 
@@ -213,5 +217,47 @@ class Booking
         }
 
         return $this;
+    }
+
+    /**
+     * @Assert\Callback
+     */
+    public function validateSpecialField(ExecutionContextInterface $context){
+
+        if($this->getHall()==null and $this->getField()==null){
+            $context
+                ->BuildViolation("Terrain et salle ne peuvent pas être vide en même temps")
+                ->atPath("hall")
+                ->addViolation();
+            $context
+                ->BuildViolation("Terrain et salle ne peuvent pas être vide en même temps")
+                ->atPath("field")
+                ->addViolation();
+        }
+
+        if($this->getHall()!=null and $this->getField()!=null){
+            $context
+                ->BuildViolation("Terrain et salle ne peuvent pas être rempli en même temps")
+                ->atPath("hall")
+                ->addViolation();
+            $context
+                ->BuildViolation("Terrain et salle ne peuvent pas être rempli en même temps")
+                ->atPath("field")
+                ->addViolation();
+        }
+
+        if($this->getType() == 'Externe' and $this->getPriceTotal() == null ){
+            $context
+                ->BuildViolation("La réservation externe est payante")
+                ->atPath("priceTotal")
+                ->addViolation();
+        }
+
+        if($this->getType() == 'Interne' and $this->getPriceTotal() != null ){
+            $context
+                ->BuildViolation("La réservation interne n'est pas payante")
+                ->atPath("priceTotal")
+                ->addViolation();
+        }
     }
 }

@@ -18,37 +18,37 @@
 
     <div class="container navbar-fixed-top" style="position: relative; top: 20em">
 
-        <h3 style="text-align: center; color: red; background-color: black">Réservation</h3><br><br>
+        <h3 style="text-align: center; color: red; background-color: black">{% trans %}Booking{% endtrans %}</h3><br><br>
 
         <table class="table table-striped table-sm">
 
             <tbody>
             <tr>
-                <th style="color: blue">BeginAt</th>
+                <th style="color: blue">{% trans %}BeginAt{% endtrans %}</th>
                 <td>{{ booking.beginAt ? booking.beginAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th style="color: blue">EndAt</th>
+                <th style="color: blue">{% trans %}EndAt{% endtrans %}</th>
                 <td>{{ booking.endAt ? booking.endAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th style="color: blue">Title</th>
+                <th style="color: blue">{% trans %}Title{% endtrans %}</th>
                 <td>{{ booking.title }}</td>
             </tr>
             <tr>
-                <th style="color: blue">Type</th>
+                <th style="color: blue">{% trans %}Type{% endtrans %}</th>
                 <td>{{ booking.type }}</td>
             </tr>
             <tr>
-                <th style="color: blue">PriceTotal</th>
+                <th style="color: blue">{% trans %}PriceTotal{% endtrans %}</th>
                 <td>{{ booking.priceTotal }}</td>
             </tr>
             </tbody>
         </table>
 
-        <a href="{{ path('booking_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a>
+        <a href="{{ path('booking_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">{% trans %}Back to list{% endtrans %}</button></a>
 
-        <a href="{{ path('booking_edit', {'id': booking.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen">Éditer</button></a><br><br>
+        <a href="{{ path('booking_edit', {'id': booking.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen">{% trans %}Edit{% endtrans %}</button></a><br><br>
 
         {{ include('booking/_delete_form.html.twig') }}<br><br>
 

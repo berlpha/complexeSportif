@@ -38,13 +38,26 @@ class FormulaireAbonnementController extends AbstractController
         return $this->render('offres_abonnement/offre.html.twig', [
             'price' => $prix,
         ]);
+
+
     }
 
     /**
      * @Route("/sport/price", name="app_sportPrice")
      */
-    public function sportPrice()
+    public function sportPrice(LessonRepository $lessonRepository)
     {
-        $prix = $this->lessonRepository->findByLsson('price');
+        $prices = [];
+
+        $lessons = $lessonRepository->findAll();
+
+        foreach ($lessons as $lesson){
+            $prices[$lesson->getName()] = $lesson->getPrice();
+        }
+
+        return $this->render('offres_abonnement/moreSubscription.html.twig', [
+            'lessons' => $prices,
+        ]);
     }
+
 }

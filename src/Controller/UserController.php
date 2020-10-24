@@ -11,12 +11,22 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/admin/user")
  */
 class UserController extends AbstractController
 {
+    private $emi;
+    private $translation;
+
+    public function __construct(EntityManagerInterface $emi, TranslatorInterface $translator)
+    {
+        $this->emi = $emi;
+        $this->translation = $translator;
+    }
+
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
@@ -31,7 +41,7 @@ class UserController extends AbstractController
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $emi): Response
+    public function new(Request $request, UserPasswordEncoderInterface $userPasswordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -49,8 +59,8 @@ class UserController extends AbstractController
             $user->setActivateToken(md5(uniqid()));
 
             // Persistence et envoi dans la base de données
-            $emi->persist($user);
-            $emi->flush();
+            $this->emi->persist($user);
+            $this->emi->flush();
 
             return $this->redirectToRoute('user_index');
         }
@@ -74,7 +84,7 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit($id, Request $request, EntityManagerInterface $emi, UserPasswordEncoderInterface $userPasswordEncoder, UserRepository $userRepository): Response
+    public function edit($id, Request $request, UserPasswordEncoderInterface $userPasswordEncoder, UserRepository $userRepository): Response
     {
         $user = $userRepository->findOneBy(['id' => $id]);
 
@@ -95,8 +105,8 @@ class UserController extends AbstractController
             }
 
             //$this->getDoctrine()->getManager()->flush();
-            $emi->persist($user);
-            $emi->flush();
+            $this->emi->persist($user);
+            $this->emi->flush();
 
             $this->addFlash('message', "La modification s'est effectuée avec succès!" );
 
