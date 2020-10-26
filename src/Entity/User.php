@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @UniqueEntity(fields={"username"},message="Cet username appartient déjà à un autre utilisateur!")
  * @UniqueEntity(fields={"emailAddress"},message="Cet email appartient déjà à un autre utilisateur!")
  *  @Vich\Uploadable
- * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "admin" = "Administrator", "coach" = "Coach", "member" = "Member"})
  */
@@ -447,6 +447,23 @@ class User implements UserInterface//, \Serializable
 
         return $this;
     }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function getGroup()
+//    {
+//        return $this->group;
+//    }
+//
+//    /**
+//     * @param mixed $group
+//     */
+//    public function setGroup($group): void
+//    {
+//        $this->group = $group;
+//    }
+
 
     /**
      * @inheritDoc

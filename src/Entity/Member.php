@@ -16,7 +16,7 @@ class Member extends User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    //private $id;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Nursery", inversedBy="member")
