@@ -3,9 +3,18 @@
 {% block title %}New Invoice{% endblock %}
 
 {% block body %}
-    <h1>Create new Invoice</h1>
+
+<div class="container navbar-fixed-top"  style="position: relative; top: 22em">
+
+    {{ include('Errors/errors.html.twig') }}
+
+    <h3 style="text-align: center; color: red; background-color: black"><strong><em>{% trans %}New invoice{% endtrans %}</em></strong></h3><br>
+
 
     {{ include('invoice/_form.html.twig') }}
 
-    <a href="{{ path('invoice_index') }}">back to list</a>
+    <a href="{{ path('invoice_index') }}"><button class="btn btn-outline-primary btn-sm">{% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
+
+</div><br><br>
+
 {% endblock %}

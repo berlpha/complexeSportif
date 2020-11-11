@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Field;
 use App\Form\FieldType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\FieldRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,11 +20,13 @@ class FieldController extends AbstractController
     /**
      * @Route("/list", name="field_index", methods={"GET"})
      */
-    public function index(FieldRepository $fieldRepository): Response
+    public function index(FieldRepository $fieldRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $fieldRepository->findAll();
+        $fields = $helper->parse($request, $paginator, $donnees);
         return $this->render('field/index.html.twig', [
             'navig' => 'field',
-            'fields' => $fieldRepository->findAll(),
+            'fields' => $fields,
         ]);
     }
 

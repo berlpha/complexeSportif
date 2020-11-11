@@ -4,13 +4,15 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top"  style="position: relative; top: 32em">
+    <div class="container navbar-fixed-top"  style="position: relative; top: 16em">
 
-        <h3 style="text-align: center; color: red; background-color: black"><em>Création d'un nouveau terrain</em></h3><br><br>
+        {{ include('Errors/errors.html.twig') }}
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Creation of a new field{% endtrans %}</em></h3><br><br>
 
         {{ include('field/_form.html.twig') }}<br>
 
-        <a href="{{ path('field_index') }}"><button class="btn btn-outline-primary btn-sm">Retour</button></a><br><br><br><br>
+        <a href="{{ path('field_index') }}"><button class="btn btn-primary btn-sm" style="background: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
 
     </div><br><br>
 

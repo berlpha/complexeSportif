@@ -23,7 +23,7 @@ class SubscriptionRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('s')
             ->join('s.member', 'm')
-            ->join('s.lesson', 'l')
+            ->join('s.lessons', 'l')
             ->where('m = :val')
             ->andWhere('l = :val1')
             ->andWhere('(:cdate BETWEEN s.createdAt AND s.finishedAt) OR (:fdate BETWEEN s.createdAt AND s.finishedAt)')

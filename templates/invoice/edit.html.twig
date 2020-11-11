@@ -3,11 +3,17 @@
 {% block title %}Edit Invoice{% endblock %}
 
 {% block body %}
-    <h1>Edit Invoice</h1>
 
-    {{ include('invoice/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container navbar-fixed-top"  style="position: relative; top: 30em">
 
-    <a href="{{ path('invoice_index') }}">back to list</a>
+        {{ include('Errors/errors.html.twig') }}
 
-    {{ include('invoice/_delete_form.html.twig') }}
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Edit a invoice{% endtrans %}</em></h3><br>
+
+        {{ include('invoice/_form.html.twig', {'button_label': 'Update' | trans}) }}
+
+        <a href="{{ path('invoice_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">{% trans %}Back to list{% endtrans %}</button></a><br><br>
+
+        {{ include('invoice/_delete_form.html.twig') }}<br><br>
+    </div>
 {% endblock %}

@@ -4,29 +4,15 @@
 
 {% block body %}
 
-    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 60em">
+    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 40em">
 
-        {% for message in app.flashes('message') %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('warning') %}
-            <div class="alert alert-warning" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('danger') %}
-            <div class="alert alert-danger" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
+        {{ include('Errors/errors.html.twig') }}
 
         <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Create a subscription{% endtrans %}</em></h3><br><br>
 
-        {{ include('subscription/_form.html.twig') }}
+        {{ include('subscription/_form.html.twig') }}<br>
 
-        <a href="{{ path('subscription_index') }}"><button class="btn btn-outline-primary btn-sm">{% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
+        <a href="{{ path('subscription_index') }}"><button class="btn btn-primary btn-sm" style="background: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
 
     </div><br><br>
 

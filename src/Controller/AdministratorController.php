@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Administrator;
 use App\Form\AdministratorType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\AdministratorRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class AdministratorController extends AbstractController
     /**
      * @Route("/", name="administrator_index", methods={"GET"})
      */
-    public function index(AdministratorRepository $administratorRepository): Response
+    public function index(AdministratorRepository $administratorRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $administratorRepository->findAll();
+        $administrators = $helper->parse($request, $paginator, $donnees);
         return $this->render('administrator/index.html.twig', [
-            'administrators' => $administratorRepository->findAll(),
+            'administrators' => $administrators,
             'navig' => 'administrator',
         ]);
     }

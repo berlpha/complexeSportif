@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Hall;
 use App\Form\HallType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\HallRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,11 +20,15 @@ class HallController extends AbstractController
     /**
      * @Route("/list", name="hall_index", methods={"GET"})
      */
-    public function index(HallRepository $hallRepository): Response
+    public function index(HallRepository $hallRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnes = $hallRepository->findAll();
+
+        $halls = $helper->parse($request, $paginator, $donnes);
+
         return $this->render('hall/index.html.twig', [
             'navig' => 'hall',
-            'halls' => $hallRepository->findAll(),
+            'halls' => $halls,
         ]);
     }
 

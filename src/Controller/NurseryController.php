@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Nursery;
 use App\Form\NurseryType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\NurseryRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,11 +21,15 @@ class NurseryController extends AbstractController
     /**
      * @Route("/list", name="nursery_index", methods={"GET"})
      */
-    public function index(NurseryRepository $nurseryRepository): Response
+    public function index(NurseryRepository $nurseryRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $nurseryRepository->findAll();
+
+        $nurseries = $helper->parse($request, $paginator,$donnees);
+
         return $this->render('nursery/index.html.twig', [
             'navig' => 'nursery',
-            'nurseries' => $nurseryRepository->findAll(),
+            'nurseries' => $nurseries,
         ]);
     }
 

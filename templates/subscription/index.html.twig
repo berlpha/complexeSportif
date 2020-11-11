@@ -4,36 +4,22 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: 0em; margin-top: auto">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -21em; margin-top: auto">
 
-        {% for message in app.flashes('message') %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('warning') %}
-            <div class="alert alert-warning" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('danger') %}
-            <div class="alert alert-danger" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
+        {{ include('Errors/errors.html.twig') }}
 
         <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}List of subscribers{% endtrans %}</em></h3><br><br>
         <div class="responsive">
             <table class="table table-striped table-sm">
                 <thead style="color: blue">
                     <tr>
-                        <th>{% trans %}Username{% endtrans %}</th>
-                        <th>{% trans %}Type{% endtrans %}</th>
-                        <th>{% trans %}Description{% endtrans %}</th>
-                        <th>{% trans %}Price{% endtrans %}</th>
-                        <th>{% trans %}CreatedAt{% endtrans %}</th>
-                        <th>{% trans %}FinishedAt{% endtrans %}</th>
-                        <th>{% trans %}actions{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Username{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Type{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Description{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Price{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}CreatedAt{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}FinishedAt{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}actions{% endtrans %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,8 +32,8 @@
                         <td>{{ subscription.createdAt ? subscription.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ subscription.finishedAt ? subscription.finishedAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>
-                            <a href="{{ path('subscription_show', {'id': subscription.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">{% trans %}Show{% endtrans %}</button></a>
-                            <a href="{{ path('subscription_edit', {'id': subscription.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">{% trans %}Edit{% endtrans %}</button></a>
+                            <a href="{{ path('subscription_show', {'id': subscription.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"></span> {% trans %}Show{% endtrans %}</button></a>
+                            <a href="{{ path('subscription_edit', {'id': subscription.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"></span> {% trans %}Edit{% endtrans %}</button></a>
                         </td>
                     </tr>
                 {% else %}
@@ -59,7 +45,9 @@
             </table>
         </div><br>
 
-        <a href="{{ path('app_adminSubscription') }}"><button class="btn btn-success btn-sm">{% trans %}Create{% endtrans %}</button></a><br><br>
-
+        <a href="{{ path('app_adminSubscription') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> {% trans %}New subscription{% endtrans %}</button></a><br><br>
+        <div class="navigation" style="float: right; font-weight: bold">
+            {{ knp_pagination_render(subscriptions) }}
+        </div><br><br><br><br><br><br>
     </div><br><br><br>
 {% endblock %}

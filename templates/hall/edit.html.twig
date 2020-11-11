@@ -4,13 +4,15 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top"  style="position: relative; top: 30em">
+    <div class="container navbar-fixed-top"  style="position: relative; top: 14em">
 
-        <h3 style="text-align: center; color: red; background-color: black"><em>Éditer une salle</em></h3><br>
+        {{ include('Errors/errors.html.twig') }}
 
-        {{ include('hall/_form.html.twig', {'button_label': 'Sauver'}) }}<br>
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Edit a gym{% endtrans %}</em></h3><br>
 
-        <a href="{{ path('hall_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</button></a><br><br>
+        {{ include('hall/_form.html.twig', {'button_label': 'Save' | trans }) }}<br>
+
+        <a href="{{ path('hall_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br>
 
         {{ include('hall/_delete_form.html.twig') }}<br><br><br>
 

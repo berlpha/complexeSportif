@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Booking;
 use App\Form\BookingType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\BookingRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,14 @@ class BookingController extends AbstractController
     /**
      * @Route("/admin/booking/", name="booking_index", methods={"GET"})
      */
-    public function index(BookingRepository $bookingRepository): Response
+    public function index(BookingRepository $bookingRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $bookingRepository->findAll();
+
+        $bookings = $helper->parse($request, $paginator, $donnees);
+
         return $this->render('booking/index.html.twig', [
-            'bookings' => $bookingRepository->findAll(),
+            'bookings' => $bookings,
             'navig' => 'booking',
         ]);
     }

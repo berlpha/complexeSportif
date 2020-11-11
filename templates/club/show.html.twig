@@ -4,49 +4,52 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: relative; top: 25em">
-        <h3 style="color: red; text-align: center; background-color: black">Club</h3><br><br>
+    <div class="container navbar-fixed-top" style="position: relative; top: 14em">
+
+        {{ include('Errors/errors.html.twig') }}
+
+        <h3 style="color: red; text-align: center; background-color: black">{% trans %}Club{% endtrans %}</h3><br><br>
 
         <table class="table table-striped table-sm">
             <tbody>
                 <tr>
-                    <th style="color: blue">Name</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Name{% endtrans %}</th>
                     <td>{{ club.name }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">EmailAddress</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Email address{% endtrans %}</th>
                     <td>{{ club.emailAddress }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">Phone</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Phone{% endtrans %}</th>
                     <td>{{ club.phone }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">Address</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Address{% endtrans %}</th>
                     <td>{{ club.address }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">Number</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Number{% endtrans %}</th>
                     <td>{{ club.number }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">PostalCode</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Postal code{% endtrans %}</th>
                     <td>{{ club.postalCode }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">City</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}City{% endtrans %}</th>
                     <td>{{ club.city }}</td>
                 </tr>
                 <tr>
-                    <th style="color: blue">Country</th>
+                    <th style="color: blue; font-size: 13px">{% trans %}Country{% endtrans %}</th>
                     <td>{{ club.country }}</td>
                 </tr>
             </tbody>
         </table>
 
-        <a href="{{ path('club_index') }}"><buttom class="btn btn-primary btn-sm" style="background-color: blueviolet">Retour</buttom></a>
+        <a href="{{ path('club_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a>
 
-        <a href="{{ path('club_edit', {'id': club.id}) }}"><buttom class="btn btn-primary btn-sm" style="background-color: yellowgreen">Éditer</buttom></a><br><br>
+        <a href="{{ path('club_edit', {'id': club.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"></span> {% trans %}Edit{% endtrans %}</button></a><br><br>
 
         {{ include('club/_delete_form.html.twig') }}<br><br>
 

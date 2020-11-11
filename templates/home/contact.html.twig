@@ -3,11 +3,28 @@
 {% block body %}
 
     <div class="container navbar-fixed-top" style="position: absolute; top: 12em">
+
         {% for message in app.flashes('message') %}
             <div class="alert alert-success" role="alert">
                 {{ message }}
             </div>
         {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <div class="container">
             <h3 style="text-align: center; color: blue"><strong><em>{% trans %}Contact us for further answers to your questions.{% endtrans %}</em></strong></h3>
             <br>

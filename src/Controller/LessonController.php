@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\Lesson;
 use App\Form\LessonType;
 use App\Form\SearchType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\LessonRepository;
 use App\Service\FileUploader;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,10 +30,14 @@ class LessonController extends AbstractController
     /**
      * @Route("/", name="lesson_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $this->lessonRepository->findAll();
+
+        $lessons = $helper->parse($request, $paginator, $donnees);
+
         return $this->render('lesson/index.html.twig', [
-            'lessons' => $this->lessonRepository->findAll(),
+            'lessons' => $lessons,
             'navig' => 'lesson',
         ]);
     }

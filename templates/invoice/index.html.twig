@@ -3,39 +3,46 @@
 {% block title %}Invoice index{% endblock %}
 
 {% block body %}
-    <h1>Invoice index</h1>
+    <div class="container navbar-fixed-top" style="position: absolute; top: -22em; margin-top: auto">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Amount</th>
-                <th>Currency</th>
-                <th>Description</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for invoice in invoices %}
-            <tr>
-                <td>{{ invoice.id }}</td>
-                <td>{{ invoice.amount }}</td>
-                <td>{{ invoice.currency }}</td>
-                <td>{{ invoice.description }}</td>
-                <td>{{ invoice.createdAt ? invoice.createdAt|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('invoice_show', {'id': invoice.id}) }}">Afficher</a>
-                    <a href="{{ path('invoice_edit', {'id': invoice.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        {{ include('Errors/errors.html.twig') }}
 
-    <a href="{{ path('invoice_new') }}">Create new</a>
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}List of invoices{% endtrans %}</em></h3><br><br>
+
+        <table class="table table-striped table-sm">
+            <thead style="color: blue">
+                <tr>
+                    <th style="font-size: 13px">{% trans %}Amount{% endtrans %}</th>
+                    <th style="font-size: 13px">{% trans %}Currency{% endtrans %}</th>
+                    <th style="font-size: 13px">{% trans %}Description{% endtrans %}</th>
+                    <th style="font-size: 13px">{% trans %}CreatedAt{% endtrans %}</th>
+                    <th style="font-size: 13px">{% trans %}actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for invoice in invoices %}
+                <tr>
+                    <td>{{ invoice.amount }}</td>
+                    <td>{{ invoice.currency }}</td>
+                    <td>{{ invoice.description }}</td>
+                    <td>{{ invoice.createdAt ? invoice.createdAt|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a href="{{ path('invoice_show', {'id': invoice.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"></span> {% trans %}Show{% endtrans %}</button></a>
+                        <a href="{{ path('invoice_edit', {'id': invoice.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"></span> {% trans %}Edit{% endtrans %}</button></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">{% trans %}no records found{% endtrans %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('invoice_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> {% trans %}New invoice{% endtrans %}</button></a><br><br><br><br>
+        <div class="navigation" style="float: right; font-weight: bold">
+            {{ knp_pagination_render(invoices) }}
+        </div><br><br><br><br><br><br>
+
+    </div>
 {% endblock %}

@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Entity\Coach;
 use App\Entity\Lesson;
 use App\Form\CoachType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\CoachRepository;
 use App\Repository\LessonRepository;
 use App\Repository\MemberRepository;
 use App\Repository\SubscriptionRepository;
 use App\Repository\UserRepository;
+use cebe\markdown\Markdown;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -107,7 +110,7 @@ class CoachController extends AbstractController
 
         $user = $coachRepository->findOneBy(['username' => $this->getUser()->getUsername()]);
         return $this->render('coach/listeCoachActivities.html.twig', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 

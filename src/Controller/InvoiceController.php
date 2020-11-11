@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Invoice;
 use App\Form\InvoiceType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\InvoiceRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class InvoiceController extends AbstractController
     /**
      * @Route("/", name="invoice_index", methods={"GET"})
      */
-    public function index(InvoiceRepository $invoiceRepository): Response
+    public function index(InvoiceRepository $invoiceRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $invoiceRepository->findAll();
+        $invoices = $helper->parse($request, $paginator, $donnees);
         return $this->render('invoice/index.html.twig', [
-            'invoices' => $invoiceRepository->findAll(),
+            'invoices' => $invoices,
             'navig' => 'invoice',
         ]);
     }

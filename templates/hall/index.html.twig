@@ -4,19 +4,21 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: -12em; margin-top: auto">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -25em; margin-top: auto">
 
-        <h3 style="text-align: center; color: red; background-color: black"><em>Liste des salles</em></h3><br><br>
+        {{ include('Errors/errors.html.twig') }}
+
+        <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}List of sports halls{% endtrans %}</em></h3><br><br>
 
         <div class="table table-striped table-sm">
 
             <table class="table table-striped table-sm">
                 <thead style="color: blue">
                     <tr>
-                        <th>Name</th>
-                        <th>Capacity</th>
-                        <th>Price Hour</th>
-                        <th>actions</th>
+                        <th style="font-size: 13px">{% trans %}Name{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Capacity{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Price Hour{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}actions{% endtrans %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,20 +28,24 @@
                         <td>{{ hall.capacity }}</td>
                         <td>{{ hall.priceHour }}</td>
                         <td>
-                            <a href="{{ path('hall_show', {'id': hall.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">Afficher</button></a>
-                            <a href="{{ path('hall_edit', {'id': hall.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">Éditer</button></a>
+                            <a href="{{ path('hall_show', {'id': hall.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"></span> {% trans %}Show{% endtrans %}</button></a>
+                            <a href="{{ path('hall_edit', {'id': hall.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"></span> {% trans %}Edit{% endtrans %}</button></a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="4"><em style="color: red">no records found</em></td>
+                        <td colspan="4"><em style="color: red">{% trans %}no records found{% endtrans %}</em></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
 
         </div>
-        <a href="{{ path('hall_new') }}"><button class="btn btn-success btn-sm">Créer</button></a><br><br><br><br>
+        <a href="{{ path('hall_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> {% trans %}New gym{% endtrans %}</button></a><br><br><br><br>
+
+        <div class="navigation" style="float: right; font-weight: bold">
+            {{ knp_pagination_render(halls) }}
+        </div><br><br><br><br><br><br>
 
     </div>
 

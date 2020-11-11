@@ -4,21 +4,23 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: -7em">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -21em">
 
-        <h3 style="text-align: center; color: red; background-color: black">Liste des clubs</h3><br><br>
+        {{ include('Errors/errors.html.twig') }}
+
+        <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of clubs{% endtrans %}</h3><br><br>
         <div class="container">
             <table class="table table-striped table-sm">
                 <thead style="color: blue">
                     <tr>
-                        <th>Name</th>
-                        <th>EmailAddress</th>
-                        <th>Address</th>
-                        <th>Number</th>
-                        <th>PostalCode</th>
-                        <th>City</th>
-                        <th>Country</th>
-                        <th>actions</th>
+                        <th style="font-size: 13px">{% trans %}Name{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Email address{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Address{% endtrans %}</th>
+                        <th>{% trans %}Number{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Postal code{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}City{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}Country{% endtrans %}</th>
+                        <th style="font-size: 13px">{% trans %}actions{% endtrans %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,19 +34,22 @@
                         <td>{{ club.city }}</td>
                         <td>{{ club.country }}</td>
                         <td>
-                            <a href="{{ path('club_show', {'id': club.id}) }}"><button class="btn-block btn-sm" style="background-color: blueviolet">Afficher</button></a>
-                            <a href="{{ path('club_edit', {'id': club.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen">Éditer</button></a>
+                            <a href="{{ path('club_show', {'id': club.id}) }}"><button class="btn-block btn-sm" style="background-color: palegoldenrod"><span class="glyphicon glyphicon-eye-open"></span> {% trans %}Show{% endtrans %}</button></a>
+                            <a href="{{ path('club_edit', {'id': club.id}) }}"><button class="btn-block btn-sm" style="background-color: yellowgreen"><span class="glyphicon glyphicon-pencil"></span> {% trans %}Edit{% endtrans %}</button></a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="10"><em style="color: red">no records found</em></td>
+                        <td colspan="10"><em style="color: red">{% trans %}no records found{% endtrans %}</em></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
 
-            <a href="{{ path('club_new') }}"><button class="btn btn-success btn-sm">Créer</button></a><br><br>
+            <a href="{{ path('club_new') }}"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> {% trans %}New club{% endtrans %}</button></a><br><br>
+            <div class="navigation" style="float: right; font-weight: bold">
+                {{ knp_pagination_render(clubs) }}
+            </div><br><br><br><br><br><br>
         </div><br>
     </div><br><br><br>
 

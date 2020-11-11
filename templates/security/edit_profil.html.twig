@@ -14,11 +14,9 @@
 
     <div class="container navbar-fixed-top" style="position: relative; top: 55em"><br>
         <div class="container">
-            {% for message in app.flashes('message') %}
-                <div class="col-xs4">
-                    <div class="p-3 my-2 rounded-2 success text-center"><em style="background-color: green; color: black">{{ message }}</em></div>
-                </div>
-            {% endfor %}
+
+            {{ include('Errors/errors.html.twig') }}
+
             <h3 style="text-align: center; color: blue"><strong><em>{% trans %} The profile of {% endtrans %} {{ app.user.firstname }} {{ app.user.name }}.</em></strong></h3>
             <br>
             <div class="row col">

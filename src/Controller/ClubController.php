@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Club;
 use App\Form\ClubType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\ClubRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,11 +27,15 @@ class ClubController extends AbstractController
     /**
      * @Route("/list", name="club_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $this->clubRepository->findAll();
+
+        $clubs = $helper->parse($request, $paginator, $donnees);
+
         return $this->render('club/index.html.twig', [
             'navig' => 'club',
-            'clubs' => $this->clubRepository->findAll(),
+            'clubs' => $clubs,
         ]);
     }
 

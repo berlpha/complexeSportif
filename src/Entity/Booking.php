@@ -55,7 +55,7 @@ class Booking
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", inversedBy="bookings")
      */
-    private $lesson;
+    private $lessons;
 
     /**
      * @ORM\Column(type="string", length=25)
@@ -65,12 +65,13 @@ class Booking
     /**
      * @ORM\ManyToMany(targetEntity=Member::class, inversedBy="bookings")
      */
-    private $Member;
+    private $members;
 
     public function __construct()
     {
-        $this->lesson = new ArrayCollection();
+        $this->lessons = new ArrayCollection();
         $this->Member = new ArrayCollection();
+        $this->members = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,13 +156,13 @@ class Booking
      */
     public function getLesson(): Collection
     {
-        return $this->lesson;
+        return $this->lessons;
     }
 
     public function addLesson(Lesson $lesson): self
     {
-        if (!$this->lesson->contains($lesson)) {
-            $this->lesson[] = $lesson;
+        if (!$this->lessons->contains($lesson)) {
+            $this->lessons[] = $lesson;
         }
 
         return $this;
@@ -169,8 +170,8 @@ class Booking
 
     public function removeLesson(Lesson $lesson): self
     {
-        if ($this->lesson->contains($lesson)) {
-            $this->lesson->removeElement($lesson);
+        if ($this->lessons->contains($lesson)) {
+            $this->lessons->removeElement($lesson);
         }
 
         return $this;
@@ -198,13 +199,13 @@ class Booking
      */
     public function getMember(): Collection
     {
-        return $this->Member;
+        return $this->members;
     }
 
     public function addMember(Member $member): self
     {
-        if (!$this->Member->contains($member)) {
-            $this->Member[] = $member;
+        if (!$this->members->contains($member)) {
+            $this->members[] = $member;
         }
 
         return $this;
@@ -212,8 +213,8 @@ class Booking
 
     public function removeMember(Member $member): self
     {
-        if ($this->Member->contains($member)) {
-            $this->Member->removeElement($member);
+        if ($this->members->contains($member)) {
+            $this->members->removeElement($member);
         }
 
         return $this;
@@ -259,5 +260,13 @@ class Booking
                 ->atPath("priceTotal")
                 ->addViolation();
         }
+    }
+
+    /**
+     * @return Collection|Member[]
+     */
+    public function getMembers(): Collection
+    {
+        return $this->members;
     }
 }

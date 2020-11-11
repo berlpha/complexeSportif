@@ -71,17 +71,17 @@ class Lesson
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Coach", inversedBy="lessons")
      */
-    private $coach;
+    private $coachs;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Booking", mappedBy="lesson")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Booking", mappedBy="lessons")
      */
     private $bookings;
 
     public function __construct()
     {
         $this->subscriptions = new ArrayCollection();
-        $this->coach = new ArrayCollection();
+        $this->coachs = new ArrayCollection();
         $this->updatedAt = new \DateTime('now');
         $this->bookings = new ArrayCollection();
     }
@@ -211,13 +211,13 @@ class Lesson
      */
     public function getCoach(): Collection
     {
-        return $this->coach;
+        return $this->coachs;
     }
 
     public function addCoach(Coach $coach): self
     {
-        if (!$this->coach->contains($coach)) {
-            $this->coach[] = $coach;
+        if (!$this->coachs->contains($coach)) {
+            $this->coachs[] = $coach;
         }
 
         return $this;
@@ -225,8 +225,8 @@ class Lesson
 
     public function removeCoach(Coach $coach): self
     {
-        if ($this->coach->contains($coach)) {
-            $this->coach->removeElement($coach);
+        if ($this->coachs->contains($coach)) {
+            $this->coachs->removeElement($coach);
         }
 
         return $this;
@@ -261,6 +261,13 @@ class Lesson
             $this->bookings->removeElement($booking);
             $booking->removeLesson($this);
         }
+
+        return $this;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

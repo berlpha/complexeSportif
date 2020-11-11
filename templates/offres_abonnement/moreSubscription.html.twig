@@ -4,7 +4,10 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: -16em; margin-top: auto"><br><br>
+    <div class="table-responsive navbar-fixed-top" style="position: absolute; top: -21em; margin-top: auto"><br><br>
+
+        {{ include('Errors/errors.html.twig') }}
+
         <form method="POST">
         <h3 style="text-align: center; color: black; background-color: blueviolet"><em>{% trans %} I want to take out a subscription{% endtrans %}</em></h3><br>
         <div>
@@ -100,10 +103,12 @@
                 {#                     <button type="button" class="btn btn-primary">{% trans %}Validate{% endtrans %}</button> #}
                 <input type="submit" name="submit" value="Validate" />
             </div>
-            <br><br>
         </div>
         </form>
-    </div><br><br>
+        <div>
+            <a href="{{ path('app_interfaceMember') }}"><button class="btn btn-primary btn-sm" style="background: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br><br><br>
+        </div>
+    </div><br><br><br><br><br><br><br><br>
 
 {% endblock %}
 

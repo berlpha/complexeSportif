@@ -4,25 +4,11 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: 0em; margin-top: auto">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -18em; margin-top: auto">
 
-        {% for message in app.flashes('message') %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('warning') %}
-            <div class="alert alert-warning" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('danger') %}
-            <div class="alert alert-danger" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
+        {{ include('Errors/errors.html.twig') }}
 
-        <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of participants in my lessons{% endtrans %}</h3>
+        <h3 style="text-align: center; color: white; background-color: lightcoral">{% trans %}List of participants in my lessons{% endtrans %}</h3>
         <br><br>
         {% if lesson != null %}
 
@@ -49,6 +35,7 @@
                             {% endfor %}
                         </table>
                     </div>
+                    <a href="{{ path('app_listeCoachActivities') }}"><button class="btn btn-primary btn-sm" style="background-color: lightcoral"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br>
 
                 </div>
             </div><br><br><br>

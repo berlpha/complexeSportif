@@ -917,6 +917,162 @@
         <source>Lesson name</source>
         <target>Les naam</target>
       </trans-unit>
+      <trans-unit id="uzPF16Y" resname="The modification was carried out successfully.">
+        <source>The modification was carried out successfully.</source>
+        <target>De wijziging is met succes uitgevoerd.</target>
+      </trans-unit>
+      <trans-unit id="8_v0ooT" resname="List of sports grouds">
+        <source>List of sports grouds</source>
+        <target>List met sportvelden</target>
+      </trans-unit>
+      <trans-unit id="rmXQllU" resname="Capacity">
+        <source>Capacity</source>
+        <target>Capaciteit</target>
+      </trans-unit>
+      <trans-unit id="hlt80wt" resname="Price Hour">
+        <source>Price Hour</source>
+        <target>Prijs per uur</target>
+      </trans-unit>
+      <trans-unit id="Zb._Amr" resname="Create new field">
+        <source>Create new field</source>
+        <target>Maak een nieuw veld</target>
+      </trans-unit>
+      <trans-unit id="9jKPG4." resname="Creation of a new field">
+        <source>Creation of a new field</source>
+        <target>Creatie van een nieuw veld</target>
+      </trans-unit>
+      <trans-unit id="XdbgOWy" resname="Terrain">
+        <source>Terrain</source>
+        <target>Veld</target>
+      </trans-unit>
+      <trans-unit id="TDDyaOt" resname="Edit a field">
+        <source>Edit a field</source>
+        <target>Bewerk één veld</target>
+      </trans-unit>
+      <trans-unit id="KSGk1KU" resname="Edit a gym">
+        <source>Edit a gym</source>
+        <target>Bewerk één sporthal</target>
+      </trans-unit>
+      <trans-unit id="7U5HyIe" resname="New gym">
+        <source>New gym</source>
+        <target>Nieuw sporthal</target>
+      </trans-unit>
+      <trans-unit id="__ttiDZ" resname="Gym">
+        <source>Gym</source>
+        <target>Sporthal</target>
+      </trans-unit>
+      <trans-unit id="rihyTVY" resname="List of sports halls">
+        <source>List of sports halls</source>
+        <target>Lijst met sporthallen</target>
+      </trans-unit>
+      <trans-unit id="ogSUMlb" resname="Your">
+        <source>Your</source>
+        <target>Uw</target>
+      </trans-unit>
+      <trans-unit id="sKswXkq" resname="membership is still valid">
+        <source>membership is still valid</source>
+        <target>lidmaatschap is nog steeds geldig</target>
+      </trans-unit>
+      <trans-unit id="eB4bFWc" resname="You did not choose sport">
+        <source>You did not choose sport</source>
+        <target>U hebt niet voor sport gekozen</target>
+      </trans-unit>
+      <trans-unit id="qigodYI" resname="Subscription for">
+        <source>Subscription for</source>
+        <target>Abonnement voor</target>
+      </trans-unit>
+      <trans-unit id="MhQlbW4" resname="already exists">
+        <source>already exists</source>
+        <target> bestaat al</target>
+      </trans-unit>
+      <trans-unit id="9DnpVkP" resname="New booking">
+        <source>New booking</source>
+        <target>Nieuwe boeking</target>
+      </trans-unit>
+      <trans-unit id="XBWIZyb" resname="Edit a club">
+        <source>Edit a club</source>
+        <target>Bewerk één club</target>
+      </trans-unit>
+      <trans-unit id="1UeWffN" resname="Creation of a new club">
+        <source>Creation of a new club</source>
+        <target>Creatie van één nieuwe club</target>
+      </trans-unit>
+      <trans-unit id="o0adWxQ" resname="New field">
+        <source>New field</source>
+        <target>Nieuw veld</target>
+      </trans-unit>
+      <trans-unit id="GgXN4bP" resname="New lesson">
+        <source>New lesson</source>
+        <target>Nieuwe les</target>
+      </trans-unit>
+      <trans-unit id="bevqQlb" resname="Names of lesson">
+        <source>Names of lesson</source>
+        <target>Namen van lessen</target>
+      </trans-unit>
+      <trans-unit id="t8t15IH" resname="New subscription">
+        <source>New subscription</source>
+        <target>Nieuw abonnement</target>
+      </trans-unit>
+      <trans-unit id="Y4T.p3E" resname="New user">
+        <source>New user</source>
+        <target>Nieuw gebruiker</target>
+      </trans-unit>
+      <trans-unit id="aMDjXjF" resname="List of clubs">
+        <source>List of clubs</source>
+        <target>Lijst met clubs</target>
+      </trans-unit>
+      <trans-unit id="rlPOqCK" resname="Postal code">
+        <source>Postal code</source>
+        <target>Postcode</target>
+      </trans-unit>
+      <trans-unit id="G_2_sFG" resname="New club">
+        <source>New club</source>
+        <target>Nieuwew club</target>
+      </trans-unit>
+      <trans-unit id="Z077y1_" resname="Edit a invoice">
+        <source>Edit a invoice</source>
+        <target>Één factuur bewerken</target>
+      </trans-unit>
+      <trans-unit id="mO9qVL7" resname="List of invoices">
+        <source>List of invoices</source>
+        <target>Lijst met facturen</target>
+      </trans-unit>
+      <trans-unit id="SeltfN9" resname="Amount">
+        <source>Amount</source>
+        <target>Bedrag</target>
+      </trans-unit>
+      <trans-unit id="OsGp7E_" resname="Currency">
+        <source>Currency</source>
+        <target>Valuta</target>
+      </trans-unit>
+      <trans-unit id="hJGMZqn" resname="New invoice">
+        <source>New invoice</source>
+        <target>Nieuwe factuur</target>
+      </trans-unit>
+      <trans-unit id="uDIALaK" resname="Invoice">
+        <source>Invoice</source>
+        <target>Factuur</target>
+      </trans-unit>
+      <trans-unit id="zpykSYj" resname="Name of lessons">
+        <source>Name of lessons</source>
+        <target>Namen van lessen</target>
+      </trans-unit>
+      <trans-unit id="YqEqHGY" resname="Name of coachs">
+        <source>Name of coachs</source>
+        <target>Namen van coaches</target>
+      </trans-unit>
+      <trans-unit id="bW8VQbB" resname="Reservation of a field or a sports hall">
+        <source>Reservation of a field or a sports hall</source>
+        <target>Reservering van één field of één sporthal</target>
+      </trans-unit>
+      <trans-unit id="K0HhvpK" resname="List of my courses and participants">
+        <source>List of my courses and participants</source>
+        <target>Lijst met mijn cursussen en deelnemers</target>
+      </trans-unit>
+      <trans-unit id="RMa9d9S" resname="New nursery">
+        <source>New nursery</source>
+        <target>Nieuwe kwekerij</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

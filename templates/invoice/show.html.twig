@@ -3,36 +3,38 @@
 {% block title %}Invoice{% endblock %}
 
 {% block body %}
-    <h1>Invoice</h1>
 
-    <table class="table">
+<div class="container navbar-fixed-top"  style="position: relative; top: 10em; margin-top: auto">
+
+    {{ include('Errors/errors.html.twig') }}
+
+    <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Invoice{% endtrans %}</em></h3><br><br>
+
+    <table class="table table-striped table-sm">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ invoice.id }}</td>
-            </tr>
-            <tr>
-                <th>Amount</th>
+                <th style="color: blue">Amount</th>
                 <td>{{ invoice.amount }}</td>
             </tr>
             <tr>
-                <th>Currency</th>
+                <th style="color: blue">Currency</th>
                 <td>{{ invoice.currency }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th style="color: blue">Description</th>
                 <td>{{ invoice.description }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th style="color: blue">CreatedAt</th>
                 <td>{{ invoice.createdAt ? invoice.createdAt|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('invoice_index') }}">back to list</a>
+    <a href="{{ path('invoice_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">{% trans %}Back to list{% endtrans %}</button></a>
 
-    <a href="{{ path('invoice_edit', {'id': invoice.id}) }}">edit</a>
+    <a href="{{ path('invoice_edit', {'id': invoice.id}) }}"><button class="btn btn-primary btn-sm" style="background-color: yellowgreen">{% trans %}Edit{% endtrans %}</button></a><br><br>
 
-    {{ include('invoice/_delete_form.html.twig') }}
+    {{ include('invoice/_delete_form.html.twig') }}<br><br>
+</div><br><br>
 {% endblock %}

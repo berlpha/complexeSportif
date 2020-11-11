@@ -4,25 +4,11 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
+    <div class="container navbar-fixed-top" style="position: absolute; top: -24em; margin-top: auto">
 
-        {% for message in app.flashes('message') %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('warning') %}
-            <div class="alert alert-warning" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('danger') %}
-            <div class="alert alert-danger" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
+        {{ include('Errors/errors.html.twig') }}
 
-        <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of participants in my lessons{% endtrans %}</h3>
+        <h3 style="text-align: center; color: white; background-color: lightcoral">{% trans %}List of my courses and participants{% endtrans %}</h3>
         <br><br>
         {% if user != null %}
 
@@ -64,7 +50,7 @@
                                                     {{ booking.field }}
                                                 {% endif %}
                                             </td>
-                                            <td><a href="{{ path('app_listeInscrits') }}"><u style="color: black">{% trans %}list of registrants{% endtrans %}</u></a></td>
+                                            <td><a href="# {# path('app_listeInscrits') #}"><u style="color: black">{% trans %}list of registrants{% endtrans %}</u></a></td>
                                             <td><a href="{{ path('app_listeParticipants', {'id' : lesson.id}) }}"><u style="color: black">{% trans %}list of participants{% endtrans %}</u></a></td>
                                         </tr>
                                     </tbody>
@@ -75,6 +61,7 @@
                     </div>
                 {% endfor %}
             </div>
+            <br><br><br><br><br><br>
         </div>
         {% else %}
             <p><strong><em style="color: blue">{% trans %}Sorry, you don't have any lessons yet!{% endtrans %}</em></strong></p>

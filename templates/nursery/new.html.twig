@@ -10,7 +10,9 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top"  style="position: relative; top: 45em">
+    <div class="container navbar-fixed-top"  style="position: relative; top: 33em">
+
+        {{ include('Errors/errors.html.twig') }}
 
         <h3  style="text-align: center; color: red; background-color: black">{% trans %}Create new Nursery{% endtrans %}</h3><br><br>
 

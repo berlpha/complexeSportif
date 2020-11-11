@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @UniqueEntity(fields={"username"},message="Cet username appartient déjà à un autre utilisateur!")
  * @UniqueEntity(fields={"emailAddress"},message="Cet email appartient déjà à un autre utilisateur!")
  *  @Vich\Uploadable
- * @ORM\InheritanceType("JOINED")
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "admin" = "Administrator", "coach" = "Coach", "member" = "Member"})
  */
@@ -488,5 +488,12 @@ class User implements UserInterface//, \Serializable
             $this->password
             ) = $this->unserialize($serialized, ['allowed_classs' => false]);
     }*/
+
+   public function setCreatedAt(\DateTimeInterface $createdAt): self
+   {
+       $this->createdAt = $createdAt;
+
+       return $this;
+   }
 
 }

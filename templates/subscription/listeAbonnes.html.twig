@@ -6,6 +6,8 @@
 
     <div class="container navbar-fixed-top" style="position: absolute; top: -10em; margin-top: auto">
 
+        {{ include('Errors/errors.html.twig') }}
+
         <h3 style="text-align: center; color: red; background-color: black">{% trans %}List of registrants in this lesson{% endtrans %}</h3>
         <br><br>
         {% if user != null %}

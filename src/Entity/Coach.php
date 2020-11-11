@@ -19,7 +19,7 @@ class Coach extends User
     //private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", mappedBy="coach")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", mappedBy="coachs")
      */
     private $lessons;
 

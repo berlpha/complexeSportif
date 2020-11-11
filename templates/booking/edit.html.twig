@@ -4,12 +4,15 @@
 
 {% block body %}
 
-    <div class="container navbar-fixed-top"  style="position: relative; top: 80em">
+    <div class="container navbar-fixed-top"  style="position: relative; top: 54em">
+
+        {{ include('Errors/errors.html.twig') }}
+
         <h3 style="text-align: center; color: red; background-color: black">{% trans %}Edit an event{% endtrans %}</h3><br><br>
 
         {{ include('booking/_form.html.twig', {'button_label': 'Save'|trans}) }}<br>
 
-        <a href="{{ path('booking_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet">{% trans %}Back to list{% endtrans %}</button></a><br><br>
+        <a href="{{ path('booking_index') }}"><button class="btn btn-primary btn-sm" style="background-color: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br>
 
         {{ include('booking/_delete_form.html.twig') }}<br><br><br>
 

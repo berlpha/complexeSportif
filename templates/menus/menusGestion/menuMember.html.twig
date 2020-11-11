@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li class="nav-item {% if navig is defined and navig == 'reserver' %}active{% endif %}">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ path('app_memberReservation') }}">
                             <span data-feather="file"></span>
                             <strong style="color: blue"><em><span class="glyphicon glyphicon-calendar"></span> {% trans %}To rent {% endtrans %}</em></strong>
                         </a>

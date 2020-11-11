@@ -8,10 +8,12 @@ use App\Entity\Subscription;
 use App\Entity\User;
 use App\Form\AdminSubscriptionType;
 use App\Form\SubscriptionType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\LessonRepository;
 use App\Repository\MemberRepository;
 use App\Repository\SubscriptionRepository;
 use App\Repository\UserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,13 +27,18 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class SubscriptionController extends AbstractController
 {
+
     /**
      * @Route("/", name="subscription_index", methods={"GET"})
      */
-    public function index(SubscriptionRepository $subscriptionRepository): Response
+    public function index(SubscriptionRepository $subscriptionRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $subscriptionRepository->findAll();
+
+        $subscriptions = $helper->parse($request, $paginator, $donnees);
+
         return $this->render('subscription/index.html.twig', [
-            'subscriptions' => $subscriptionRepository->findAll(),
+            'subscriptions' => $subscriptions,
             'navig' => 'subscription',
         ]);
     }
@@ -39,7 +46,7 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/adminSubscription", name="app_adminSubscription", methods={"GET", "POST"})
      */
-    public function adminSubscription(Request $request, UserRepository $userRepository, SubscriptionRepository $subscriptionRepository, LessonRepository $lessonRepository, TranslatorInterface $translator, MemberRepository $memberRepository)
+    public function adminNewSubscription(Request $request, UserRepository $userRepository, SubscriptionRepository $subscriptionRepository, LessonRepository $lessonRepository, TranslatorInterface $translator, MemberRepository $memberRepository)
     {
         $users = $memberRepository->findAll(); // Get only members (not coach/admin)
 
@@ -101,7 +108,9 @@ class SubscriptionController extends AbstractController
                     $price = $priceSub;
                     $subscription->addLesson($lesson_object);
                 } else {
-                    $this->AddFlash('error', "Subscription for {$lesson_object->getName()} already exists");
+                    $message1 = $translator->trans("Subscription for");
+                    $message2 = $translator->trans("already exists");
+                    $this->AddFlash('error', "$message1 {$lesson_object->getName()} $message2.");
                     $error = true;
                 }
             }
@@ -172,69 +181,4 @@ class SubscriptionController extends AbstractController
         return $this->redirectToRoute('subscription_index');
     }
 
-
-    /**
-     * @Route("/moreSubscription", name="app_moreSusciption")
-     */
-    /*public function getMoreSubscriptions(TranslatorInterface $translator, SubscriptionRepository $subscriptionRepository)
-    {
-        $subscription = new Subscription();
-
-            $member = $subscription->getMember();
-            $lessons = $member->get('lesson');
-            $debut = $subscription->getCreatedAt();
-            $fin = $subscription->getFinishedAt();
-
-            $subcriber = $subscriptionRepository->getSubcription($member, $lessons[], $debut, $fin);
-
-        if ($subscription == null) {
-
-            foreach ($subcriber as $sub) {
-
-                $priceLes = [];
-                $priceSub = 0.0;
-                $duration = $fin - $debut;
-                $type = $subscription->getType();
-
-                $priceLes[$lessons->getName()] = $lessons->getPrice();
-
-                if ($type === 'Enfant') {
-                    $price = $priceLes[] * 0.85;
-                }
-                else {
-                    $price = $priceLes * 1.25;
-                }
-
-                $priceT = $price;
-
-                if ($duration === '3 months') {
-                    $price = $priceT * 3;
-                }
-                elseif ($duration === '6 months') {
-                    $price = $priceT * 6 - ($price / 2);
-                }
-                else {
-                    $price = $prixT * 11;
-                }
-
-                $priceSub += floatval($price);
-
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($subscription);
-                $entityManager->flush();
-
-                $message = $translator->trans("Registration for these courses has been successfully completed.");
-                $this->addFlash('message', $message);
-
-                return $this->redirectToRoute('app_memberInterface');
-            }
-        }
-        else
-        {
-            $message1 = $translator->trans("Registration for these courses has not been successfully completed.");
-            $this->addFlash('message', $message1);;
-        }
-
-        return $this->render('offres_abonnement/moreSubscription.html.twig');
-    } */
 }

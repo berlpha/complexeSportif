@@ -4,13 +4,15 @@
 
 {% block body %}
 
-    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 48em">
+    <div class="table-responsive navbar-fixed-top" style="position: relative; top: 34em">
+
+        {{ include('Errors/errors.html.twig') }}
 
         <h3 style="text-align: center; color: red; background-color: black"><em>{% trans %}Create lesson{% endtrans %}</em></h3><br><br>
 
-        {{ include('lesson/_form.html.twig') }}
+        {{ include('lesson/_form.html.twig') }}<br>
 
-        <a href="{{ path('lesson_index') }}"><button class="btn btn-outline-primary btn-sm">{% trans %}Back to list{% endtrans %}</button></a><br><br><br><br><br>
+        <a href="{{ path('lesson_index') }}"><button class="btn btn-primary btn-sm" style="background: blueviolet"><span class="glyphicon glyphicon-home"></span> {% trans %}Back to list{% endtrans %}</button></a><br><br><br><br><br>
 
     </div><br>
 

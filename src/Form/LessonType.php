@@ -84,15 +84,10 @@ class LessonType extends AbstractType
                 'multiple' => true,
                 'required' => false,
             ])*/
-            //->add('subscriptions')
             ->add('coach', EntityType::class, [
                 'class' => Coach::class,
                 'choice_label' => 'username',
                 'multiple' => true,
-                /*'qb' => function (EntityRepository $coach)
-                {
-                    return $coach->createQueryBuilder('c');
-                },*/
             ])
         ;
     }

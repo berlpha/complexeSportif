@@ -3,7 +3,7 @@
 {% block title %}Administrator index{% endblock %}
 
 {% block body %}
-    <div class="container navbar-fixed-top" style="position: absolute; top: 0%; margin-top: auto"><br><br>
+    <div class="container navbar-fixed-top" style="position: absolute; top: -380%; margin-top: auto"><br><br>
         <h3 style="text-align: center; color: red; background-color: black"><em>Liste des administrateurs</em></h3><br><br>
 
         <div class="table-responsive">
@@ -65,5 +65,8 @@
         </div><br>
 
         <a href="{{ path('administrator_new') }}"><button class="btn btn-success btn-sm">Créer</button></a><br><br>
+        <div class="navigation" style="float: right; font-weight: bold">
+            {{ knp_pagination_render(administrators) }}
+        </div><br><br><br><br><br><br>
     </div><br><br>
 {% endblock %}

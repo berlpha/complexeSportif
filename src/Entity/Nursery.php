@@ -39,7 +39,7 @@ class Nursery
     private $totalPrice;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="nursery")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="nurseries")
      */
     private $members;
 

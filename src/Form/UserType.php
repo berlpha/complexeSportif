@@ -156,7 +156,6 @@ class UserType extends AbstractType
                 'multiple' => true,
             ])
             //->add('type')
-            //->add('comment')
         ;
     }
 

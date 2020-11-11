@@ -19,12 +19,12 @@ class Member extends User
     //private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Nursery", inversedBy="member")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Nursery", inversedBy="members")
      */
-    private $nursery;
+    private $nurseries;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Booking::class, mappedBy="Member")
+     * @ORM\ManyToMany(targetEntity=Booking::class, mappedBy="members")
      */
     private $bookings;
 
@@ -36,9 +36,10 @@ class Member extends User
     public function __construct()
     {
         parent::__construct();
-        $this->nursery = new ArrayCollection();
+        $this->nurseries = new ArrayCollection();
         $this->bookings = new ArrayCollection();
         $this->subscriptions = new ArrayCollection();
+        $this->nurseries = new ArrayCollection();
     }
 
 //    public function getId(): ?int
@@ -51,13 +52,13 @@ class Member extends User
      */
     public function getNursery(): Collection
     {
-        return $this->nursery;
+        return $this->nurseries;
     }
 
     public function addNursery(Nursery $nursery): self
     {
-        if (!$this->nursery->contains($nursery)) {
-            $this->nursery[] = $nursery;
+        if (!$this->nurseries->contains($nursery)) {
+            $this->nurseries[] = $nursery;
         }
 
         return $this;
@@ -65,8 +66,8 @@ class Member extends User
 
     public function removeNursery(Nursery $nursery): self
     {
-        if ($this->nursery->contains($nursery)) {
-            $this->nursery->removeElement($nursery);
+        if ($this->nurseries->contains($nursery)) {
+            $this->nurseries->removeElement($nursery);
         }
 
         return $this;
@@ -132,6 +133,30 @@ class Member extends User
                 $subscription->setMember(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Nursery[]
+     */
+    public function getNurseries(): Collection
+    {
+        return $this->nurseries;
+    }
+
+    public function addNurseries(Nursery $nurseries): self
+    {
+        if (!$this->nurseries->contains($nurseries)) {
+            $this->nurseries[] = $nurseries;
+        }
+
+        return $this;
+    }
+
+    public function removeNurseries(Nursery $nurseries): self
+    {
+        $this->nurseries->removeElement($nurseries);
 
         return $this;
     }

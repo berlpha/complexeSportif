@@ -941,6 +941,162 @@
         <source>Lesson name</source>
         <target>Nom du cours</target>
       </trans-unit>
+      <trans-unit id="uzPF16Y" resname="The modification was carried out successfully.">
+        <source>The modification was carried out successfully.</source>
+        <target>La modification a été effectuée avec succès.</target>
+      </trans-unit>
+      <trans-unit id="8_v0ooT" resname="List of sports grouds">
+        <source>List of sports grouds</source>
+        <target>Liste des terrains de sports</target>
+      </trans-unit>
+      <trans-unit id="rmXQllU" resname="Capacity">
+        <source>Capacity</source>
+        <target>Capacité</target>
+      </trans-unit>
+      <trans-unit id="hlt80wt" resname="Price Hour">
+        <source>Price Hour</source>
+        <target>Prix par heure </target>
+      </trans-unit>
+      <trans-unit id="Zb._Amr" resname="Create new field">
+        <source>Create new field</source>
+        <target>Créer nouveau terrain</target>
+      </trans-unit>
+      <trans-unit id="9jKPG4." resname="Creation of a new field">
+        <source>Creation of a new field</source>
+        <target>Creation du nouveau terrain</target>
+      </trans-unit>
+      <trans-unit id="XdbgOWy" resname="Terrain">
+        <source>Terrain</source>
+        <target>Terrain</target>
+      </trans-unit>
+      <trans-unit id="TDDyaOt" resname="Edit a field">
+        <source>Edit a field</source>
+        <target>Éditer un terrain</target>
+      </trans-unit>
+      <trans-unit id="KSGk1KU" resname="Edit a gym">
+        <source>Edit a gym</source>
+        <target>Éditer une salle</target>
+      </trans-unit>
+      <trans-unit id="7U5HyIe" resname="New gym">
+        <source>New gym</source>
+        <target>Nouvelle salle de sport</target>
+      </trans-unit>
+      <trans-unit id="__ttiDZ" resname="Gym">
+        <source>Gym</source>
+        <target>Salle de sport</target>
+      </trans-unit>
+      <trans-unit id="rihyTVY" resname="List of sports halls">
+        <source>List of sports halls</source>
+        <target>Liste des salles  de sports</target>
+      </trans-unit>
+      <trans-unit id="ogSUMlb" resname="Your">
+        <source>Your</source>
+        <target>Votre abonnement</target>
+      </trans-unit>
+      <trans-unit id="sKswXkq" resname="membership is still valid">
+        <source>membership is still valid</source>
+        <target>est toujours en cours de validité</target>
+      </trans-unit>
+      <trans-unit id="eB4bFWc" resname="You did not choose sport">
+        <source>You did not choose sport</source>
+        <target>Vous n'avez pas choisi le sport</target>
+      </trans-unit>
+      <trans-unit id="qigodYI" resname="Subscription for">
+        <source>Subscription for</source>
+        <target>Abonnement pour</target>
+      </trans-unit>
+      <trans-unit id="MhQlbW4" resname="already exists">
+        <source>already exists</source>
+        <target>existe déjà</target>
+      </trans-unit>
+      <trans-unit id="9DnpVkP" resname="New booking">
+        <source>New booking</source>
+        <target>Nouvelle réservation</target>
+      </trans-unit>
+      <trans-unit id="XBWIZyb" resname="Edit a club">
+        <source>Edit a club</source>
+        <target>Éditer un club</target>
+      </trans-unit>
+      <trans-unit id="1UeWffN" resname="Creation of a new club">
+        <source>Creation of a new club</source>
+        <target>Création d'un nouveau club</target>
+      </trans-unit>
+      <trans-unit id="o0adWxQ" resname="New field">
+        <source>New field</source>
+        <target>Nouveau terrain</target>
+      </trans-unit>
+      <trans-unit id="GgXN4bP" resname="New lesson">
+        <source>New lesson</source>
+        <target>Nouveau cours</target>
+      </trans-unit>
+      <trans-unit id="bevqQlb" resname="Names of lesson">
+        <source>Names of lesson</source>
+        <target>Noms des cours</target>
+      </trans-unit>
+      <trans-unit id="t8t15IH" resname="New subscription">
+        <source>New subscription</source>
+        <target>Nouveau abonnement</target>
+      </trans-unit>
+      <trans-unit id="Y4T.p3E" resname="New user">
+        <source>New user</source>
+        <target>Nouveau utilisateur</target>
+      </trans-unit>
+      <trans-unit id="aMDjXjF" resname="List of clubs">
+        <source>List of clubs</source>
+        <target>Liste des clubs</target>
+      </trans-unit>
+      <trans-unit id="rlPOqCK" resname="Postal code">
+        <source>Postal code</source>
+        <target>Code postal</target>
+      </trans-unit>
+      <trans-unit id="G_2_sFG" resname="New club">
+        <source>New club</source>
+        <target>Nouveau club</target>
+      </trans-unit>
+      <trans-unit id="Z077y1_" resname="Edit a invoice">
+        <source>Edit a invoice</source>
+        <target>Éditer une facture</target>
+      </trans-unit>
+      <trans-unit id="mO9qVL7" resname="List of invoices">
+        <source>List of invoices</source>
+        <target>Liste des factures</target>
+      </trans-unit>
+      <trans-unit id="SeltfN9" resname="Amount">
+        <source>Amount</source>
+        <target>Montant</target>
+      </trans-unit>
+      <trans-unit id="OsGp7E_" resname="Currency">
+        <source>Currency</source>
+        <target>Devise</target>
+      </trans-unit>
+      <trans-unit id="hJGMZqn" resname="New invoice">
+        <source>New invoice</source>
+        <target>Nouvelle facture</target>
+      </trans-unit>
+      <trans-unit id="uDIALaK" resname="Invoice">
+        <source>Invoice</source>
+        <target>Facture</target>
+      </trans-unit>
+      <trans-unit id="zpykSYj" resname="Name of lessons">
+        <source>Name of lessons</source>
+        <target>Noms des cours</target>
+      </trans-unit>
+      <trans-unit id="YqEqHGY" resname="Name of coachs">
+        <source>Name of coachs</source>
+        <target>Noms des coachs</target>
+      </trans-unit>
+      <trans-unit id="bW8VQbB" resname="Reservation of a field or a sports hall">
+        <source>Reservation of a field or a sports hall</source>
+        <target>Réservation d'un terrain ou d'une salle de sport</target>
+      </trans-unit>
+      <trans-unit id="K0HhvpK" resname="List of my courses and participants">
+        <source>List of my courses and participants</source>
+        <target>Liste de mes cours et participants</target>
+      </trans-unit>
+      <trans-unit id="RMa9d9S" resname="New nursery">
+        <source>New nursery</source>
+        <target>Nouvelle garderie</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

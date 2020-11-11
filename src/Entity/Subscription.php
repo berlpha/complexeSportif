@@ -44,19 +44,19 @@ class Subscription
     private $finishedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", inversedBy="subscription")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Lesson", inversedBy="subscriptions")
      */
-    private $lesson;
+    private $lessons;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Member::class, inversedBy="subscriptions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="subscriptions")
      */
     private $member;
 
     public function __construct()
     {
-        $this->lesson = new ArrayCollection();
         $this->createdAt = new \DateTime('now');
+        $this->lessons = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -122,13 +122,13 @@ class Subscription
      */
     public function getLesson(): Collection
     {
-        return $this->lesson;
+        return $this->lessons;
     }
 
     public function addLesson(Lesson $lesson): self
     {
-        if (!$this->lesson->contains($lesson)) {
-            $this->lesson[] = $lesson;
+        if (!$this->lessons->contains($lesson)) {
+            $this->lessons[] = $lesson;
         }
 
         return $this;
@@ -136,8 +136,8 @@ class Subscription
 
     public function removeLesson(Lesson $lesson): self
     {
-        if ($this->lesson->contains($lesson)) {
-            $this->lesson->removeElement($lesson);
+        if ($this->lessons->contains($lesson)) {
+            $this->lessons->removeElement($lesson);
         }
 
         return $this;
@@ -153,6 +153,21 @@ class Subscription
         $this->member = $member;
 
         return $this;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Lesson[]
+     */
+    public function getLessons(): Collection
+    {
+        return $this->lessons;
     }
 
 }

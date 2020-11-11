@@ -1,0 +1,76 @@
+{% extends 'member.html.twig' %}
+
+{% block body %}
+
+    <div class="container" style="position: absolute; top: -25em; margin-top: auto"><br><br>
+
+        {{ include('Errors/errors.html.twig') }}
+
+        <h3 style="text-align: center; color: white; background-color: blueviolet">{% trans %}My lessons{% endtrans %}</h3>
+        <br><br>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm table-danger">
+                <thead style="color: blue">
+                <tr>
+                    <th>{% trans %}Type{% endtrans %}</th>
+                    <th>{% trans %}Description{% endtrans %}</th>
+                    <th>{% trans %}Price{% endtrans %}</th>
+                    <th>{% trans %}Start{% endtrans %}</th>
+                    <th>{% trans %}End{% endtrans %}</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for sub in subscriptions %}
+                    <tr>
+                        <td>{{ sub.type }}</td>
+                        <td>{{ sub.description }}</td>
+                        <td>{{ sub.price }}</td>
+                        <td>{{ sub.createdAt | date('d-m-Y') }}</td>
+                        <td>{{ sub.finishedAt | date('d-m-Y') }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="4">
+
+                            <table class="table table-info">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Desc</th>
+                                    <th>Price</th>
+                                    <th>Coaches</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for less in sub.lessons %}
+                                    <tr>
+                                        <td>{{ less.name }}</td>
+                                        <td>{{ less.type }}</td>
+                                        <td>{{ less.description }}</td>
+                                        <td>{{ less.price }}</td>
+                                        <td>
+                                            <ul>
+                                                {% for coach in less.coach %}
+                                                    <li>{{ coach.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {# {% else %} #}
+        {# <p><strong><em style="color: blue">{% trans %}Sorry, your subscription isn't longer valid!{% endtrans %}</em></strong></p> #}
+        {# {% endif %} #}
+        {# {% endfor %} #}
+    </div>
+
+{% endblock %}

@@ -7,6 +7,7 @@ use App\Entity\Subscription;
 use App\Form\AdminSubscriptionType;
 use App\Form\MemberType;
 use App\Form\SubscriptionType;
+use App\Repository\BookingRepository;
 use App\Repository\LessonRepository;
 use App\Repository\MemberRepository;
 use App\Repository\SubscriptionRepository;
@@ -167,7 +168,9 @@ class MemberController extends AbstractController
                     $price = $priceSub;
                     $subscription->addLesson($lesson_object);
                 } else {
-                    $this->AddFlash('error', "Subscription for {$lesson_object->getName()} already exists");
+                    $message = $translator->trans("Your");
+                    $message1 = $translator->trans("membership is still valid");
+                    $this->AddFlash('error', " $message {$lesson_object->getName()} $message1.");
                     $error = true;
                 }
             }
@@ -181,10 +184,18 @@ class MemberController extends AbstractController
                 $entityManager->flush();
 
                 $message = $translator->trans("Registration for these courses has been successfully completed.");
+
                 $this->addFlash('message', $message);
 
                 return $this->redirectToRoute('member_index');
             }
+
+        }
+
+        else
+        {
+            $message2 = $translator->trans("You did not choose sport");
+            $this->addFlash('message', $message2);
         }
 
         return $this->render('offres_abonnement/moreSubscription.html.twig', [
@@ -197,9 +208,10 @@ class MemberController extends AbstractController
      */
     public function myLessons(SubscriptionRepository $subscriptionRepository)
     {
-        $user = $subscriptionRepository->findOneBy(['lesson' => $this->getUser()->getUsername()]);
+        $subscriptions = $subscriptionRepository->findBy(['member' => $this->getUser()]);
+
         return $this->render('member/myLessons.html.twig', [
-            'user' => $user,
+            'subscriptions' => $subscriptions,
         ]);
 
     }
@@ -207,8 +219,11 @@ class MemberController extends AbstractController
     /**
      * @Route("member/reservation", name="app_memberReservation")
      */
-    public function reserverLocal()
+    public function localReservation(BookingRepository $bookingRepository)
     {
-        return $this->render('member/reservationLocal.html.twig');
+        $booking = $bookingRepository->findOneBy(['members' => $this->getUser()]);
+        return $this->render('member/reservationLocal.html.twig', [
+            'booking' => $booking,
+        ]);
     }
 }

@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Helpers\MarkdownHelper;
 use App\Repository\UserRepository;
+use cebe\markdown\Markdown;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,11 +33,15 @@ class UserController extends AbstractController
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, Request $request, PaginatorInterface $paginator, MarkdownHelper $helper): Response
     {
+        $donnees = $userRepository->findAll();
+
+        $users = $helper->parse($request, $paginator, $donnees);
+
         return $this->render('user/index.html.twig', [
             'navig' => 'user',
-            'users' => $userRepository->findAll(),
+            'users' => $users,
         ]);
     }
 
@@ -90,25 +97,26 @@ class UserController extends AbstractController
 
         $form = $this->createForm(UserType::class, $user);
 
-        $oldPassword = $user->getPassword();
+        //$oldPassword = $user->getPassword();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if($form->get('password')->getData() != '') {
+            if($form->get('Password')->getData() !== null) {
                 //$password = $userPasswordEncoder->encodePassword($user, $form->get('Password')->getData(), $user->getSalt());
                 $password = $userPasswordEncoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($password);
             }else {
+                $oldPassword = $user->getPassword();
                 $user->setPassword($oldPassword);
             }
 
             //$this->getDoctrine()->getManager()->flush();
             $this->emi->persist($user);
             $this->emi->flush();
-
-            $this->addFlash('message', "La modification s'est effectuée avec succès!" );
+            $message = $this->translation->trans("The modification was carried out successfully.");
+            $this->addFlash('message', $message );
 
             return $this->redirectToRoute('user_index');
         }
