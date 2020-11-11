@@ -7,6 +7,7 @@ use App\Repository\LessonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class FormulaireAbonnementController extends AbstractController
 {
@@ -30,10 +31,19 @@ class FormulaireAbonnementController extends AbstractController
     /**
      * @Route("/offres/abonnement/{sport}", name="app_offre")
      */
-    public function offre($sport)
+    public function offre($sport, TranslatorInterface $translator)
     {
         $offre = $this->lessonRepository->findOneBy(['name' => $sport]);
-        $prix = $offre->getPrice();
+
+        if ($offre)
+        {
+            $prix = $offre->getPrice();
+        }
+        else
+        {
+            $message = $translator->trans('For the moment, this sport is not yet encoded in the database');
+            $this->addFlash('message', $message);
+        }
 
         return $this->render('offres_abonnement/offre.html.twig', [
             'price' => $prix,
